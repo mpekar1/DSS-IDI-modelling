@@ -14,101 +14,251 @@ theme:
   dark: darkly
 ---
 
-# Introduction
+# Setting Working Directory and Loading Packages and Data
 
-This template is designed to accompany the slide deck and to include most of the features you will need for hosting a collaborative research project. I've included a few extras that I find handy (e.g., YAML entries, and check out the plot loop!). Every research project needs to be taylored towards your preferred workflow, collaborators, data, data privacy, and the list goes on.
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(readxl)
+library(tidyr)
+library(gganimate)
+library(gifski)
+library(ggrepel)
+library(writexl)
+library(png)
 
-Some things are the same across projects like well commented code and a well documented version control history. I use documents like this (previously in Rmarkdown) to share results easily with a link hosted on GitHub. 
+# Load data
+path_to_file <- "C:/Users/maria/OneDrive/Asztali gép/Work/Manawanui/Descriptives/manawanui_output1_total_for_release.xlsx"
 
-This complete template has a structure that many projects roughly follow from intro inforation to colaborators through some data wrangling and visualisations.You can replace ths intro (and following sub-section) with a summary of your project and any useful links, references and content you desire.
+data_2021 <- read_excel(path_to_file, sheet = "2021 confidentialised data")
+data_2018 <- read_excel(path_to_file, sheet = "2018 confidentialised")
+region_data <- read_excel(path_to_file, sheet = "Region_data")
+ta_data <- read_excel(path_to_file, sheet = "TA_data")
 
-## A note on project structure
+head(data_2021)
+head(data_2018)
+head(region_data)
+head(ta_data)
 
-Today, we have cloned an existing project structure. It is important that you create a project structure that works for your particular case. A general framework is to create a primary directory that is your repo and contains your `.qmd` script, and sub directories for data, outputs.
+# Adjusted function to clean 'n' column only
+clean_transition_data <- function(df) {
+  df %>%
+    mutate(n = replace(n, n == "S", "0"),    # Replace "S" with "0" in column 'n'
+           n = as.numeric(n))                # Convert column 'n' to numeric
+}
 
-- /primary_directory
+# Update population group name in 2018 data
+data_2018$pop_group <- ifelse(data_2018$pop_group == "DSS in 2018", "DSS in Given Year", data_2018$pop_group)
 
-  - script.qmd
+# Clean data
+data_2018 <- clean_transition_data(data_2018)
+data_2021 <- clean_transition_data(data_2021)
 
-  - .git, .gitignore
+# Merge datasets
+merged_data <- bind_rows(data_2021, data_2018)
 
-  - /data
-
-    - data.csv
-
-  - /outputs
-
-    - results
-
-Plenty of tools exist for reproducibility (such as the `renv` package to record package versions used in your project).
-
-# Packages and libraries {.unlisted}
-
-It is good practice to include a list of packages used as well as any source files or functions up front. `{.unlisted}` will exclude the section from the table of contents. You can hide the section completely with `{.unlisted .hidden}`. This is useful for sections like 'packages' which are included in the code for reproducibility and are necessary to execute but maybe unnecessary to display. If your sections are numbered (insert `number-sections: true` in [YAML](https://quarto.org/docs/output-formats/html-basics.html#section-numbering)) then you will need `{.unlisted. unnumbered .hidden}` to hide the section.
-
-You might also include sourcing any function scripts (e.g., `source("my_functions.R")`).
-
-```{r Libraries}
-#| include: false
-if (!require("pacman")) install.packages("pacman", repos="http://cran.r-project.org")
-pacman::p_load(ggplot2, palmerpenguins)    # Install & load packages
+# View the first few rows of the merged data
+head(merged_data)
 ```
 
-# You can't see me! {.unlisted .hidden}
+# Data Cleaning and Transformation
 
-Lah lah lah!
+```{r, include=FALSE}
+# Function to clean transition counts data
+clean_transition_data <- function(df) {
+  df %>%
+    mutate(across(-age, ~ replace(., . == "S", 0))) %>%
+    mutate(across(-age, as.numeric))
+}
 
-I'm here in spirit, code will still be executed.
+# Read the data
+data <- read_excel("C:/Users/maria/OneDrive/Asztali gép/Work/Manawanui/Markov Chain codes/Age distribution 2010-21_conf.xlsx", sheet = "Age distribution conf")
 
-# Data wrangling
+# Clean the data
+data <- clean_transition_data(data)
 
-Typically you need to do some tidying of your data. Each project will have different reqirements e.g., transforming data or generating new datasets. You probably want to dedicate a section just for wrangling but may want to hide it from the output. See [R for Data Science](https://r4ds.had.co.nz/introduction.html) for more info.
+# Reshape the data for plotting
+data_long <- data %>%
+  gather(key = "Year", value = "Count", -age)
+
+# Define the colours for the groups
+colors <- c("2010-2013" = "#4A1532", "2014-2018" = "#00cfe8", "2019-2021" = "#ff006e")
+
+# Group the data by the defined periods
+data_long <- data_long %>%
+  mutate(Period = case_when(
+    Year >= 2010 & Year <= 2013 ~ "2010-2013",
+    Year >= 2014 & Year <= 2018 ~ "2014-2018",
+    Year >= 2019 & Year <= 2021 ~ "2019-2021"
+  ))
+
+# Plotting Function
+add_peak_labels <- function(plot, data) {
+  data_peaks <- data %>%
+    group_by(Year, Period) %>%
+    summarise(
+      Peak_0_30_Age = age[which.max(Count * (age <= 30))],
+      Peak_0_30_Count = max(Count * (age <= 30)),
+      Peak_31_90_Age = age[which.max(Count * (age > 30 & age <= 90))],
+      Peak_31_90_Count = max(Count * (age > 30 & age <= 90))
+    ) %>%
+    gather(key = "Range", value = "Peak_Age", Peak_0_30_Age, Peak_31_90_Age) %>%
+    gather(key = "Count_Range", value = "Peak_Count", Peak_0_30_Count, Peak_31_90_Count) %>%
+    filter(substr(Range, 6, 7) == substr(Count_Range, 6, 7)) %>%
+    select(Year, Period, Peak_Age, Peak_Count)
+  
+  plot + 
+    geom_text_repel(data = data_peaks, aes(x = Peak_Age, y = Peak_Count, label = Peak_Age, color = Period), nudge_y = 50, size = 4)
+}
 
 
-# Visualisations {.tabset}
+```
 
-Sometimes I have a lot of plots (like, a lot!). Perhaps generated from a loop that outputs a list of related plots. It is possible to programatically generate panel tabsets rather that repeatedly writing out the heading `#` and inserting the plot (e.g., `plot_list[[1]]`). As an example, I've grabbed a couple of plots from [Alison Horst](https://allisonhorst.github.io/palmerpenguins/articles/examples.html) again.
+# Exploratory Data Analysis
 
-```{r}
-# A list of plots:
-plot_list <- penguins |>
-  split(penguins$species) |>
-  lapply(function(x){
-    ggplot(x, aes(x = flipper_length_mm, y = body_mass_g)) + 
-      geom_point() +
-      theme_minimal()
-  }) 
+## Age Distribution Over Time
 
-# Make some heading names:
-headings <- names(plot_list)
+
+
+```{r gif, include=FALSE}
+p <- ggplot(data_long, aes(x = age, y = Count, group = Year, color = Period)) +
+  geom_line(size = 2) +
+  scale_color_manual(values = colors, labels = c("2010-2013", "2014-2018", "2019-2021")) +
+  labs(title = "Age Distribution Over Time",
+       x = "Age",
+       y = "Count",
+       color = "Period") +
+  theme_minimal(base_size = 15) +
+  theme(plot.title = element_text(size = 20, face = "bold")) +
+  scale_x_continuous(limits = c(0, 90))
+
+# Simplify the animation step and specify the full path for the GIF file
+# output_gif <- "age_distribution_animation.gif"
+# animate(p + transition_states(Year, transition_length = 2, state_length = 1) + labs(title = "Age Distribution Over Time: {closest_state}"), 
+#         width = 800, height = 600, renderer = gifski_renderer(output_gif))
+
+```
+
+![Age Distribution Over Time](age_distribution_animation.gif)
+
+
+## Population Distribution by Age Group
+
+```{r, include=FALSE}
+data$age_group <- cut(data$age,
+                      breaks = c(0, 4, 12, 17, 24, 44, 64, Inf),
+                      labels = c("Age 0-04", "Age 05-12", "Age 13-17", "Age 18-24", 
+                                 "Age 25-44", "Age 45-64", "Age 65+"),
+                      right = TRUE)
+
+colors <- c("Age 0-04" = "#4A1532", "Age 05-12" = "#00cfe8", "Age 13-17" = "#ff006e",
+            "Age 18-24" = "#f95d6a", "Age 25-44" = "#ffa600", "Age 45-64" = "#bc5090",
+            "Age 65+" = "#003f5c")
+
+data_long <- data %>% 
+  pivot_longer(cols = -c(age, age_group), names_to = "year", values_to = "count") %>%
+  group_by(year, age_group) %>%
+  summarise(total_count = sum(count), .groups = "drop")
+
+data_long$year <- as.integer(as.character(data_long$year))
+
+bar_plot <- ggplot(data_long, aes(x = year, y = total_count, fill = age_group)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.75)) +
+  scale_fill_manual(values = colors) +
+  labs(title = "Population Distribution by Age Group",
+       x = "Year",
+       y = "Total Population",
+       fill = "Age Group") +
+  theme_minimal(base_size = 15) +
+  theme(plot.title = element_text(size = 20, face = "bold"),
+        legend.position = "bottom",
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+print(bar_plot)
+
+
 ```
 
 ## Plot tabs
 
-The code might be a little complicated but useful to reduce the length and manual work if you have a lot of outputs.
+## Plot tabs
 
 :::{.panel-tabset}
-```{r, results='asis'}
+```{r panel, results='asis'}
 #| warning: false
 
-# Use a loop (or lapply, or map, you choose) to generate the headings and insert plots
+# Define the plots and their titles
+plot_list <- list(p, bar_plot)
+headings <- c("Age Distribution Over Time", "Population Distribution by Age Group")
+
+# Use a loop to generate the headings and insert plots
 for (i in seq_along(plot_list)) {
-  cat("# ",headings[i],"\n")
+  cat("## ", headings[i], "\n")
   print(plot_list[[i]])
   cat('\n\n')
 }
+
 ```
 :::
 
-# To do
 
-I sometimes keep a project to-do list here
+# Prevalence Calculation
 
-- [x] Get up
+```{r prevalence}
+calculate_prevalence_ag <- function(data, target_indicator, target_value) {
+  # Filter the data for the specified indicator
+  prepared_data <- data %>%
+    filter(indicator == target_indicator)
+  
+  # Convert target_value to the appropriate type based on data column type
+  if (is.numeric(data$value[1])) {
+    target_value <- as.numeric(target_value)
+  }
+  
+  # Calculate prevalence for each population group and age group
+  prevalence_data <- prepared_data %>%
+    group_by(Year, pop_group, age_group) %>%  # Include age_group in the grouping
+    summarise(
+      Total_n = sum(n, na.rm = TRUE),
+      Count_with_value = sum(n[value == target_value], na.rm = TRUE),
+      Prevalence = (Count_with_value / Total_n) * 100,
+      .groups = 'drop'
+    )
+  
+  # Calculate prevalence for the total population
+  total_prevalence <- prepared_data %>%
+    group_by(Year, age_group) %>%
+    summarise(
+      pop_group = "Total Population",
+      Total_n = sum(n, na.rm = TRUE),
+      Count_with_value = sum(n[value == target_value], na.rm = TRUE),
+      Prevalence = (Count_with_value / Total_n) * 100,
+      .groups = 'drop'
+    )
+  
+  # Combine the prevalence data for population groups and total population
+  prevalence_data <- bind_rows(prevalence_data, total_prevalence)
+  
+  # Print the prevalence data
+  print(prevalence_data)
+  
+  # Plotting the prevalence data with an additional facet for age groups
+  plot <- ggplot(prevalence_data, aes(x = pop_group, y= Prevalence, fill = as.factor(Year))) +
+    geom_bar(stat = "identity", position = position_dodge(0.9), width = 0.8) +
+    labs(title = paste("Prevalence of", target_indicator, "by Population Group, Age Group, and Year (value =", target_value, ")"),
+         x = "Population Group",
+         y = "Prevalence (%)",
+         fill = "Year") +
+    facet_wrap(~age_group, scales = "free_x") +  # Facet by age group
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+    scale_fill_brewer(palette = "Set1")
+  
+  return(list(Prevalence_Data = prevalence_data, Plot = plot))
+}
 
-- [x] Put on pants
+```
 
-- [ ] Present workshop
 
 # Final remarks
 
