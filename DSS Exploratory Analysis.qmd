@@ -12,6 +12,7 @@ format:
 theme:
   light: flatly
   dark: darkly
+runtime: shiny
 ---
 # Index
 
@@ -64,7 +65,7 @@ library(writexl)
 library(png)
 library(shiny)
 
-# Loading descriptivw statistics data form 2018 and 2021
+# Loading descriptive statistics data form 2018 and 2021
 path_to_file <- "C:/Users/maria/OneDrive/Asztali gép/Work/Manawanui/Descriptives/manawanui_output1_total_for_release.xlsx"
 
 data_2021 <- read_excel(path_to_file, sheet = "2021 confidentialised data")
@@ -262,7 +263,7 @@ for (i in seq_along(plot_list)) {
 ```
 :::
 
-### Notes:
+### Notes
 
 #### Young Age Groups (Age 8-13)
 
@@ -338,22 +339,49 @@ For detailed information, refer to the appendices where the variables and their 
 
 ---
 
-```{r prevalence}
 
-# Prevalence Calculation
+## Prevalence of Indicators
+
+```{r shiny, include=FALSE}
+
+# Load necessary libraries
+library(dplyr)
+library(ggplot2)
+library(shiny)
+library(readxl)
+
+# Load data
+path_to_file <- "C:/Users/maria/OneDrive/Asztali gép/Work/Manawanui/Descriptives/manawanui_output1_total_for_release.xlsx"
+data_2021 <- read_excel(path_to_file, sheet = "2021 confidentialised data")
+data_2018 <- read_excel(path_to_file, sheet = "2018 confidentialised")
+data_2018$pop_group <- ifelse(data_2018$pop_group == "DSS in 2018", "DSS in Given Year", data_2018$pop_group)
+merged_data <- bind_rows(data_2021, data_2018)
+
+
+
+# Function to clean 'n' column only
+clean_transition_data <- function(df) {
+  df %>%
+    mutate(n = replace(n, n == "S", "0"),  # Replace "S" with "0" in column 'n'
+           n = as.numeric(n))              # Convert column 'n' to numeric
+}
+
+# Clean data
+data_2021 <- clean_transition_data(data_2021)
+data_2018 <- clean_transition_data(data_2018)
+merged_data <- bind_rows(data_2021, data_2018)
+
+# Function to calculate prevalence
 calculate_prevalence_ag <- function(data, target_indicator, target_value) {
-  # Filter the data for the specified indicator
   prepared_data <- data %>%
     filter(indicator == target_indicator)
   
-  # Convert target_value to the appropriate type based on data column type
   if (is.numeric(data$value[1])) {
     target_value <- as.numeric(target_value)
   }
   
-  # Calculate prevalence for each population group and age group
   prevalence_data <- prepared_data %>%
-    group_by(Year, pop_group, age_group) %>%  # Include age_group in the grouping
+    group_by(Year, pop_group, age_group) %>%
     summarise(
       Total_n = sum(n, na.rm = TRUE),
       Count_with_value = sum(n[value == target_value], na.rm = TRUE),
@@ -361,7 +389,6 @@ calculate_prevalence_ag <- function(data, target_indicator, target_value) {
       .groups = 'drop'
     )
   
-  # Calculate prevalence for the total population
   total_prevalence <- prepared_data %>%
     group_by(Year, age_group) %>%
     summarise(
@@ -372,20 +399,15 @@ calculate_prevalence_ag <- function(data, target_indicator, target_value) {
       .groups = 'drop'
     )
   
-  # Combine the prevalence data for population groups and total population
   prevalence_data <- bind_rows(prevalence_data, total_prevalence)
   
-  # Print the prevalence data
-  print(prevalence_data)
-  
-  # Plotting the prevalence data with an additional facet for age groups
-  plot <- ggplot(prevalence_data, aes(x = pop_group, y= Prevalence, fill = as.factor(Year))) +
+  plot <- ggplot(prevalence_data, aes(x = pop_group, y = Prevalence, fill = as.factor(Year))) +
     geom_bar(stat = "identity", position = position_dodge(0.9), width = 0.8) +
     labs(title = paste("Prevalence of", target_indicator, "by Population Group, Age Group, and Year (value =", target_value, ")"),
          x = "Population Group",
          y = "Prevalence (%)",
          fill = "Year") +
-    facet_wrap(~age_group, scales = "free_x") +  # Facet by age group
+    facet_wrap(~age_group, scales = "free_x") +
     theme_minimal() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
     scale_fill_brewer(palette = "Set1")
@@ -393,8 +415,53 @@ calculate_prevalence_ag <- function(data, target_indicator, target_value) {
   return(list(Prevalence_Data = prevalence_data, Plot = plot))
 }
 
+
 ```
 
+## Shiny App: Prevalence of Indicators
+
+```{r}
+# Shiny UI
+ui <- fluidPage(
+  titlePanel("Prevalence Calculator"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("indicator", "Select Indicator:", choices = unique(merged_data$indicator)),
+      uiOutput("value_ui"),
+      actionButton("update", "Update")
+    ),
+    
+    mainPanel(
+      plotOutput("prevalencePlot", width = "100%", height = "800px")
+    )
+  )
+)
+
+# Shiny Server
+server <- function(input, output, session) {
+  # Update the value dropdown based on the selected indicator
+  output$value_ui <- renderUI({
+    req(input$indicator)
+    values <- unique(merged_data %>% filter(indicator == input$indicator) %>% pull(value))
+    selectInput("value", "Select Value:", choices = values)
+  })
+  
+  result <- eventReactive(input$update, {
+    calculate_prevalence_ag(merged_data, input$indicator, input$value)
+  })
+  
+  output$prevalencePlot <- renderPlot({
+    result()$Plot
+  })
+}
+
+shinyApp(ui, server)
+
+```
+
+
+---
 
 # Phase 2: System Dynamics
 
