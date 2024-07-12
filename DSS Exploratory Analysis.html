@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Marianna Pekar">
-<meta name="dcterms.date" content="2024-07-11">
+<meta name="dcterms.date" content="2024-07-12">
 
-<title>Example</title>
+<title>Interim Report: Demographic Snapshot Update of DSS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,20 +102,60 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#index" id="toc-index" class="nav-link active" data-scroll-target="#index">Index</a></li>
+  <li><a href="#idi-disclaimer" id="toc-idi-disclaimer" class="nav-link" data-scroll-target="#idi-disclaimer">IDI Disclaimer</a></li>
+  <li><a href="#phase-1-descriptive-statistics" id="toc-phase-1-descriptive-statistics" class="nav-link" data-scroll-target="#phase-1-descriptive-statistics">Phase 1 – Descriptive Statistics</a>
   <ul class="collapse">
-  <li><a href="#a-note-on-project-structure" id="toc-a-note-on-project-structure" class="nav-link" data-scroll-target="#a-note-on-project-structure">A note on project structure</a></li>
-  </ul></li>
-  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data wrangling</a></li>
-  <li><a href="#visualisations" id="toc-visualisations" class="nav-link" data-scroll-target="#visualisations">Visualisations</a>
+  <li><a href="#demographic-data-update" id="toc-demographic-data-update" class="nav-link" data-scroll-target="#demographic-data-update">Demographic Data Update</a></li>
+  <li><a href="#changes-in-population-age-distribution" id="toc-changes-in-population-age-distribution" class="nav-link" data-scroll-target="#changes-in-population-age-distribution">Changes in Population Age Distribution</a>
   <ul class="collapse">
-  <li><a href="#plot-tabs" id="toc-plot-tabs" class="nav-link" data-scroll-target="#plot-tabs">Plot tabs</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes:</a></li>
+  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a></li>
   </ul></li>
-  <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do">To do</a></li>
-  <li><a href="#final-remarks" id="toc-final-remarks" class="nav-link" data-scroll-target="#final-remarks">Final remarks</a></li>
-  <li><a href="#useful-links" id="toc-useful-links" class="nav-link" data-scroll-target="#useful-links">Useful links</a>
+  <li><a href="#population-and-variables" id="toc-population-and-variables" class="nav-link" data-scroll-target="#population-and-variables">Population and Variables</a>
+  <ul class="collapse">
+  <li><a href="#population-groups" id="toc-population-groups" class="nav-link" data-scroll-target="#population-groups">Population Groups</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#phase-2-system-dynamics" id="toc-phase-2-system-dynamics" class="nav-link" data-scroll-target="#phase-2-system-dynamics">Phase 2: System Dynamics</a>
+  <ul class="collapse">
+  <li><a href="#core-concepts---stocks-and-flows" id="toc-core-concepts---stocks-and-flows" class="nav-link" data-scroll-target="#core-concepts---stocks-and-flows">Core Concepts - Stocks and Flows</a>
+  <ul class="collapse">
+  <li><a href="#notes-1" id="toc-notes-1" class="nav-link" data-scroll-target="#notes-1">Notes:</a></li>
+  </ul></li>
+  <li><a href="#defining-stocks-and-flows" id="toc-defining-stocks-and-flows" class="nav-link" data-scroll-target="#defining-stocks-and-flows">Defining Stocks and Flows</a>
+  <ul class="collapse">
+  <li><a href="#stocks" id="toc-stocks" class="nav-link" data-scroll-target="#stocks">Stocks</a></li>
+  <li><a href="#flows" id="toc-flows" class="nav-link" data-scroll-target="#flows">Flows</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#phase-3-markov-chain-modelling" id="toc-phase-3-markov-chain-modelling" class="nav-link" data-scroll-target="#phase-3-markov-chain-modelling">Phase 3 – Markov Chain Modelling</a>
+  <ul class="collapse">
+  <li><a href="#markov-chain-modelling-of-transition-probabilities" id="toc-markov-chain-modelling-of-transition-probabilities" class="nav-link" data-scroll-target="#markov-chain-modelling-of-transition-probabilities">Markov Chain Modelling of Transition Probabilities</a>
+  <ul class="collapse">
+  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose:</a></li>
+  <li><a href="#notes-2" id="toc-notes-2" class="nav-link" data-scroll-target="#notes-2">Notes:</a></li>
+  </ul></li>
+  <li><a href="#most-common-transitions-from-dss-at-age-18-24" id="toc-most-common-transitions-from-dss-at-age-18-24" class="nav-link" data-scroll-target="#most-common-transitions-from-dss-at-age-18-24">Most Common Transitions from DSS at Age 18-24</a>
+  <ul class="collapse">
+  <li><a href="#notes-3" id="toc-notes-3" class="nav-link" data-scroll-target="#notes-3">Notes:</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#thank-you" id="toc-thank-you" class="nav-link" data-scroll-target="#thank-you">THANK YOU</a>
   <ul class="collapse">
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  <li><a href="#appendices" id="toc-appendices" class="nav-link" data-scroll-target="#appendices">Appendices</a>
+  <ul class="collapse">
+  <li><a href="#appendix-a-data-dictionary" id="toc-appendix-a-data-dictionary" class="nav-link" data-scroll-target="#appendix-a-data-dictionary">Appendix A: Data Dictionary</a></li>
+  <li><a href="#appendix-b-differences-in-variables-between-2018-and-2021" id="toc-appendix-b-differences-in-variables-between-2018-and-2021" class="nav-link" data-scroll-target="#appendix-b-differences-in-variables-between-2018-and-2021">Appendix B: Differences in Variables between 2018 and 2021</a></li>
+  <li><a href="#appendix-c-datasets-for-download" id="toc-appendix-c-datasets-for-download" class="nav-link" data-scroll-target="#appendix-c-datasets-for-download">Appendix C: Datasets for Download</a>
+  <ul class="collapse">
+  <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation">Explanation</a></li>
+  <li><a href="#swa-dataset-merged-data-2018-and-2021" id="toc-swa-dataset-merged-data-2018-and-2021" class="nav-link" data-scroll-target="#swa-dataset-merged-data-2018-and-2021">SWA Dataset (Merged Data: 2018 and 2021)</a></li>
+  <li><a href="#dss-population-numbers-by-ages-and-age-groupings" id="toc-dss-population-numbers-by-ages-and-age-groupings" class="nav-link" data-scroll-target="#dss-population-numbers-by-ages-and-age-groupings">DSS Population Numbers by Ages and Age Groupings</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -124,7 +164,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Example</h1>
+<h1 class="title">Interim Report: Demographic Snapshot Update of DSS</h1>
 </div>
 
 
@@ -148,7 +188,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 11, 2024</p>
+      <p class="date">July 12, 2024</p>
     </div>
   </div>
   
@@ -160,105 +200,1513 @@ div.csl-indent {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>This template is designed to accompany the slide deck and to include most of the features you will need for hosting a collaborative research project. I’ve included a few extras that I find handy (e.g., YAML entries, and check out the plot loop!). Every research project needs to be taylored towards your preferred workflow, collaborators, data, data privacy, and the list goes on.</p>
-<p>Some things are the same across projects like well commented code and a well documented version control history. I use documents like this (previously in Rmarkdown) to share results easily with a link hosted on GitHub.</p>
-<p>This complete template has a structure that many projects roughly follow from intro inforation to colaborators through some data wrangling and visualisations.You can replace ths intro (and following sub-section) with a summary of your project and any useful links, references and content you desire.</p>
-<section id="a-note-on-project-structure" class="level2">
-<h2 class="anchored" data-anchor-id="a-note-on-project-structure">A note on project structure</h2>
-<p>Today, we have cloned an existing project structure. It is important that you create a project structure that works for your particular case. A general framework is to create a primary directory that is your repo and contains your <code>.qmd</code> script, and sub directories for data, outputs.</p>
+<section id="index" class="level1">
+<h1>Index</h1>
 <ul>
-<li><p>/primary_directory</p>
-<ul>
-<li><p>script.qmd</p></li>
-<li><p>.git, .gitignore</p></li>
-<li><p>/data</p>
-<ul>
-<li>data.csv</li>
-</ul></li>
-<li><p>/outputs</p>
-<ul>
-<li>results</li>
-</ul></li>
-</ul></li>
+<li>Phase 1 – Descriptive Statistics</li>
+<li>Phase 2 – System Dynamics</li>
+<li>Phase 3 – Markov Chain Modelling</li>
+<li>Appendices</li>
 </ul>
-<p>Plenty of tools exist for reproducibility (such as the <code>renv</code> package to record package versions used in your project).</p>
+<hr>
 </section>
+<section id="idi-disclaimer" class="level1">
+<h1>IDI Disclaimer</h1>
+<p>These results are not official statistics. They have been created for research purposes from the Integrated Data Infrastructure (IDI) and Longitudinal Business Database (LBD) which are carefully managed by Stats NZ. For more information about the IDI, please visit <a href="https://www.stats.govt.nz/integrated-data/">Stats NZ</a>.</p>
+<p>Access to the data used in this study was provided by Stats NZ under conditions designed to give effect to the security and confidentiality provisions of the Data and Statistics Act 2022. The results presented in this study are the work of the author, not Stats NZ or individual data suppliers.</p>
+<p>The results are based in part on tax data supplied by Inland Revenue to Stats NZ under the Tax Administration Act 1994 for statistical purposes. Any discussion of data limitations or weaknesses is in the context of using the IDI for statistical purposes and is not related to the data’s ability to support Inland Revenue’s core operational requirements.</p>
+<hr>
 </section>
-<section id="packages-and-libraries" class="level1 unlisted">
-<h1 class="unlisted">Packages and libraries</h1>
-<p>It is good practice to include a list of packages used as well as any source files or functions up front. <code>{.unlisted}</code> will exclude the section from the table of contents. You can hide the section completely with <code>{.unlisted .hidden}</code>. This is useful for sections like ‘packages’ which are included in the code for reproducibility and are necessary to execute but maybe unnecessary to display. If your sections are numbered (insert <code>number-sections: true</code> in <a href="https://quarto.org/docs/output-formats/html-basics.html#section-numbering">YAML</a>) then you will need <code>{.unlisted. unnumbered .hidden}</code> to hide the section.</p>
-<p>You might also include sourcing any function scripts (e.g., <code>source("my_functions.R")</code>).</p>
+<section id="phase-1-descriptive-statistics" class="level1">
+<h1>Phase 1 – Descriptive Statistics</h1>
+<section id="demographic-data-update" class="level2">
+<h2 class="anchored" data-anchor-id="demographic-data-update">Demographic Data Update</h2>
+<ul>
+<li>Data preparation</li>
+<li>Analysing the codes shared by SWA</li>
+<li>Running updated descriptive statistics</li>
+<li>Rolling forward population to the latest available year</li>
+<li>Updating all variables and data assembly to the latest available year</li>
+<li>Documenting the steps to roll forward the analysis and automate doing so</li>
+<li>Creating and validating results</li>
+</ul>
+<hr>
 </section>
-<section id="you-cant-see-me" class="level1 unlisted hidden">
-<h1 class="unlisted hidden">You can’t see me!</h1>
-<p>Lah lah lah!</p>
-<p>I’m here in spirit, code will still be executed.</p>
-</section>
-<section id="data-wrangling" class="level1">
-<h1>Data wrangling</h1>
-<p>Typically you need to do some tidying of your data. Each project will have different reqirements e.g., transforming data or generating new datasets. You probably want to dedicate a section just for wrangling but may want to hide it from the output. See <a href="https://r4ds.had.co.nz/introduction.html">R for Data Science</a> for more info.</p>
-</section>
-<section id="visualisations" class="level1 tabset">
-<h1 class="tabset">Visualisations</h1>
-<p>Sometimes I have a lot of plots (like, a lot!). Perhaps generated from a loop that outputs a list of related plots. It is possible to programatically generate panel tabsets rather that repeatedly writing out the heading <code>#</code> and inserting the plot (e.g., <code>plot_list[[1]]</code>). As an example, I’ve grabbed a couple of plots from <a href="https://allisonhorst.github.io/palmerpenguins/articles/examples.html">Alison Horst</a> again.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A list of plots:</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>plot_list <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">split</span>(penguins<span class="sc">$</span>species) <span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(<span class="cf">function</span>(x){</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(x, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span> </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme_minimal</span>()</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  }) </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Make some heading names:</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>headings <span class="ot">&lt;-</span> <span class="fu">names</span>(plot_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="plot-tabs" class="level2">
-<h2 class="anchored" data-anchor-id="plot-tabs">Plot tabs</h2>
-<p>The code might be a little complicated but useful to reduce the length and manual work if you have a lot of outputs.</p>
+<section id="changes-in-population-age-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="changes-in-population-age-distribution">Changes in Population Age Distribution</h2>
+<p>Bimodal distribution with two peaks around the ages 9-13 and 57-63. The first peak shows growth from 2014, which speeds up after 2019. During the 2010-2021 period, the count of population in their early teens (9-13) increases from 3414 to 6633, i.e., by 94.29%. However, the age group displaying the highest growth rate over the period are those aged 70 and over.</p>
+<p><img src="age_distribution_animation.gif" class="img-fluid" alt="Age Distribution Over Time"> <img src="year_to_year_changes_animation.gif" class="img-fluid" alt="Year-to-year Changes in Age Distribution"></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Adelie</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Chinstrap</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Gentoo</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Age Distribution Over Time</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Population Distribution by Age Group</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Population Distribution by Age Group (Percentages)</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<pre><code>Warning: Removed 276 rows containing missing values or values outside the scale range
+(`geom_line()`).</code></pre>
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/panel-1.png" class="img-fluid" width="672"></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
+<pre><code>Warning: Removed 84 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/panel-2.png" class="img-fluid" width="672"></p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid" width="672"></p>
+<pre><code>Warning: Removed 84 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/panel-3.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
+<section id="notes" class="level3">
+<h3 class="anchored" data-anchor-id="notes">Notes:</h3>
+<section id="young-age-groups-age-8-13" class="level4">
+<h4 class="anchored" data-anchor-id="young-age-groups-age-8-13">Young Age Groups (Age 8-13)</h4>
+<p>The first peak typically seen in the younger age groups (ages 3 to 13) has shown a pronounced and rapid growth over the years, notably increasing its count dramatically. For instance, the population at age 9 in 2010 was 732, which surged to 1323 by 2021. This rapid increase suggests a growing prevalence or diagnosis of disabilities in younger children, potentially due to better healthcare screening, more widely available diagnostic services, or an actual increase in cases.</p>
+</section>
+<section id="older-age-groups-age-57-63" class="level4">
+<h4 class="anchored" data-anchor-id="older-age-groups-age-57-63">Older Age Groups (Age 57-63)</h4>
+<p>The second peak traditionally seen in mid-life (ages 57 to 63) indicates a slower change over time compared to the younger group. The count at age 57 was 471 in 2012 and slightly increased to 543 by 2020. This relatively stable but slightly increasing trend could relate to new disabilities acquired in adulthood due to aging, lifestyle diseases, accidents, or other health issues that emerge later in life.</p>
 </section>
 </section>
-<section id="to-do" class="level1">
-<h1>To do</h1>
-<p>I sometimes keep a project to-do list here</p>
-<ul class="task-list">
-<li><p><label><input type="checkbox" checked="">Get up</label></p></li>
-<li><p><label><input type="checkbox" checked="">Put on pants</label></p></li>
-<li><p><label><input type="checkbox">Present workshop</label></p></li>
+<section id="additional-information" class="level3">
+<h3 class="anchored" data-anchor-id="additional-information">Additional Information</h3>
+<section id="analysis-of-the-bimodal-distribution" class="level4">
+<h4 class="anchored" data-anchor-id="analysis-of-the-bimodal-distribution">Analysis of the Bimodal Distribution</h4>
+<ul>
+<li><p><strong>Younger Age Group Dynamics</strong>: The first peak typically seen in the younger age groups (ages 3 to 13) has shown a pronounced and rapid growth over the years, notably increasing its count dramatically. For instance, the population at age 9 in 2010 was 732, which surged to 1323 by 2021. This rapid increase suggests a growing prevalence or diagnosis of disabilities in younger children, potentially due to better healthcare screening, more widely available diagnostic services, or an actual increase in cases.</p></li>
+<li><p><strong>Transition Challenges</strong>: A dip in population counts is typically observed around ages 14 to 16, where there appears to be a decrease before the counts begin to increase again in mid-life. This pattern could be indicative of several factors, including transitions from child to adult disability support services, changes in eligibility criteria, or even mortality rates that might be higher in this group due to severe disabilities. Investigating the reasons behind this dip is crucial as it may reveal gaps in services or support during critical life transitions. Understanding when and why disabled youth drop off from DSS can help in addressing potential shortfalls in the continuity of care and support systems.</p></li>
+<li><p><strong>Mid-life Age Group Dynamics</strong>: The second peak, traditionally seen in mid-life (ages 57 to 63), indicates a slower change over time compared to the younger group. The count at age 57 was 471 in 2012 and slightly increased to 543 by 2020. This relatively stable but slightly increasing trend could relate to new disabilities acquired in adulthood due to aging, lifestyle diseases, accidents, or other health issues that emerge later in life.</p></li>
+<li><p><strong>65+ Population Dynamics</strong>: Despite the apparent client count peak around the age of 9-13 rapidly growing over the period in focus, the group experiencing the largest percentage increase are the oldest group. The growth in the eldest population suggests an urgent need for expanding and adapting services that cater to aging individuals with disabilities. This includes long-term care options, age-appropriate medical interventions, and social support systems that can manage the complexities of aging with a disability.</p></li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="population-and-variables" class="level2">
+<h2 class="anchored" data-anchor-id="population-and-variables">Population and Variables</h2>
+<section id="population-groups" class="level3">
+<h3 class="anchored" data-anchor-id="population-groups">Population Groups</h3>
+<p>The SWA codes have the following population groups for which insights have been obtained:</p>
+<ul>
+<li><p><strong>DSS in Given Year</strong>: Individuals who received Disability Support Services (DSS) within the given year of the study. This group represents current users of services tailored for those with disabilities.</p></li>
+<li><p><strong>DSS in Past</strong>: Individuals who have previously received Disability Support Services but did not receive them in the given year of the study. This group helps to track changes in service usage over time.</p></li>
+<li><p><strong>DSS Subgroup - Early Investment and Intervention</strong>: This subgroup includes individuals receiving early investment services and interventions, focusing on early developmental support for younger individuals or those newly diagnosed.</p></li>
+<li><p><strong>DSS Subgroup - Facility-based Supports</strong>: Individuals who receive support services that are facility-based. These are typically more intensive supports provided in specialized settings.</p></li>
+<li><p><strong>DSS Subgroup - Flexible Funding and Supports</strong>: This subgroup includes individuals who receive flexible funding or supports, allowing for personalized accommodations to better meet their unique needs.</p></li>
+<li><p><strong>DSS Subgroup - Home and Community Supports</strong>: Individuals who receive supports and services in their homes or community settings, promoting independence and integration into the community.</p></li>
+<li><p><strong>Non-DSS Disabled</strong>: This group includes individuals who are disabled but do not receive Disability Support Services. The calculation of this group involves identifying individuals with disabilities through various health and welfare databases but who are not registered as users of DSS. This group is critical for understanding the broader scope of disabilities within the population and assessing unmet needs.</p></li>
+<li><p><strong>Rest of Population</strong>: This group includes all other individuals in the population who do not fall into the above categories, serving as a control or comparison group for broader population studies.</p></li>
 </ul>
 </section>
-<section id="final-remarks" class="level1">
-<h1>Final remarks</h1>
-<p>This workshop is primarily designed to introduce you to tools and useful features in Quarto. Regardless of your workflow (which this template may not fit!), hopefully you will have the tools to make sharing results and colaborating with supervisors and researchers much easier.</p>
+<section id="variables" class="level3">
+<h3 class="anchored" data-anchor-id="variables">Variables</h3>
+<p>The dataset contains a broad range of variables that are categorized across several domains reflecting different aspects of socio-economic, demographic, health, justice, and housing conditions, among others.</p>
+<p>The dataset contains a broad range of variables that are categorised across several domains reflecting different aspects of socio-economic, demographic, health, justice, and housing conditions among others.</p>
+<ul>
+<li><p><strong>Demographics</strong>: Variables like Region, TA, Urban/Rural classification, Male, Ethnicity (various categories). These variables provide basic demographic information about individuals.</p></li>
+<li><p><strong>Need</strong>: This includes health and disability-related indicators such as Autism Spectrum Disorder, ADHD, Cerebral Palsy, Major Depressive Disorder, Schizophrenia, and conditions like Wheelchair dependence or Incontinence. It also includes ACC-related claims.</p></li>
+<li><p><strong>Socio-economic background</strong>: Variables like Deprivation Index, Highest qualification, Total income, and Income bands, reflecting the socio-economic status of individuals.</p></li>
+<li><p><strong>Parent SES (Socio-Economic Status)</strong>: Specific to the socio-economic conditions of parents, including their highest qualifications, income bands, main benefits, and wages/salary.</p></li>
+<li><p><strong>Housing</strong>: Housing conditions such as In public housing, On social housing waitlist, living arrangements like Living with parents or grandparents, and Accommodation supplements.</p></li>
+<li><p><strong>Oranga Tamariki</strong>: Variables related to child welfare and legal status, including whether a person or their child has had a care placement, is subject to a ROC (Report of Concern), or is under investigation.</p></li>
+<li><p><strong>Justice</strong>: Involves indicators related to criminal offences, such as being a Victim or Offender of any/violent offences, and records of serving community or custodial sentences.</p></li>
+<li><p><strong>Health</strong>: Broader health service engagement indicators like PHO enrolment, Disability Allowance, Child Disability Allowance, Job Seeker benefits for health/disability reasons, and support payments like the Supported Living Payment.</p></li>
+</ul>
+<p>For detailed information, refer to the appendices where the variables and their descriptions are listed, and where differences between 2018 and 2021 variables are highlighted.</p>
+<ul>
+<li><a href="#appendix-a-data-dictionary">Data Dictionary</a></li>
+<li><a href="#appendix-b-differences-in-variables-between-2018-and-2021">Differences in Variables between 2018 and 2021</a></li>
+</ul>
+<hr>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prevalence Calculation</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>calculate_prevalence_ag <span class="ot">&lt;-</span> <span class="cf">function</span>(data, target_indicator, target_value) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter the data for the specified indicator</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  prepared_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(indicator <span class="sc">==</span> target_indicator)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert target_value to the appropriate type based on data column type</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.numeric</span>(data<span class="sc">$</span>value[<span class="dv">1</span>])) {</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    target_value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(target_value)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate prevalence for each population group and age group</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  prevalence_data <span class="ot">&lt;-</span> prepared_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Year, pop_group, age_group) <span class="sc">%&gt;%</span>  <span class="co"># Include age_group in the grouping</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">Total_n =</span> <span class="fu">sum</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">Count_with_value =</span> <span class="fu">sum</span>(n[value <span class="sc">==</span> target_value], <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">Prevalence =</span> (Count_with_value <span class="sc">/</span> Total_n) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">.groups =</span> <span class="st">'drop'</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate prevalence for the total population</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  total_prevalence <span class="ot">&lt;-</span> prepared_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Year, age_group) <span class="sc">%&gt;%</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">pop_group =</span> <span class="st">"Total Population"</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">Total_n =</span> <span class="fu">sum</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">Count_with_value =</span> <span class="fu">sum</span>(n[value <span class="sc">==</span> target_value], <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">Prevalence =</span> (Count_with_value <span class="sc">/</span> Total_n) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">.groups =</span> <span class="st">'drop'</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Combine the prevalence data for population groups and total population</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>  prevalence_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(prevalence_data, total_prevalence)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print the prevalence data</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(prevalence_data)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plotting the prevalence data with an additional facet for age groups</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(prevalence_data, <span class="fu">aes</span>(<span class="at">x =</span> pop_group, <span class="at">y=</span> Prevalence, <span class="at">fill =</span> <span class="fu">as.factor</span>(Year))) <span class="sc">+</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.9</span>), <span class="at">width =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Prevalence of"</span>, target_indicator, <span class="st">"by Population Group, Age Group, and Year (value ="</span>, target_value, <span class="st">")"</span>),</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Population Group"</span>,</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Prevalence (%)"</span>,</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>age_group, <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span>  <span class="co"># Facet by age group</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>)</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">Prevalence_Data =</span> prevalence_data, <span class="at">Plot =</span> plot))</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="useful-links" class="level1">
-<h1>Useful links</h1>
-<p><a href="https://biostats-r.github.io/biostats/quarto/">Biostats</a> - very useful resource for authoring documents in Quarto.</p>
-<p><a href="https://github.com/mcanouil/awesome-quarto">Awsome Quarto</a> - a big list of Quarto things.</p>
-<p><a href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content">Generating a DOI using Zenodo</a></p>
+</section>
+</section>
+<section id="phase-2-system-dynamics" class="level1">
+<h1>Phase 2: System Dynamics</h1>
+<section id="core-concepts---stocks-and-flows" class="level2">
+<h2 class="anchored" data-anchor-id="core-concepts---stocks-and-flows">Core Concepts - Stocks and Flows</h2>
+<ul>
+<li><strong>Stocks</strong>: Represent the elements within a system that accumulate or deplete over time, reflecting the state of the system.</li>
+<li><strong>Flows</strong>: The rates at which stocks increase or decrease, essentially defining how stocks change over time.</li>
+</ul>
+<p><em>Placeholder for diagram of stocks and flows</em></p>
+<section id="notes-1" class="level3">
+<h3 class="anchored" data-anchor-id="notes-1">Notes:</h3>
+<p>System dynamics is a powerful modeling methodology developed by Jay Forrester at MIT, designed to handle the complexities of interconnected systems across various disciplines. This approach combines insights from both social and physical systems to provide a structured way of understanding and predicting dynamics within any system.</p>
+<hr>
+</section>
+</section>
+<section id="defining-stocks-and-flows" class="level2">
+<h2 class="anchored" data-anchor-id="defining-stocks-and-flows">Defining Stocks and Flows</h2>
+<section id="stocks" class="level3">
+<h3 class="anchored" data-anchor-id="stocks">Stocks</h3>
+<ul>
+<li>Current DSS Clients per Age Group: The number of individuals in each age group receiving DSS at any given time.</li>
+</ul>
+</section>
+<section id="flows" class="level3">
+<h3 class="anchored" data-anchor-id="flows">Flows</h3>
+<ul>
+<li><strong>Inflows</strong>:
+<ul>
+<li>New Entrants: Individuals newly registered for DSS.</li>
+<li>Returners: Individuals who previously left but have re-entered DSS.</li>
+<li>Aging In: Individuals transitioning from the previous age group into the current one.</li>
+</ul></li>
+<li><strong>Outflows</strong>:
+<ul>
+<li>Leavers: Individuals who exit DSS for any reason, including being deceased.</li>
+<li>Aging Out: Individuals transitioning from the current age group to the next one.</li>
+</ul></li>
+</ul>
+<p><em>Placeholder for detailed flow chart</em></p>
+<hr>
+</section>
+</section>
+</section>
+<section id="phase-3-markov-chain-modelling" class="level1">
+<h1>Phase 3 – Markov Chain Modelling</h1>
+<section id="markov-chain-modelling-of-transition-probabilities" class="level2">
+<h2 class="anchored" data-anchor-id="markov-chain-modelling-of-transition-probabilities">Markov Chain Modelling of Transition Probabilities</h2>
+<section id="purpose" class="level3">
+<h3 class="anchored" data-anchor-id="purpose">Purpose:</h3>
+<ul>
+<li>Defining states and probabilities</li>
+<li>Model initialization and simulation</li>
+</ul>
+<p><em>Placeholder for Markov Chain model diagram</em></p>
+</section>
+<section id="notes-2" class="level3">
+<h3 class="anchored" data-anchor-id="notes-2">Notes:</h3>
+<p>Markov Chain Modelling involves the use of state-based models where the next state depends only on the current state and not on the sequence of events that preceded it. This characteristic makes it incredibly useful for modeling a variety of real-world processes that conform to these conditions.</p>
+<hr>
+</section>
+</section>
+<section id="most-common-transitions-from-dss-at-age-18-24" class="level2">
+<h2 class="anchored" data-anchor-id="most-common-transitions-from-dss-at-age-18-24">Most Common Transitions from DSS at Age 18-24</h2>
+<p><em>Placeholder for table/chart of transitions</em></p>
+<section id="notes-3" class="level3">
+<h3 class="anchored" data-anchor-id="notes-3">Notes:</h3>
+<p>The table is from the preliminary analysis of transition rates. It illustrates the transitions between various mutually exclusive states for individuals from the DSS system within the age group 18-24 over the decade from 2011 to 2020. This data helps identify the most common pathways taken by young adults receiving Disability Support Services and can highlight areas where intervention and support might be adjusted to better serve this population.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="thank-you" class="level1">
+<h1>THANK YOU</h1>
+<p>Marianna Pekar<br>
+021-131-9793<br>
+Marianna.Pekar@gmail.com</p>
 <section id="references" class="level3">
 <h3 class="anchored" data-anchor-id="references">References</h3>
 <p>References will <a href="https://quarto.org/docs/authoring/citations.html#bibliography-generation">appear here</a>!</p>
 <div id="refs" role="list">
 
 </div>
+<hr>
+</section>
+</section>
+<section id="appendices" class="level1">
+<h1>Appendices</h1>
+<section id="appendix-a-data-dictionary" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-a-data-dictionary">Appendix A: Data Dictionary</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 9%">
+<col style="width: 46%">
+<col style="width: 31%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">indicator_category</th>
+<th style="text-align: left;">indicator</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Timing</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Population</td>
+<td style="text-align: left;">Pop_group</td>
+<td style="text-align: left;">Which of the eight groups in the population we are looking at. The “DSS subset” groups are not mutually exclusive (people can receive multiple services), whereas the other population groups are mutually exclusive.</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Various</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Population</td>
+<td style="text-align: left;">Age_group</td>
+<td style="text-align: left;">Groupings based on people’s age</td>
+<td style="text-align: left;">As of 2018 Census</td>
+<td style="text-align: left;">personal_detail</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Ethnicity - Asian</td>
+<td style="text-align: left;">Person’s reported ethnicity</td>
+<td style="text-align: left;">Time invariant</td>
+<td style="text-align: left;">personal_detail</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Ethnicity - European</td>
+<td style="text-align: left;">Person’s reported ethnicity</td>
+<td style="text-align: left;">Time invariant</td>
+<td style="text-align: left;">personal_detail</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Ethnicity - Maori</td>
+<td style="text-align: left;">Person’s reported ethnicity</td>
+<td style="text-align: left;">Time invariant</td>
+<td style="text-align: left;">personal_detail</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Ethnicity - MELAA</td>
+<td style="text-align: left;">Person’s reported ethnicity</td>
+<td style="text-align: left;">Time invariant</td>
+<td style="text-align: left;">personal_detail</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Ethnicity - Other</td>
+<td style="text-align: left;">Person’s reported ethnicity</td>
+<td style="text-align: left;">Time invariant</td>
+<td style="text-align: left;">personal_detail</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Ethnicity - Pacific</td>
+<td style="text-align: left;">Person’s reported ethnicity</td>
+<td style="text-align: left;">Time invariant</td>
+<td style="text-align: left;">personal_detail</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Has a dependent child</td>
+<td style="text-align: left;">Person has a child aged &lt;18</td>
+<td style="text-align: left;">As of 2018 Census</td>
+<td style="text-align: left;">personal_detail</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Has ever had a child</td>
+<td style="text-align: left;">Person is the birth parent of any other person</td>
+<td style="text-align: left;">Ever up to the reference date (2018 Census or 31st Mar 2021)</td>
+<td style="text-align: left;">personal_detail</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">Person’s reported gender is male</td>
+<td style="text-align: left;">Time invariant</td>
+<td style="text-align: left;">personal_detail</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Regional Council</td>
+<td style="text-align: left;">Regional Council corresponding to person’s address</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">address_notification</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Urban/rural</td>
+<td style="text-align: left;">Urban/rural category of person’s address</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">address_notification</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Alternative Education (ever)</td>
+<td style="text-align: left;">Whether the person has ever received Alternative Education</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">moe_clean.student_intervention</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Attendance Service (ever)</td>
+<td style="text-align: left;">Whether the person has ever received Attendance Service</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">moe_clean.student_intervention</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Child Disability Allowance</td>
+<td style="text-align: left;">Whether the person has received the CDA</td>
+<td style="text-align: left;">12 months before reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Disability Allowance</td>
+<td style="text-align: left;">Whether the person has received the DA</td>
+<td style="text-align: left;">12 months before reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Job Seeker benefit for Health/Disability</td>
+<td style="text-align: left;">Whether the person has received Job Seeker benefit for health or disability</td>
+<td style="text-align: left;">12 months before reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Ongoing Resourcing Scheme (ever)</td>
+<td style="text-align: left;">Whether the person has ever received ORS</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">moe_clean.student_intervention</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Parent receives CDA</td>
+<td style="text-align: left;">Whether either birth parent has received the CDA</td>
+<td style="text-align: left;">12 months before reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Parent receives Disability Allowance</td>
+<td style="text-align: left;">Whether either birth parent has received the DA</td>
+<td style="text-align: left;">12 months before reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Parent receives JS Health/Disability</td>
+<td style="text-align: left;">Whether either birth parent has received Job Seeker benefit for health or disability</td>
+<td style="text-align: left;">12 months before reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Parent receives Special DA</td>
+<td style="text-align: left;">Whether either birth parent has received Special Disability Allowance</td>
+<td style="text-align: left;">12 months before reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Parent receives Supported Living Payment</td>
+<td style="text-align: left;">Whether either birth parent has received SLP</td>
+<td style="text-align: left;">12 months before reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">PHO enrolment in 2018</td>
+<td style="text-align: left;">Whether the person is enrolled in a Primary Healthcare Organisation</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">moh.pho</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">School High Health Needs Fund (ever)</td>
+<td style="text-align: left;">Whether the person has ever received SHHNF (at school)</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">moe_clean.student_intervention</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Special Disability Allowance</td>
+<td style="text-align: left;">Whether the person has received the SDA</td>
+<td style="text-align: left;">12 months before reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Special school (ever)</td>
+<td style="text-align: left;">Whether the person has ever enrolled in a special school</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">moe_clean.student_enrol</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Supported Living Payment</td>
+<td style="text-align: left;">Whether the person has received SLP</td>
+<td style="text-align: left;">12 months before reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Housing</td>
+<td style="text-align: left;">Accomodation supplement</td>
+<td style="text-align: left;">Whether the person has receive Accomodation Supplement</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Housing</td>
+<td style="text-align: left;">Address type</td>
+<td style="text-align: left;">The house type of the person’s address</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">address_notification</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Housing</td>
+<td style="text-align: left;">In public housing</td>
+<td style="text-align: left;">Whether the person is in public housing</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">hnz</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Housing</td>
+<td style="text-align: left;">Live with grandparent</td>
+<td style="text-align: left;">Whether the person lives with a grandparent</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">census</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Housing</td>
+<td style="text-align: left;">Live with parent</td>
+<td style="text-align: left;">Whether the person lives with a parent</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">census</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Housing</td>
+<td style="text-align: left;">On social housing waitlist</td>
+<td style="text-align: left;">Whether the person is on the social housing waitlist</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">hnz</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Housing</td>
+<td style="text-align: left;">Parent accomodation supplement</td>
+<td style="text-align: left;">Whether either birth parent has received Accomodation Supplement</td>
+<td style="text-align: left;">12 months before 2018 Census</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Justice</td>
+<td style="text-align: left;">Offender - any offence</td>
+<td style="text-align: left;">Whether the person has been proceeded against by Police</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">pol</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Justice</td>
+<td style="text-align: left;">Offender - violent offence</td>
+<td style="text-align: left;">Whether the person has been proceeded against by Police for a violent offence</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">pol</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Justice</td>
+<td style="text-align: left;">Served community sentence ever</td>
+<td style="text-align: left;">Whether the person has ever served a community sentence</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">cor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Justice</td>
+<td style="text-align: left;">Served community sentence in 2018</td>
+<td style="text-align: left;">Whether the person is serving a community sentence in 2018</td>
+<td style="text-align: left;">In 2018</td>
+<td style="text-align: left;">cor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Justice</td>
+<td style="text-align: left;">Served custodial sentence ever</td>
+<td style="text-align: left;">Whether the person has ever served a custodial sentence</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">cor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Justice</td>
+<td style="text-align: left;">Served custodial sentence in 2018</td>
+<td style="text-align: left;">Whether the person is serving a custodial sentence in 2018</td>
+<td style="text-align: left;">In 2018</td>
+<td style="text-align: left;">cor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Justice</td>
+<td style="text-align: left;">Victim - any offence</td>
+<td style="text-align: left;">Whether the person has been a recorded victim of an offence</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">pol</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Justice</td>
+<td style="text-align: left;">Victim - violent offence</td>
+<td style="text-align: left;">Whether the person has been a recorded victim of a violent offence</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">pol</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">ACC - Case management</td>
+<td style="text-align: left;">Person has an active spell of case management that includes the 2018 Census date</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">acc</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">ACC - Sensitive claim</td>
+<td style="text-align: left;">Person has a spell of case management or WC AND have an injury arising from an ACC sensitive claim, often a result of sexual assault, abuse or neglect</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">acc</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">ACC - Serious injury</td>
+<td style="text-align: left;">Person has a spell of case management or WC AND have a serious injury (ACC defined), eg Traumatic Brain Injury, Parapaleigia, Quadrapaligia</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">acc</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">ACC - Workers Compensation</td>
+<td style="text-align: left;">Person has an active spell of receiving worker’s compensation which includes the 2018 Census date</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">acc</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">ADHD</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Amputation of hand/arm</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Ataxia</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Autism Spectrum Disorder</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Bipolar</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Blind or nearly blind</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Cerebral Palsy</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Deaf or nearly deaf</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Developmental Delay</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Down Syndrome</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Foetal Alcohol Spectrum Disorder</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Fragile X</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Generalised Anxiety Disorder</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Huntingtons</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Incontinence (faecal/urinary)</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Intellectual Disability</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Klinefelters Syndrome</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Major Depressive Disorder</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Motor Neuron Disease</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Multiple Sclerosis</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Muscular Dystrophy</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Osteoarthritis</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Polio</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Schizophrenia</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Spina Bifida</td>
+<td style="text-align: left;">Whether the person has evidence of this condition</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Stroke</td>
+<td style="text-align: left;">Whether the person has evidence of this condition.</td>
+<td style="text-align: left;">Separated in to time-limited groups: 1: &lt;3 months before reference date; 2: 3-12 months before reference date; 3: 12+ months before reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">WGSS - Communication</td>
+<td style="text-align: left;">Response to WGSS question in 2018 Census (5=missing/no response)</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">census</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">WGSS - Hearing</td>
+<td style="text-align: left;">Response to WGSS question in 2018 Census (5=missing/no response)</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">census</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">WGSS - Remembering</td>
+<td style="text-align: left;">Response to WGSS question in 2018 Census (5=missing/no response)</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">census</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">WGSS - Seeing</td>
+<td style="text-align: left;">Response to WGSS question in 2018 Census (5=missing/no response)</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">census</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">WGSS - Walking</td>
+<td style="text-align: left;">Response to WGSS question in 2018 Census (5=missing/no response)</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">census</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">WGSS - Washing</td>
+<td style="text-align: left;">Response to WGSS question in 2018 Census (5=missing/no response)</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">census</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Wheelchair dependence</td>
+<td style="text-align: left;">Whether the person has evidence of this condition.</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">Various: moh, acc, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oranga Tamariki</td>
+<td style="text-align: left;">Person has any drivers licence</td>
+<td style="text-align: left;">Person has a current driver’s licence (of any type)</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">nzta</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oranga Tamariki</td>
+<td style="text-align: left;">Person has full drivers licence</td>
+<td style="text-align: left;">Person has a current full driver’s licence</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">nzta</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oranga Tamariki</td>
+<td style="text-align: left;">Person has had care placement</td>
+<td style="text-align: left;">Person has been placed in care</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">ot</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oranga Tamariki</td>
+<td style="text-align: left;">Person is subject of a ROC</td>
+<td style="text-align: left;">Person is the subject of a report of concern to Oranga Tamariki</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">ot</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oranga Tamariki</td>
+<td style="text-align: left;">Person is subject of investigation</td>
+<td style="text-align: left;">Person is the subject of an Oranga Tamariki investigation</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">ot</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oranga Tamariki</td>
+<td style="text-align: left;">Persons child has had care placement</td>
+<td style="text-align: left;">Person’s child has been placed in care (NULL for people without children)</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">ot</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oranga Tamariki</td>
+<td style="text-align: left;">Persons child is subject of a ROC</td>
+<td style="text-align: left;">Person’s child has been the subject of a report of concern to Oranga Tamariki (NULL for people without children)</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">ot</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oranga Tamariki</td>
+<td style="text-align: left;">Persons child is subject of investigation</td>
+<td style="text-align: left;">Person’s child the subject of an Oranga Tamariki investigation (NULL for people without children)</td>
+<td style="text-align: left;">Ever, up to reference date</td>
+<td style="text-align: left;">ot</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oranga Tamariki</td>
+<td style="text-align: left;">Persons parent has any drivers licence</td>
+<td style="text-align: left;">Person’s child has a current driver’s licence (of any type)</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">nzta</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oranga Tamariki</td>
+<td style="text-align: left;">Persons parent has full drivers licence</td>
+<td style="text-align: left;">Person’s child has a current full driver’s licence</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">nzta</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Parent SES</td>
+<td style="text-align: left;">Parent 1 highest qual (NQF)</td>
+<td style="text-align: left;">The highest qualification of parent 1 (generally the person’s mother)</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">Various: moe, census, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Parent SES</td>
+<td style="text-align: left;">Parent 1 income bands</td>
+<td style="text-align: left;">The income of parent 1</td>
+<td style="text-align: left;">At reference date</td>
+<td style="text-align: left;">apc, census</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Parent SES</td>
+<td style="text-align: left;">Parent 1 main benefit</td>
+<td style="text-align: left;">Whether parent 1 is receiving a main benefit</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Parent SES</td>
+<td style="text-align: left;">Parent 1 total income</td>
+<td style="text-align: left;">The total income of parent 1 (to derive mean income)</td>
+<td style="text-align: left;">At reference date</td>
+<td style="text-align: left;">apc, census</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Parent SES</td>
+<td style="text-align: left;">Parent 1 wages/salary</td>
+<td style="text-align: left;">Whether parent 1 received income from wages or salary</td>
+<td style="text-align: left;">At reference date</td>
+<td style="text-align: left;">apc, census</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Parent SES</td>
+<td style="text-align: left;">Parent 2 highest qual (NQF)</td>
+<td style="text-align: left;">The highest qualification of parent 2 (generally the person’s father)</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">Various: moe, census, msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Parent SES</td>
+<td style="text-align: left;">Parent 2 income bands</td>
+<td style="text-align: left;">The income of parent 2</td>
+<td style="text-align: left;">At reference date</td>
+<td style="text-align: left;">apc, census</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Parent SES</td>
+<td style="text-align: left;">Parent 2 main benefit</td>
+<td style="text-align: left;">Whether parent 2 is receiving a main benefit</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Parent SES</td>
+<td style="text-align: left;">Parent 2 total income</td>
+<td style="text-align: left;">The total income of parent 2 (to derive mean income)</td>
+<td style="text-align: left;">At reference date</td>
+<td style="text-align: left;">apc, census</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Parent SES</td>
+<td style="text-align: left;">Parent 2 wages/salary</td>
+<td style="text-align: left;">Whether parent 2 received income from wages or salary</td>
+<td style="text-align: left;">At reference date</td>
+<td style="text-align: left;">apc, census</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Socio-economic background</td>
+<td style="text-align: left;">Highest qualification (NQF)</td>
+<td style="text-align: left;">The highest qualification of the person</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">Various: moe, census, msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Socio-economic background</td>
+<td style="text-align: left;">Income bands</td>
+<td style="text-align: left;">The income of the person</td>
+<td style="text-align: left;">At reference date</td>
+<td style="text-align: left;">apc, census</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Socio-economic background</td>
+<td style="text-align: left;">NZDep</td>
+<td style="text-align: left;">The NZ Deprivation Index of the person’s address</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">address_notification</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Socio-economic background</td>
+<td style="text-align: left;">Receipt of wages/salary</td>
+<td style="text-align: left;">Whether the person received income from wages or salary</td>
+<td style="text-align: left;">At reference date</td>
+<td style="text-align: left;">apc, census</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Socio-economic background</td>
+<td style="text-align: left;">Receiving main benefit</td>
+<td style="text-align: left;">Whether the person is receiving a main benefit</td>
+<td style="text-align: left;">As of reference date</td>
+<td style="text-align: left;">msd</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Socio-economic background</td>
+<td style="text-align: left;">Total income</td>
+<td style="text-align: left;">The total income of parent 1 (to derive mean income)</td>
+<td style="text-align: left;">At reference date</td>
+<td style="text-align: left;">apc, census</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="appendix-b-differences-in-variables-between-2018-and-2021" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-b-differences-in-variables-between-2018-and-2021">Appendix B: Differences in Variables between 2018 and 2021</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Variables Only in 2018</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">indicator_category</th>
+<th style="text-align: left;">indicator</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Has a dependent child</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Has ever had a child</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Parent receives JS Health/Disability</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Parent receives Special DA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Parent receives Supported Living Payment</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Special Disability Allowance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Housing</td>
+<td style="text-align: left;">Address type</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Justice</td>
+<td style="text-align: left;">Served community sentence in 2018</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Justice</td>
+<td style="text-align: left;">Served custodial sentence in 2018</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Foetal Alcohol Spectrum Disorder</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Need</td>
+<td style="text-align: left;">Wheelchair dependence</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oranga Tamariki</td>
+<td style="text-align: left;">Persons child has had care placement</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oranga Tamariki</td>
+<td style="text-align: left;">Persons child is subject of a ROC</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oranga Tamariki</td>
+<td style="text-align: left;">Persons child is subject of investigation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Variables Only in 2021</caption>
+<colgroup>
+<col style="width: 21%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">indicator_category</th>
+<th style="text-align: left;">indicator</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Territorial Authority</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Health</td>
+<td style="text-align: left;">Parent receives Supported Living Payment or Job Seeker - Disability</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="appendix-c-datasets-for-download" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-c-datasets-for-download">Appendix C: Datasets for Download</h2>
+<section id="explanation" class="level3">
+<h3 class="anchored" data-anchor-id="explanation">Explanation</h3>
+<ol type="1">
+<li><strong>Preview Data</strong>: The first 10 rows of each dataset are displayed.</li>
+<li><strong>Download Links</strong>: The <code>[Download SWA Dataset (merged_data)](merged_data.csv)</code> and <code>[Download DSS Population Data (data)](data.csv)</code> provide links to download the full datasets.</li>
+</ol>
+</section>
+<section id="swa-dataset-merged-data-2018-and-2021" class="level3">
+<h3 class="anchored" data-anchor-id="swa-dataset-merged-data-2018-and-2021">SWA Dataset (Merged Data: 2018 and 2021)</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 18%">
+<col style="width: 10%">
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">row</th>
+<th style="text-align: left;">pop_group</th>
+<th style="text-align: left;">age_group</th>
+<th style="text-align: left;">indicator_category</th>
+<th style="text-align: left;">indicator</th>
+<th style="text-align: left;">value</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: left;">sum</th>
+<th style="text-align: right;">Year</th>
+<th style="text-align: right;">row_index</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">DSS in Given Year</td>
+<td style="text-align: left;">03-18</td>
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Regional Council</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">495</td>
+<td style="text-align: left;">NULL</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">DSS in Given Year</td>
+<td style="text-align: left;">03-18</td>
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Regional Council</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">1701</td>
+<td style="text-align: left;">NULL</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">DSS in Given Year</td>
+<td style="text-align: left;">03-18</td>
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Regional Council</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: right;">138</td>
+<td style="text-align: left;">NULL</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">DSS in Given Year</td>
+<td style="text-align: left;">19-44</td>
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Regional Council</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">3555</td>
+<td style="text-align: left;">NULL</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">DSS in Given Year</td>
+<td style="text-align: left;">19-44</td>
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Regional Council</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: left;">NULL</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">DSS in Given Year</td>
+<td style="text-align: left;">19-44</td>
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Regional Council</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: right;">732</td>
+<td style="text-align: left;">NULL</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">DSS in Given Year</td>
+<td style="text-align: left;">45-64</td>
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Regional Council</td>
+<td style="text-align: left;">15</td>
+<td style="text-align: right;">258</td>
+<td style="text-align: left;">NULL</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">DSS in Given Year</td>
+<td style="text-align: left;">45-64</td>
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Regional Council</td>
+<td style="text-align: left;">18</td>
+<td style="text-align: right;">105</td>
+<td style="text-align: left;">NULL</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">DSS in Given Year</td>
+<td style="text-align: left;">65+</td>
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Regional Council</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">753</td>
+<td style="text-align: left;">NULL</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">DSS in Given Year</td>
+<td style="text-align: left;">65+</td>
+<td style="text-align: left;">Demographics</td>
+<td style="text-align: left;">Regional Council</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: left;">NULL</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="dss-population-numbers-by-ages-and-age-groupings" class="level3">
+<h3 class="anchored" data-anchor-id="dss-population-numbers-by-ages-and-age-groupings">DSS Population Numbers by Ages and Age Groupings</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">age</th>
+<th style="text-align: right;">2021</th>
+<th style="text-align: right;">2020</th>
+<th style="text-align: right;">2019</th>
+<th style="text-align: right;">2018</th>
+<th style="text-align: right;">2017</th>
+<th style="text-align: right;">2016</th>
+<th style="text-align: right;">2015</th>
+<th style="text-align: right;">2014</th>
+<th style="text-align: right;">2013</th>
+<th style="text-align: right;">2012</th>
+<th style="text-align: right;">2011</th>
+<th style="text-align: right;">2010</th>
+<th style="text-align: left;">age_group</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">522</td>
+<td style="text-align: right;">462</td>
+<td style="text-align: right;">384</td>
+<td style="text-align: right;">351</td>
+<td style="text-align: right;">315</td>
+<td style="text-align: right;">348</td>
+<td style="text-align: right;">309</td>
+<td style="text-align: right;">255</td>
+<td style="text-align: right;">267</td>
+<td style="text-align: right;">285</td>
+<td style="text-align: right;">312</td>
+<td style="text-align: right;">309</td>
+<td style="text-align: left;">Age 0-04</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">810</td>
+<td style="text-align: right;">738</td>
+<td style="text-align: right;">687</td>
+<td style="text-align: right;">582</td>
+<td style="text-align: right;">540</td>
+<td style="text-align: right;">483</td>
+<td style="text-align: right;">405</td>
+<td style="text-align: right;">420</td>
+<td style="text-align: right;">399</td>
+<td style="text-align: right;">417</td>
+<td style="text-align: right;">420</td>
+<td style="text-align: right;">447</td>
+<td style="text-align: left;">Age 0-04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1026</td>
+<td style="text-align: right;">948</td>
+<td style="text-align: right;">831</td>
+<td style="text-align: right;">744</td>
+<td style="text-align: right;">648</td>
+<td style="text-align: right;">564</td>
+<td style="text-align: right;">582</td>
+<td style="text-align: right;">516</td>
+<td style="text-align: right;">507</td>
+<td style="text-align: right;">498</td>
+<td style="text-align: right;">537</td>
+<td style="text-align: right;">534</td>
+<td style="text-align: left;">Age 05-12</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1134</td>
+<td style="text-align: right;">1026</td>
+<td style="text-align: right;">921</td>
+<td style="text-align: right;">801</td>
+<td style="text-align: right;">690</td>
+<td style="text-align: right;">714</td>
+<td style="text-align: right;">627</td>
+<td style="text-align: right;">597</td>
+<td style="text-align: right;">576</td>
+<td style="text-align: right;">564</td>
+<td style="text-align: right;">606</td>
+<td style="text-align: right;">582</td>
+<td style="text-align: left;">Age 05-12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1203</td>
+<td style="text-align: right;">1089</td>
+<td style="text-align: right;">960</td>
+<td style="text-align: right;">843</td>
+<td style="text-align: right;">834</td>
+<td style="text-align: right;">747</td>
+<td style="text-align: right;">687</td>
+<td style="text-align: right;">624</td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">639</td>
+<td style="text-align: right;">621</td>
+<td style="text-align: left;">Age 05-12</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1287</td>
+<td style="text-align: right;">1125</td>
+<td style="text-align: right;">993</td>
+<td style="text-align: right;">999</td>
+<td style="text-align: right;">858</td>
+<td style="text-align: right;">780</td>
+<td style="text-align: right;">705</td>
+<td style="text-align: right;">648</td>
+<td style="text-align: right;">636</td>
+<td style="text-align: right;">654</td>
+<td style="text-align: right;">663</td>
+<td style="text-align: right;">651</td>
+<td style="text-align: left;">Age 05-12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1323</td>
+<td style="text-align: right;">1167</td>
+<td style="text-align: right;">1122</td>
+<td style="text-align: right;">969</td>
+<td style="text-align: right;">891</td>
+<td style="text-align: right;">786</td>
+<td style="text-align: right;">717</td>
+<td style="text-align: right;">687</td>
+<td style="text-align: right;">684</td>
+<td style="text-align: right;">678</td>
+<td style="text-align: right;">678</td>
+<td style="text-align: right;">732</td>
+<td style="text-align: left;">Age 05-12</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1344</td>
+<td style="text-align: right;">1266</td>
+<td style="text-align: right;">1062</td>
+<td style="text-align: right;">993</td>
+<td style="text-align: right;">873</td>
+<td style="text-align: right;">789</td>
+<td style="text-align: right;">750</td>
+<td style="text-align: right;">711</td>
+<td style="text-align: right;">702</td>
+<td style="text-align: right;">675</td>
+<td style="text-align: right;">753</td>
+<td style="text-align: right;">711</td>
+<td style="text-align: left;">Age 05-12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">1404</td>
+<td style="text-align: right;">1182</td>
+<td style="text-align: right;">1080</td>
+<td style="text-align: right;">945</td>
+<td style="text-align: right;">855</td>
+<td style="text-align: right;">795</td>
+<td style="text-align: right;">783</td>
+<td style="text-align: right;">750</td>
+<td style="text-align: right;">681</td>
+<td style="text-align: right;">732</td>
+<td style="text-align: right;">741</td>
+<td style="text-align: right;">645</td>
+<td style="text-align: left;">Age 05-12</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">1284</td>
+<td style="text-align: right;">1173</td>
+<td style="text-align: right;">1023</td>
+<td style="text-align: right;">933</td>
+<td style="text-align: right;">867</td>
+<td style="text-align: right;">843</td>
+<td style="text-align: right;">783</td>
+<td style="text-align: right;">708</td>
+<td style="text-align: right;">747</td>
+<td style="text-align: right;">741</td>
+<td style="text-align: right;">663</td>
+<td style="text-align: right;">684</td>
+<td style="text-align: left;">Age 05-12</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 </section>
 </section>
 

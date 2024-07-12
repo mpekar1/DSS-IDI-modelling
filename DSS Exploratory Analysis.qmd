@@ -1,5 +1,5 @@
 ---
-title: "Example"
+title: "Interim Report: Demographic Snapshot Update of DSS"
 author:
   name: "Marianna Pekar"
   affiliation: "Victoria University of Wellington"
@@ -13,10 +13,46 @@ theme:
   light: flatly
   dark: darkly
 ---
+# Index
 
-# Setting Working Directory and Loading Packages and Data
+- Phase 1 – Descriptive Statistics
+- Phase 2 – System Dynamics
+- Phase 3 – Markov Chain Modelling
+- Appendices
+
+---
+
+# IDI Disclaimer
+
+These results are not official statistics. They have been created for research purposes from the Integrated Data Infrastructure (IDI) and Longitudinal Business Database (LBD) which are carefully managed by Stats NZ. For more information about the IDI, please visit [Stats NZ](https://www.stats.govt.nz/integrated-data/).
+
+Access to the data used in this study was provided by Stats NZ under conditions designed to give effect to the security and confidentiality provisions of the Data and Statistics Act 2022. The results presented in this study are the work of the author, not Stats NZ or individual data suppliers.
+
+The results are based in part on tax data supplied by Inland Revenue to Stats NZ under the Tax Administration Act 1994 for statistical purposes. Any discussion of data limitations or weaknesses is in the context of using the IDI for statistical purposes and is not related to the data’s ability to support Inland Revenue’s core operational requirements.
+
+---
+
+# Phase 1 – Descriptive Statistics
+
+## Demographic Data Update
+
+- Data preparation
+- Analysing the codes shared by SWA
+- Running updated descriptive statistics
+- Rolling forward population to the latest available year
+- Updating all variables and data assembly to the latest available year
+- Documenting the steps to roll forward the analysis and automate doing so
+- Creating and validating results
+
+---
+
+## Changes in Population Age Distribution
+
+Bimodal distribution with two peaks around the ages 9-13 and 57-63. The first peak shows growth from 2014, which speeds up after 2019. During the 2010-2021 period, the count of population in their early teens (9-13) increases from 3414 to 6633, i.e., by 94.29%. However, the age group displaying the highest growth rate over the period are those aged 70 and over.
 
 ```{r setup, include=FALSE}
+# Setting Working Directory and Loading Packages and Data
+
 library(dplyr)
 library(ggplot2)
 library(readxl)
@@ -26,8 +62,9 @@ library(gifski)
 library(ggrepel)
 library(writexl)
 library(png)
+library(shiny)
 
-# Load data
+# Loading descriptivw statistics data form 2018 and 2021
 path_to_file <- "C:/Users/maria/OneDrive/Asztali gép/Work/Manawanui/Descriptives/manawanui_output1_total_for_release.xlsx"
 
 data_2021 <- read_excel(path_to_file, sheet = "2021 confidentialised data")
@@ -61,9 +98,11 @@ merged_data <- bind_rows(data_2021, data_2018)
 head(merged_data)
 ```
 
-# Data Cleaning and Transformation
 
-```{r, include=FALSE}
+```{r setup2, include=FALSE}
+
+# Loading Age Distribution Data
+
 # Function to clean transition counts data
 clean_transition_data <- function(df) {
   df %>%
@@ -111,16 +150,14 @@ add_peak_labels <- function(plot, data) {
     geom_text_repel(data = data_peaks, aes(x = Peak_Age, y = Peak_Count, label = Peak_Age, color = Period), nudge_y = 50, size = 4)
 }
 
-
 ```
 
+
+```{r age-dist-plot, include=FALSE}
 # Exploratory Data Analysis
 
 ## Age Distribution Over Time
 
-
-
-```{r gif, include=FALSE}
 p <- ggplot(data_long, aes(x = age, y = Count, group = Year, color = Period)) +
   geom_line(size = 2) +
   scale_color_manual(values = colors, labels = c("2010-2013", "2014-2018", "2019-2021")) +
@@ -140,11 +177,10 @@ p <- ggplot(data_long, aes(x = age, y = Count, group = Year, color = Period)) +
 ```
 
 ![Age Distribution Over Time](age_distribution_animation.gif)
+![Year-to-year Changes in Age Distribution](year_to_year_changes_animation.gif) 
 
-
-## Population Distribution by Age Group
-
-```{r, include=FALSE}
+```{r line-plot, include=FALSE}
+# Create age groups
 data$age_group <- cut(data$age,
                       breaks = c(0, 4, 12, 17, 24, 44, 64, Inf),
                       labels = c("Age 0-04", "Age 05-12", "Age 13-17", "Age 18-24", 
@@ -155,6 +191,7 @@ colors <- c("Age 0-04" = "#4A1532", "Age 05-12" = "#00cfe8", "Age 13-17" = "#ff0
             "Age 18-24" = "#f95d6a", "Age 25-44" = "#ffa600", "Age 45-64" = "#bc5090",
             "Age 65+" = "#003f5c")
 
+# Reshape data
 data_long <- data %>% 
   pivot_longer(cols = -c(age, age_group), names_to = "year", values_to = "count") %>%
   group_by(year, age_group) %>%
@@ -162,34 +199,58 @@ data_long <- data %>%
 
 data_long$year <- as.integer(as.character(data_long$year))
 
-bar_plot <- ggplot(data_long, aes(x = year, y = total_count, fill = age_group)) +
-  geom_bar(stat = "identity", position = position_dodge(width = 0.75)) +
-  scale_fill_manual(values = colors) +
+# Create the line plot
+line_plot <- ggplot(data_long, aes(x = year, y = total_count, group = age_group, color = age_group)) +
+  geom_line(size = 1.5) +
+  geom_point(size = 3, shape = 21, aes(fill = age_group), color = NA) +  # Use NA for outer color to only show fill
+  scale_color_manual(values = colors) +  # Set line colors
+  scale_fill_manual(values = colors) +  # Set fill colors for points
   labs(title = "Population Distribution by Age Group",
-       x = "Year",
-       y = "Total Population",
-       fill = "Age Group") +
-  theme_minimal(base_size = 15) +
+       subtitle = "Dynamic view over years",
+       x = "Year", y = "Total Population", color = "Age Group", fill = "Age Group") +
+  theme_minimal() +
   theme(plot.title = element_text(size = 20, face = "bold"),
         legend.position = "bottom",
         axis.text.x = element_text(angle = 45, hjust = 1))
 
-print(bar_plot)
-
-
+# Print the plot to check it displays correctly
+print(line_plot)
 ```
 
-## Plot tabs
+```{r percentage-plot, include=FALSE}
+# Prepare the data with percentages
+percentage_data <- data_long %>%
+  group_by(year) %>%
+  mutate(percentage = total_count / sum(total_count) * 100) %>%
+  ungroup()
 
-## Plot tabs
+# Create the line plot for percentages
+percentage_plot <- ggplot(percentage_data, aes(x = year, y = percentage, group = age_group, color = age_group)) +
+  geom_line(size = 1.5) +
+  geom_point(size = 3, shape = 21, fill = aes(color = age_group), color = NA) +  # Fill points with line color
+  scale_color_manual(values = colors) +
+  labs(title = "Population Distribution by Age Group (Percentages)",
+       subtitle = "Dynamic view over years",
+       x = "Year", y = "Percentage of Total Population", color = "Age Group") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 20, face = "bold"),
+        legend.position = "bottom",
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+print(percentage_plot)
+```
+
+
 
 :::{.panel-tabset}
 ```{r panel, results='asis'}
+# Panel tabset
+
 #| warning: false
 
 # Define the plots and their titles
-plot_list <- list(p, bar_plot)
-headings <- c("Age Distribution Over Time", "Population Distribution by Age Group")
+plot_list <- list(p, line_plot, percentage_plot)
+headings <- c("Age Distribution Over Time", "Population Distribution by Age Group", "Population Distribution by Age Group (Percentages)")
 
 # Use a loop to generate the headings and insert plots
 for (i in seq_along(plot_list)) {
@@ -201,10 +262,85 @@ for (i in seq_along(plot_list)) {
 ```
 :::
 
+### Notes:
 
-# Prevalence Calculation
+#### Young Age Groups (Age 8-13)
+
+The first peak typically seen in the younger age groups (ages 3 to 13) has shown a pronounced and rapid growth over the years, notably increasing its count dramatically. For instance, the population at age 9 in 2010 was 732, which surged to 1323 by 2021. This rapid increase suggests a growing prevalence or diagnosis of disabilities in younger children, potentially due to better healthcare screening, more widely available diagnostic services, or an actual increase in cases.
+
+#### Older Age Groups (Age 57-63)
+
+The second peak traditionally seen in mid-life (ages 57 to 63) indicates a slower change over time compared to the younger group. The count at age 57 was 471 in 2012 and slightly increased to 543 by 2020. This relatively stable but slightly increasing trend could relate to new disabilities acquired in adulthood due to aging, lifestyle diseases, accidents, or other health issues that emerge later in life.
+
+### Additional Information
+
+#### Analysis of the Bimodal Distribution
+
+- **Younger Age Group Dynamics**: The first peak typically seen in the younger age groups (ages 3 to 13) has shown a pronounced and rapid growth over the years, notably increasing its count dramatically. For instance, the population at age 9 in 2010 was 732, which surged to 1323 by 2021. This rapid increase suggests a growing prevalence or diagnosis of disabilities in younger children, potentially due to better healthcare screening, more widely available diagnostic services, or an actual increase in cases.
+  
+- **Transition Challenges**: A dip in population counts is typically observed around ages 14 to 16, where there appears to be a decrease before the counts begin to increase again in mid-life. This pattern could be indicative of several factors, including transitions from child to adult disability support services, changes in eligibility criteria, or even mortality rates that might be higher in this group due to severe disabilities. Investigating the reasons behind this dip is crucial as it may reveal gaps in services or support during critical life transitions. Understanding when and why disabled youth drop off from DSS can help in addressing potential shortfalls in the continuity of care and support systems.
+  
+- **Mid-life Age Group Dynamics**: The second peak, traditionally seen in mid-life (ages 57 to 63), indicates a slower change over time compared to the younger group. The count at age 57 was 471 in 2012 and slightly increased to 543 by 2020. This relatively stable but slightly increasing trend could relate to new disabilities acquired in adulthood due to aging, lifestyle diseases, accidents, or other health issues that emerge later in life.
+  
+- **65+ Population Dynamics**: Despite the apparent client count peak around the age of 9-13 rapidly growing over the period in focus, the group experiencing the largest percentage increase are the oldest group. The growth in the eldest population suggests an urgent need for expanding and adapting services that cater to aging individuals with disabilities. This includes long-term care options, age-appropriate medical interventions, and social support systems that can manage the complexities of aging with a disability.
+
+---
+
+## Population and Variables
+
+### Population Groups
+
+The SWA codes have the following population groups for which insights have been obtained:
+
+- **DSS in Given Year**: Individuals who received Disability Support Services (DSS) within the given year of the study. This group represents current users of services tailored for those with disabilities.
+  
+- **DSS in Past**: Individuals who have previously received Disability Support Services but did not receive them in the given year of the study. This group helps to track changes in service usage over time.
+  
+- **DSS Subgroup - Early Investment and Intervention**: This subgroup includes individuals receiving early investment services and interventions, focusing on early developmental support for younger individuals or those newly diagnosed.
+  
+- **DSS Subgroup - Facility-based Supports**: Individuals who receive support services that are facility-based. These are typically more intensive supports provided in specialized settings.
+  
+- **DSS Subgroup - Flexible Funding and Supports**: This subgroup includes individuals who receive flexible funding or supports, allowing for personalized accommodations to better meet their unique needs.
+  
+- **DSS Subgroup - Home and Community Supports**: Individuals who receive supports and services in their homes or community settings, promoting independence and integration into the community.
+  
+- **Non-DSS Disabled**: This group includes individuals who are disabled but do not receive Disability Support Services. The calculation of this group involves identifying individuals with disabilities through various health and welfare databases but who are not registered as users of DSS. This group is critical for understanding the broader scope of disabilities within the population and assessing unmet needs.
+  
+- **Rest of Population**: This group includes all other individuals in the population who do not fall into the above categories, serving as a control or comparison group for broader population studies.
+
+
+### Variables
+
+The dataset contains a broad range of variables that are categorized across several domains reflecting different aspects of socio-economic, demographic, health, justice, and housing conditions, among others.
+
+The dataset contains a broad range of variables that are categorised across several domains reflecting different aspects of socio-economic, demographic, health, justice, and housing conditions among others. 
+
+- **Demographics**: Variables like Region, TA, Urban/Rural classification, Male, Ethnicity (various categories). These variables provide basic demographic information about individuals.
+  
+- **Need**: This includes health and disability-related indicators such as Autism Spectrum Disorder, ADHD, Cerebral Palsy, Major Depressive Disorder, Schizophrenia, and conditions like Wheelchair dependence or Incontinence. It also includes ACC-related claims.
+  
+- **Socio-economic background**: Variables like Deprivation Index, Highest qualification, Total income, and Income bands, reflecting the socio-economic status of individuals.
+  
+- **Parent SES (Socio-Economic Status)**: Specific to the socio-economic conditions of parents, including their highest qualifications, income bands, main benefits, and wages/salary.
+  
+- **Housing**: Housing conditions such as In public housing, On social housing waitlist, living arrangements like Living with parents or grandparents, and Accommodation supplements.
+  
+- **Oranga Tamariki**: Variables related to child welfare and legal status, including whether a person or their child has had a care placement, is subject to a ROC (Report of Concern), or is under investigation.
+  
+- **Justice**: Involves indicators related to criminal offences, such as being a Victim or Offender of any/violent offences, and records of serving community or custodial sentences.
+  
+- **Health**: Broader health service engagement indicators like PHO enrolment, Disability Allowance, Child Disability Allowance, Job Seeker benefits for health/disability reasons, and support payments like the Supported Living Payment.
+
+For detailed information, refer to the appendices where the variables and their descriptions are listed, and where differences between 2018 and 2021 variables are highlighted.
+
+- [Data Dictionary](#appendix-a-data-dictionary)
+- [Differences in Variables between 2018 and 2021](#appendix-b-differences-in-variables-between-2018-and-2021)
+
+---
 
 ```{r prevalence}
+
+# Prevalence Calculation
 calculate_prevalence_ag <- function(data, target_indicator, target_value) {
   # Filter the data for the specified indicator
   prepared_data <- data %>%
@@ -260,17 +396,75 @@ calculate_prevalence_ag <- function(data, target_indicator, target_value) {
 ```
 
 
-# Final remarks
+# Phase 2: System Dynamics
 
-This workshop is primarily designed to introduce you to tools and useful features in Quarto. Regardless of your workflow (which this template may not fit!), hopefully you will have the tools to make sharing results and colaborating with supervisors and researchers much easier.
+## Core Concepts - Stocks and Flows
 
-# Useful links
+- **Stocks**: Represent the elements within a system that accumulate or deplete over time, reflecting the state of the system.
+- **Flows**: The rates at which stocks increase or decrease, essentially defining how stocks change over time.
 
-[Biostats](https://biostats-r.github.io/biostats/quarto/) - very useful resource for authoring documents in Quarto.
+*Placeholder for diagram of stocks and flows*
 
-[Awsome Quarto](https://github.com/mcanouil/awesome-quarto) - a big list of Quarto things.
+### Notes:
 
-[Generating a DOI using Zenodo](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content)
+System dynamics is a powerful modeling methodology developed by Jay Forrester at MIT, designed to handle the complexities of interconnected systems across various disciplines. This approach combines insights from both social and physical systems to provide a structured way of understanding and predicting dynamics within any system.
+
+---
+
+## Defining Stocks and Flows
+
+### Stocks
+
+- Current DSS Clients per Age Group: The number of individuals in each age group receiving DSS at any given time.
+
+### Flows
+
+- **Inflows**:
+  - New Entrants: Individuals newly registered for DSS.
+  - Returners: Individuals who previously left but have re-entered DSS.
+  - Aging In: Individuals transitioning from the previous age group into the current one.
+
+- **Outflows**:
+  - Leavers: Individuals who exit DSS for any reason, including being deceased.
+  - Aging Out: Individuals transitioning from the current age group to the next one.
+
+*Placeholder for detailed flow chart*
+
+---
+
+# Phase 3 – Markov Chain Modelling
+
+## Markov Chain Modelling of Transition Probabilities
+
+### Purpose:
+
+- Defining states and probabilities
+- Model initialization and simulation
+
+*Placeholder for Markov Chain model diagram*
+
+### Notes:
+
+Markov Chain Modelling involves the use of state-based models where the next state depends only on the current state and not on the sequence of events that preceded it. This characteristic makes it incredibly useful for modeling a variety of real-world processes that conform to these conditions.
+
+---
+
+## Most Common Transitions from DSS at Age 18-24
+
+*Placeholder for table/chart of transitions*
+
+### Notes:
+
+The table is from the preliminary analysis of transition rates. It illustrates the transitions between various mutually exclusive states for individuals from the DSS system within the age group 18-24 over the decade from 2011 to 2020. This data helps identify the most common pathways taken by young adults receiving Disability Support Services and can highlight areas where intervention and support might be adjusted to better serve this population.
+
+---
+
+# THANK YOU
+
+Marianna Pekar  
+021-131-9793  
+Marianna.Pekar@gmail.com
+
 
 ### References
 
@@ -278,3 +472,95 @@ References will [appear here](https://quarto.org/docs/authoring/citations.html#b
 
 ::: {#refs}
 :::
+
+---
+
+# Appendices
+
+## Appendix A: Data Dictionary
+
+```{r data-dictionary, include=TRUE, echo=FALSE}
+library(readxl)
+library(dplyr)
+
+# Load data dictionary
+data_dictionary_path <- "C:/Users/maria/OneDrive/Asztali gép/Work/Manawanui/Descriptives/manawanui_output1_total_for_release.xlsx"
+data_dictionary <- read_excel(data_dictionary_path, sheet = "Data dictionary")
+
+# Display data dictionary
+knitr::kable(data_dictionary)
+```
+
+## Appendix B: Differences in Variables between 2018 and 2021
+
+```{r variable-diff, include=TRUE, echo=FALSE}
+# Extract unique indicators for each year and category
+indicators_2018 <- data_2018 %>%
+  select(indicator_category, indicator) %>%
+  distinct() %>%
+  arrange(indicator_category, indicator)
+
+indicators_2021 <- data_2021 %>%
+  select(indicator_category, indicator) %>%
+  distinct() %>%
+  arrange(indicator_category, indicator)
+
+# Find differences
+indicators_only_in_2018 <- anti_join(indicators_2018, indicators_2021, by = c("indicator_category", "indicator"))
+indicators_only_in_2021 <- anti_join(indicators_2021, indicators_2018, by = c("indicator_category", "indicator"))
+
+# Prepare a summary data frame
+differences <- list(
+  Only_in_2018 = indicators_only_in_2018,
+  Only_in_2021 = indicators_only_in_2021
+)
+
+# Display differences
+knitr::kable(differences$Only_in_2018, caption = "Variables Only in 2018")
+knitr::kable(differences$Only_in_2021, caption = "Variables Only in 2021")
+
+```
+## Appendix C: Datasets for Download
+
+### Explanation
+
+1. **Preview Data**: The first 10 rows of each dataset are displayed.
+2. **Download Links**: The `[Download SWA Dataset (merged_data)](merged_data.csv)` and `[Download DSS Population Data (data)](data.csv)` provide links to download the full datasets.
+
+### SWA Dataset (Merged Data: 2018 and 2021)
+
+```{r merged-data-preview, echo=FALSE}
+library(dplyr)
+
+# Preview the first 10 rows of the merged data
+merged_data_preview <- head(merged_data, 10)
+
+# Display the preview
+knitr::kable(merged_data_preview)
+
+```
+```{r, include=FALSE}
+# Save the merged data as a CSV file for download
+write.csv(merged_data, "merged_data.csv", row.names = FALSE)
+
+```
+
+### DSS Population Numbers by Ages and Age Groupings
+
+```{r data-preview, echo=FALSE}
+library(knitr)
+
+# Preview the first 10 rows of the DSS population data
+data_preview <- head(data, 10)
+
+# Display the preview
+kable(data_preview)
+```
+
+```{r, include=FALSE}
+# Save the DSS population data as a CSV file for download
+write.csv(data, "data.csv", row.names = FALSE)
+
+```
+
+
