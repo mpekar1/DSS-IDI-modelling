@@ -1,19 +1,24 @@
 ---
 title: "Interim Report: Demographic Snapshot Update of DSS"
-author:
-  name: "Marianna Pekar"
-  affiliation: "Victoria University of Wellington"
-date: today
+author: 
+  - name: "Marianna Pekar"
+    affiliation: "Victoria University of Wellington"
+date: "today"
+execute:
+  echo: false
+  warning: false  # Suppress warnings globally
 format:
   html:
-    code-fold: false
+    code-fold: true
     toc: true
     link-external-newwindow: true
-theme:
-  light: flatly
-  dark: darkly
-runtime: shiny
+    self-contained: false  # Change to false for Shiny
+    theme: 
+      light: flatly
+      dark: darkly
+#runtime: shiny
 ---
+
 
 # IDI Disclaimer
 
@@ -43,7 +48,7 @@ The results are based in part on tax data supplied by Inland Revenue to Stats NZ
 
 Bimodal distribution with two peaks around the ages 9-13 and 57-63. The first peak shows growth from 2014, which speeds up after 2019. During the 2010-2021 period, the count of population in their early teens (9-13) increases from 3414 to 6633, i.e., by 94.29%. However, the age group displaying the highest growth rate over the period are those aged 70 and over.
 
-```{r setup, include=FALSE}
+```{r setup, echo=FALSE, include=FALSE}
 # Setting Working Directory and Loading Packages and Data
 
 library(dplyr)
@@ -92,7 +97,7 @@ head(merged_data)
 ```
 
 
-```{r setup2, include=FALSE}
+```{r setup2, echo=FALSE}
 
 # Loading Age Distribution Data
 
@@ -146,7 +151,7 @@ add_peak_labels <- function(plot, data) {
 ```
 
 
-```{r age-dist-plot, include=FALSE}
+```{r age-dist-plot, echo=FALSE}
 # Exploratory Data Analysis
 
 ## Age Distribution Over Time
@@ -170,11 +175,10 @@ p <- ggplot(data_long, aes(x = age, y = Count, group = Year, color = Period)) +
 ```
 
 ![Age Distribution Over Time](age_distribution_animation.gif)
-![Age Distribution Over Time](age_distribution_animation.gif)
 
 ![Year-to-year Changes in Age Distribution](year_to_year_changes_animation.gif) 
 
-```{r line-plot, include=FALSE}
+```{r line-plot, echo=FALSE, include=FALSE}
 # Create age groups
 data$age_group <- cut(data$age,
                       breaks = c(0, 4, 12, 17, 24, 44, 64, Inf),
@@ -212,7 +216,7 @@ line_plot <- ggplot(data_long, aes(x = year, y = total_count, group = age_group,
 print(line_plot)
 ```
 
-```{r percentage-plot, include=FALSE}
+```{r percentage-plot, echo=FALSE, include=FALSE}
 # Prepare the data with percentages
 percentage_data <- data_long %>%
   group_by(year) %>%
@@ -236,20 +240,16 @@ print(percentage_plot)
 ```
 
 
-
 :::{.panel-tabset}
-```{r tabset, include=FALSE}
-# Panel tabset
 
-#| warning: false
-
+```{r results='asis', echo=FALSE, warning=FALSE}
 # Define the plots and their titles
 plot_list <- list(p, line_plot, percentage_plot)
 headings <- c("Age Distribution Over Time", "Population Distribution by Age Group", "Population Distribution by Age Group (Percentages)")
 
 # Use a loop to generate the headings and insert plots
 for (i in seq_along(plot_list)) {
-  cat("## ", headings[i], "\n")
+  cat("### ", headings[i], "\n\n")
   print(plot_list[[i]])
   cat('\n\n')
 }
