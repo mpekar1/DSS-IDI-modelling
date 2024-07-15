@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Marianna Pekar">
-<meta name="dcterms.date" content="2024-07-14">
+<meta name="dcterms.date" content="2024-07-15">
 
 <title>Interim Report: Demographic Snapshot Update of DSS</title>
 <style>
@@ -76,6 +76,7 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
   <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a></li>
+  <li><a href="#trends-over-time" id="toc-trends-over-time" class="nav-link" data-scroll-target="#trends-over-time">Trends Over Time</a></li>
   </ul></li>
   <li><a href="#population-and-variables" id="toc-population-and-variables" class="nav-link" data-scroll-target="#population-and-variables">Population and Variables</a>
   <ul class="collapse">
@@ -86,14 +87,12 @@ div.csl-indent {
   </ul></li>
   <li><a href="#phase-2-system-dynamics" id="toc-phase-2-system-dynamics" class="nav-link" data-scroll-target="#phase-2-system-dynamics">Phase 2: System Dynamics</a>
   <ul class="collapse">
-  <li><a href="#core-concepts---stocks-and-flows" id="toc-core-concepts---stocks-and-flows" class="nav-link" data-scroll-target="#core-concepts---stocks-and-flows">Core Concepts - Stocks and Flows</a>
-  <ul class="collapse">
-  <li><a href="#notes-1" id="toc-notes-1" class="nav-link" data-scroll-target="#notes-1">Notes:</a></li>
-  </ul></li>
+  <li><a href="#core-concepts---stocks-and-flows" id="toc-core-concepts---stocks-and-flows" class="nav-link" data-scroll-target="#core-concepts---stocks-and-flows">Core Concepts - Stocks and Flows</a></li>
   <li><a href="#defining-stocks-and-flows" id="toc-defining-stocks-and-flows" class="nav-link" data-scroll-target="#defining-stocks-and-flows">Defining Stocks and Flows</a>
   <ul class="collapse">
   <li><a href="#stocks" id="toc-stocks" class="nav-link" data-scroll-target="#stocks">Stocks</a></li>
   <li><a href="#flows" id="toc-flows" class="nav-link" data-scroll-target="#flows">Flows</a></li>
+  <li><a href="#notes-1" id="toc-notes-1" class="nav-link" data-scroll-target="#notes-1">Notes:</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#phase-3-markov-chain-modelling" id="toc-phase-3-markov-chain-modelling" class="nav-link" data-scroll-target="#phase-3-markov-chain-modelling">Phase 3 – Markov Chain Modelling</a>
@@ -101,11 +100,17 @@ div.csl-indent {
   <li><a href="#markov-chain-modelling-of-transition-probabilities" id="toc-markov-chain-modelling-of-transition-probabilities" class="nav-link" data-scroll-target="#markov-chain-modelling-of-transition-probabilities">Markov Chain Modelling of Transition Probabilities</a>
   <ul class="collapse">
   <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose:</a></li>
-  <li><a href="#notes-2" id="toc-notes-2" class="nav-link" data-scroll-target="#notes-2">Notes:</a></li>
+  <li><a href="#what-is-markov-chain-modelling" id="toc-what-is-markov-chain-modelling" class="nav-link" data-scroll-target="#what-is-markov-chain-modelling">What is Markov Chain Modelling?</a></li>
+  <li><a href="#defining-states-and-probabilities" id="toc-defining-states-and-probabilities" class="nav-link" data-scroll-target="#defining-states-and-probabilities">Defining States and Probabilities</a></li>
   </ul></li>
-  <li><a href="#most-common-transitions-from-dss-at-age-18-24" id="toc-most-common-transitions-from-dss-at-age-18-24" class="nav-link" data-scroll-target="#most-common-transitions-from-dss-at-age-18-24">Most Common Transitions from DSS at Age 18-24</a>
+  <li><a href="#most-common-transitions" id="toc-most-common-transitions" class="nav-link" data-scroll-target="#most-common-transitions">Most Common Transitions</a></li>
+  </ul></li>
+  <li><a href="#phase-3-markov-chain-modelling-1" id="toc-phase-3-markov-chain-modelling-1" class="nav-link" data-scroll-target="#phase-3-markov-chain-modelling-1">Phase 3 – Markov Chain Modelling</a>
   <ul class="collapse">
-  <li><a href="#notes-3" id="toc-notes-3" class="nav-link" data-scroll-target="#notes-3">Notes:</a></li>
+  <li><a href="#most-common-transitions-from-dss-year-to-year-2010-2020" id="toc-most-common-transitions-from-dss-year-to-year-2010-2020" class="nav-link" data-scroll-target="#most-common-transitions-from-dss-year-to-year-2010-2020">Most Common Transitions from DSS Year-to-Year (2010-2020)</a>
+  <ul class="collapse">
+  <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation">Explanation</a></li>
+  <li><a href="#notes-2" id="toc-notes-2" class="nav-link" data-scroll-target="#notes-2">Notes:</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#thank-you" id="toc-thank-you" class="nav-link" data-scroll-target="#thank-you">THANK YOU</a>
@@ -118,9 +123,10 @@ div.csl-indent {
   <li><a href="#appendix-b-differences-in-variables-between-2018-and-2021" id="toc-appendix-b-differences-in-variables-between-2018-and-2021" class="nav-link" data-scroll-target="#appendix-b-differences-in-variables-between-2018-and-2021">Appendix B: Differences in Variables between 2018 and 2021</a></li>
   <li><a href="#appendix-c-datasets-for-download" id="toc-appendix-c-datasets-for-download" class="nav-link" data-scroll-target="#appendix-c-datasets-for-download">Appendix C: Datasets for Download</a>
   <ul class="collapse">
-  <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation">Explanation</a></li>
+  <li><a href="#explanation-1" id="toc-explanation-1" class="nav-link" data-scroll-target="#explanation-1">Explanation</a></li>
   <li><a href="#swa-dataset-merged-data-2018-and-2021" id="toc-swa-dataset-merged-data-2018-and-2021" class="nav-link" data-scroll-target="#swa-dataset-merged-data-2018-and-2021">SWA Dataset (Merged Data: 2018 and 2021)</a></li>
   <li><a href="#dss-population-numbers-by-ages-and-age-groupings" id="toc-dss-population-numbers-by-ages-and-age-groupings" class="nav-link" data-scroll-target="#dss-population-numbers-by-ages-and-age-groupings">DSS Population Numbers by Ages and Age Groupings</a></li>
+  <li><a href="#dss-population-by-new-entrants-returners-leavers-and-total" id="toc-dss-population-by-new-entrants-returners-leavers-and-total" class="nav-link" data-scroll-target="#dss-population-by-new-entrants-returners-leavers-and-total">DSS Population by New Entrants, Returners, Leavers and Total</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -154,7 +160,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 14, 2024</p>
+      <p class="date">July 15, 2024</p>
     </div>
   </div>
   
@@ -166,6 +172,8 @@ div.csl-indent {
 </header>
 
 
+<p>Codes for retrieving datasets have not been reviewed. For Discussion purposes only.</p>
+<hr>
 <section id="idi-disclaimer" class="level1">
 <h1>IDI Disclaimer</h1>
 <p>These results are not official statistics. They have been created for research purposes from the Integrated Data Infrastructure (IDI) and Longitudinal Business Database (LBD) which are carefully managed by Stats NZ. For more information about the IDI, please visit <a href="https://www.stats.govt.nz/integrated-data/">Stats NZ</a>.</p>
@@ -238,6 +246,29 @@ div.csl-indent {
 <li><p><strong>Mid-life Age Group Dynamics</strong>: The second peak, traditionally seen in mid-life (ages 57 to 63), indicates a slower change over time compared to the younger group. The count at age 57 was 471 in 2012 and slightly increased to 543 by 2020. This relatively stable but slightly increasing trend could relate to new disabilities acquired in adulthood due to aging, lifestyle diseases, accidents, or other health issues that emerge later in life.</p></li>
 <li><p><strong>65+ Population Dynamics</strong>: Despite the apparent client count peak around the age of 9-13 rapidly growing over the period in focus, the group experiencing the largest percentage increase are the oldest group. The growth in the eldest population suggests an urgent need for expanding and adapting services that cater to aging individuals with disabilities. This includes long-term care options, age-appropriate medical interventions, and social support systems that can manage the complexities of aging with a disability.</p></li>
 </ul>
+</section>
+</section>
+<section id="trends-over-time" class="level3">
+<h3 class="anchored" data-anchor-id="trends-over-time">Trends Over Time</h3>
+<p>The age group 0-4 shows a slight decline in its proportion of the total population until 2016, starting just below 3% and tapering to slightly above 3% by 2021, indicating a relative stability with a slight increase towards the end of the period.</p>
+<p>The age group 5-12 starts around 18% in 2010 and staying relatively stable until 2015. It shows a substantial increase afterwards, especially after 2017, suggesting a growing younger population. It peaks at 24% in 2021.</p>
+<p>The teenage group, 13-17, begins at about 10.7% and grows to 13.4% by 2021, reflecting an increase in the teenage demographic. Similarly to the younger age group, the growth of this population’s proportion increases at a higher rate after 2017.</p>
+<p>Young adults aged 18-24 maintain a relatively stable, but slightly increasing share of around 10%-12% throughout the decade.</p>
+<p>The substantial demographic, 25-44 years, decreases slightly from 21% to around 18% by 2021. During this time, the population of this age group has increased, but not as substantially as for the 5-17 year age groups.</p>
+<p>Adults aged 45-64 constitute the largest segment, starting at over 30% in 2010 and experiencing a noticeable decline to about 21.6% by 2021. The number of DSS clients in this age group have increased since 2012, but to a lesser extent than the younger groups.</p>
+<p>The senior group, 65 and above, shows an increase in population numbers, reinforcing the trend of an aging population. However, this increase of the share of this population within DSS population is not continuous: since 2014, when it reached 9.28%, the share of this population has been declining despite of growing numbers.</p>
+<section id="significance-of-trends" class="level4">
+<h4 class="anchored" data-anchor-id="significance-of-trends">Significance of Trends</h4>
+<p>The increase in the proportion of younger age groups (5-12 and 13-17) could be reflective of many contributing factors. Considering the decline of birth rates in previous years, it could be rather due to an influx of younger populations through migration, increasing diagnosis rates, increasing prevalence rates or changes in DSS eligibility criteria. It would be suggested to investigate all of these potential contributing factors in IDI and through analysis of DSS eligibility criteria to find the root cause of this influx of new young clients.</p>
+<p>The stability in the 18-24 age group suggests consistent graduation of individuals into this age segment without significant fluctuations in birth rates about two decades ago.</p>
+<p>The decrease in the proportion of adults aged 25-44 and 45-64, alongside the increase in seniors, suggests demographic shifts that could impact workforce compositions and retirement policies.</p>
+<p>These trends are crucial for planning in various sectors, including education, workforce development, healthcare, and social services, as they indicate shifts in schooling needs, employment policies, and healthcare services.</p>
+</section>
+<section id="implications-for-policy-and-planning" class="level4">
+<h4 class="anchored" data-anchor-id="implications-for-policy-and-planning">Implications for Policy and Planning</h4>
+<p>Planning must adjust to accommodate the specific needs of rapidly growing numbers in the younger age groups.</p>
+<p>Initiatives may need to be considered to make sure that the younger age group maintains to be supported as they age out of education. This might include mechanisms that ensure they do not cease to be supported according to their needs and through workforce initiatives can become contributing members of society.</p>
+<p>Healthcare services will need to scale to meet the demands of an increasing disabled elderly population, which is growing both in numbers and as a proportion of the total.</p>
 <hr>
 </section>
 </section>
@@ -260,10 +291,10 @@ div.csl-indent {
 </section>
 <section id="variables" class="level3">
 <h3 class="anchored" data-anchor-id="variables">Variables</h3>
-<p>The dataset contains a broad range of variables that are categorized across several domains reflecting different aspects of socio-economic, demographic, health, justice, and housing conditions, among others.</p>
+<p>The dataset contains a broad range of variables that are categorised across several domains reflecting different aspects of socio-economic, demographic, health, justice, and housing conditions, among others.</p>
 <p>The dataset contains a broad range of variables that are categorised across several domains reflecting different aspects of socio-economic, demographic, health, justice, and housing conditions among others.</p>
 <ul>
-<li><p><strong>Demographics</strong>: Variables like Region, TA, Urban/Rural classification, Male, Ethnicity (various categories). These variables provide basic demographic information about individuals.</p></li>
+<li><p><strong>Demographics</strong>: Variables like Region, Territorial Authority (TA), Urban/Rural classification, Male, Ethnicity (various categories, not prioritised). These variables provide basic demographic information about individuals.</p></li>
 <li><p><strong>Need</strong>: This includes health and disability-related indicators such as Autism Spectrum Disorder, ADHD, Cerebral Palsy, Major Depressive Disorder, Schizophrenia, and conditions like Wheelchair dependence or Incontinence. It also includes ACC-related claims.</p></li>
 <li><p><strong>Socio-economic background</strong>: Variables like Deprivation Index, Highest qualification, Total income, and Income bands, reflecting the socio-economic status of individuals.</p></li>
 <li><p><strong>Parent SES (Socio-Economic Status)</strong>: Specific to the socio-economic conditions of parents, including their highest qualifications, income bands, main benefits, and wages/salary.</p></li>
@@ -282,25 +313,21 @@ div.csl-indent {
 </section>
 <section id="prevalence-of-indicators" class="level2">
 <h2 class="anchored" data-anchor-id="prevalence-of-indicators">Prevalence of Indicators</h2>
-<iframe src="https://your-username.shinyapps.io/your-app-name/" width="100%" height="600">
+<iframe src="https://datart.shinyapps.io/prevalenceappclean/" width="100%" height="600">
 </iframe>
 <hr>
 </section>
 </section>
 <section id="phase-2-system-dynamics" class="level1">
 <h1>Phase 2: System Dynamics</h1>
+<p>System Dynamics Modelling involves capturing feedback processes, stocks and flows, time delays, and dynamic complexity in complex systems, aiming to understand how structures create system dynamics and generate policy resistance. It helps evaluate the consequences of new policies and designs through causal mapping and simulation modelling. While System Dynamics Modelling encompasses a broader view of system behaviour and policy evaluation, Stock and Flow Modelling specifically centres around the interaction of stocks and flows in a system</p>
+<p><strong><em>“Simulations are not tools to predict the future. Rather, they are virtual worlds or microworlds in which managers can develop decision-making skills, conduct experiments, and play. Management flight simulators can be physical models, board games, or computer simulations. In systems with significant dynamic complexity, computer simulation will typically be needed.”</em></strong> (Sterman, 2001)</p>
 <section id="core-concepts---stocks-and-flows" class="level2">
 <h2 class="anchored" data-anchor-id="core-concepts---stocks-and-flows">Core Concepts - Stocks and Flows</h2>
 <ul>
 <li><strong>Stocks</strong>: Represent the elements within a system that accumulate or deplete over time, reflecting the state of the system.</li>
 <li><strong>Flows</strong>: The rates at which stocks increase or decrease, essentially defining how stocks change over time.</li>
 </ul>
-<p><em>Placeholder for diagram of stocks and flows</em></p>
-<section id="notes-1" class="level3">
-<h3 class="anchored" data-anchor-id="notes-1">Notes:</h3>
-<p>System dynamics is a powerful modeling methodology developed by Jay Forrester at MIT, designed to handle the complexities of interconnected systems across various disciplines. This approach combines insights from both social and physical systems to provide a structured way of understanding and predicting dynamics within any system.</p>
-<hr>
-</section>
 </section>
 <section id="defining-stocks-and-flows" class="level2">
 <h2 class="anchored" data-anchor-id="defining-stocks-and-flows">Defining Stocks and Flows</h2>
@@ -325,7 +352,45 @@ div.csl-indent {
 <li>Aging Out: Individuals transitioning from the current age group to the next one.</li>
 </ul></li>
 </ul>
-<p><em>Placeholder for detailed flow chart</em></p>
+<p><em>Placeholder for diagram of stocks and flows</em></p>
+<section id="analysis-of-stocks-and-flows" class="level4">
+<h4 class="anchored" data-anchor-id="analysis-of-stocks-and-flows">Analysis of stocks and flows</h4>
+<p>Below are the charts showing different aspects of the DSS population data: new entrants, leavers, returners (those who were DSS clients, left and returned during the time period 2010-2021). Note, that leavers are those who left DSS for any reason, including being deceased.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">New Entrants</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Returners</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Leavers</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false" href="">Combined DSS Data</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid" width="672"></p>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-2-4.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li><p><strong>New Entrants</strong> The graph shows a marked an increase in the number of new entrants, particularly in the age groups 0-4, 5-12, 13-17. The 5-12 age group demonstrates the most substantial rise from around 2015. This trend suggests a growing younger population group entering the DSS.</p></li>
+<li><p><strong>Returners</strong> In the “Returners to DSS” graph, the age groups 18-24 and 25-44 have the highest number of returners. The 18-24 age group shows a steady increase in returners over time, peaking around 2018-2020. This could indicate that young adults are returning to the DSS, possibly after initially leaving the service. The age group 25-44 also displays a consistent rise, suggesting that adults in this demographic are returning to DSS, likely due to ongoing or recurrent needs. Please, consider that returners are defined as those, who were part of DSS 2010-2021, left and then returned and thus those who were DSS clients and left before 2010 and returned after 2010, are defined as “new entrants”. Therefore, teh figures displayed may underestimate the true number of returners.</p></li>
+<li><p><strong>Leavers</strong> The “Leavers from DSS” graph indicates that the age group 45-64 has the highest number of leavers. The 65+ age group shows a peak around 2016, followed by a decline. Leavers include those, leaving due to being deceased. Lower rates of leavers in the 65+ group indicates that the population is living longer.</p></li>
+<li><p><strong>Combined DSS Data</strong> The “Combined DSS Data: New Entrants, Returners, and Others” graph provides a comprehensive view of the DSS population dynamics. It highlights the significant contributions of new entrants and very small contribution of returners across different age groups. The age group 5-12 shows a considerable increase in new entrants, particularly post-2015. It also shows that new entrants cause the shape of the bimodal distribution, i.e.&nbsp;most new entrants enter around the age 5-12 or 45-65.The 25-44 and 45-64 age groups also show an increase of new entrants and returners, indicating dynamic movements in and out of the DSS system for these age ranges. The data underlines the importance of focusing on both new entrants to understand the overall trends in DSS service use.</p></li>
+</ul>
+<p>For detailed information, refer to <a href="#appendix-c">Appendix C</a> where the number of new entrants, returners, leavers, and total DSS population is displayed.</p>
+<p>You can interact with the Insight Maker model embedded below:</p>
+<iframe src="https://insightmaker.com/insight/elL0WWiBgIx1EW0lYLL5c/embed?topBar=1&amp;sideBar=1&amp;zoom=1" title="Embedded model" width="800" height="600">
+</iframe>
+</section>
+</section>
+</section>
+<section id="notes-1" class="level3">
+<h3 class="anchored" data-anchor-id="notes-1">Notes:</h3>
+<p>System dynamics is a powerful modeling methodology developed by Jay Forrester at MIT, designed to handle the complexities of interconnected systems across various disciplines. This approach combines insights from both social and physical systems to provide a structured way of understanding and predicting dynamics within any system.</p>
 <hr>
 </section>
 </section>
@@ -338,21 +403,124 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="purpose">Purpose:</h3>
 <ul>
 <li>Defining states and probabilities</li>
-<li>Model initialization and simulation</li>
+<li>Can be used for simulation</li>
 </ul>
-<p><em>Placeholder for Markov Chain model diagram</em></p>
 </section>
-<section id="notes-2" class="level3">
-<h3 class="anchored" data-anchor-id="notes-2">Notes:</h3>
-<p>Markov Chain Modelling involves the use of state-based models where the next state depends only on the current state and not on the sequence of events that preceded it. This characteristic makes it incredibly useful for modeling a variety of real-world processes that conform to these conditions.</p>
+<section id="what-is-markov-chain-modelling" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-markov-chain-modelling">What is Markov Chain Modelling?</h3>
+<p>Markov Chain Modelling involves the use of state-based models where the next state depends only on the current state and not on the sequence of events that preceded it. This characteristic makes it incredibly useful for modelling a variety of real-world processes that conform to these conditions.</p>
+<p><strong>Predictive Power:</strong> Markov chains are especially powerful in environments where future states are a probabilistic function of the current state. This makes them ideal for modelling scenarios where decisions or outcomes are sequential and stochastic in nature.</p>
+<p><strong>Application in Health and Social Sciences:</strong> In health and social sciences, Markov models can predict the progression of diseases or conditions through different stages over time, allowing for the analysis of interventions and long-term outcomes in a dynamic framework.</p>
+<p><strong>Policy Simulation and Evaluation:</strong> Markov models provide a framework for simulating the effects of different policy interventions, helping policymakers understand potential impacts before implementation. This is particularly valuable in dynamic systems where conditions evolve over time.</p>
+<p><strong>Utility in Complex Systems:</strong> Due to their simplicity and robustness, Markov chains are used to model complex systems in a manageable way, providing insights into system behaviour with clear, probabilistic descriptions of possible future states.</p>
+</section>
+<section id="defining-states-and-probabilities" class="level3">
+<h3 class="anchored" data-anchor-id="defining-states-and-probabilities">Defining States and Probabilities</h3>
+<p>In the context of Markov Chain Modelling, we have defined several mutually exclusive states for individuals based on their transitions within the DSS system. Each state represents a specific condition or status that an individual can be in during a given period. The definitions and rules for these states are as follows:</p>
+<section id="state-definitions" class="level4">
+<h4 class="anchored" data-anchor-id="state-definitions">State Definitions</h4>
+<ul>
+<li><strong>NOT BORN YET</strong>: This state is assigned if the individual’s age is less than 0.</li>
+<li><strong>DECEASED</strong>: This state is assigned if the individual is deceased (when DECEASED = 1 or ALIVE = 0).</li>
+<li><strong>DSS</strong>: This state is assigned if the individual is active in the DSS system (dss_active = 1) and not involved in any other recorded categories (CORR, EMPLOYED, HOSPITAL, OVERSEAS, T1, T2, EDU, OT = 0).</li>
+<li><strong>NO DATA</strong>: This state is assigned if the individual is alive but not active in the DSS system and not involved in any other recorded categories.</li>
+<li><strong>CORR</strong>: Interaction with the Corrections system</li>
+<li><strong>EMPLOYED</strong>: Employment status</li>
+<li><strong>HOSPITAL</strong>: Hospitalisation</li>
+<li><strong>OVERSEAS</strong>: Time spent overseas</li>
+<li><strong>T1</strong>: Main benefit category, (e.g., Jobseeker Support, Sole Parent Support)</li>
+<li><strong>T2</strong>: Supplementary benefit receipt</li>
+<li><strong>EDU</strong>: Education status</li>
+<li><strong>OT</strong>: Interaction with Oranga Tamariki</li>
+</ul>
+</section>
+<section id="combined-states" class="level4">
+<h4 class="anchored" data-anchor-id="combined-states">Combined States</h4>
+<p>When the individual is active in DSS and involved in other categories, the state is constructed by combining ‘DSS_’ with other states. The code checks the duration of involvement in each category and combines the top two states with the most significant duration.</p>
+<section id="conditions-for-combined-states" class="level5">
+<h5 class="anchored" data-anchor-id="conditions-for-combined-states">Conditions for Combined States</h5>
+<ul>
+<li>If the individual has been overseas for more than 180 days, the state becomes <strong>‘DSS_OVERSEAS’</strong>.</li>
+<li>If hospitalized for more than 30 days, the state becomes <strong>‘DSS_HOSPITAL’</strong>.</li>
+<li>If involved in any of the main categories (CORR, EMPLOYED, T1, T2, EDU) for more than 180 days, the top two categories are combined with <strong>‘DSS_’</strong>.</li>
+</ul>
+</section>
+<section id="example-states" class="level5">
+<h5 class="anchored" data-anchor-id="example-states">Example States</h5>
+<ul>
+<li><strong>‘DSS_EMPLOYED_T1’</strong>: Active in DSS, Employed for more than 180 days, and also recipient of T1 benefit for at least 180 days.</li>
+<li><strong>‘DSS_HOSPITAL’</strong>: Active in DSS and hospitalized for more than 30 days.</li>
+<li><strong>‘DSS_NO_DATA’</strong>: Active in DSS but no significant involvement in other categories.</li>
+<li><strong>‘DECEASED’</strong>: The individual is deceased.</li>
+</ul>
+</section>
+</section>
+<section id="state-duration" class="level4">
+<h4 class="anchored" data-anchor-id="state-duration">State Duration</h4>
+<ul>
+<li>To qualify for a specific state, an individual must spend at least 180 days (roughly half a year) in that state within a given year.</li>
+<li>This rule ensures that temporary or short-term transitions do not significantly impact the state classification.</li>
+</ul>
+</section>
+<section id="combined-states-1" class="level4">
+<h4 class="anchored" data-anchor-id="combined-states-1">Combined States</h4>
+<ul>
+<li>In cases where an individual meets the criteria for more than one state (e.g., splitting time between Education and Employment), they are classified into combined states.</li>
+<li>These combined states are also required to meet the 180-day rule for each constituent state.</li>
+</ul>
+</section>
+<section id="categorization-into-other" class="level4">
+<h4 class="anchored" data-anchor-id="categorization-into-other">Categorization into “Other”</h4>
+<ul>
+<li>Any combinations or conditions that do not clearly fit into the predefined states or combined states are grouped into the “Other” category.</li>
+<li>This includes uncommon or less frequent transitions and combinations of activities.</li>
+</ul>
+<p>By defining the states in this manner, we ensure that each state is representative of a significant and stable condition in an individual’s life, allowing for more accurate modeling and analysis of transitions over time.</p>
+<p>This approach simplifies the complexity of individuals’ transitions within the DSS system and provides a clear framework for understanding and predicting future states based on current conditions.</p>
 <hr>
 </section>
 </section>
-<section id="most-common-transitions-from-dss-at-age-18-24" class="level2">
-<h2 class="anchored" data-anchor-id="most-common-transitions-from-dss-at-age-18-24">Most Common Transitions from DSS at Age 18-24</h2>
-<p><em>Placeholder for table/chart of transitions</em></p>
-<section id="notes-3" class="level3">
-<h3 class="anchored" data-anchor-id="notes-3">Notes:</h3>
+</section>
+<section id="most-common-transitions" class="level2">
+<h2 class="anchored" data-anchor-id="most-common-transitions">Most Common Transitions</h2>
+</section>
+</section>
+<section id="phase-3-markov-chain-modelling-1" class="level1">
+<h1>Phase 3 – Markov Chain Modelling</h1>
+<section id="most-common-transitions-from-dss-year-to-year-2010-2020" class="level2">
+<h2 class="anchored" data-anchor-id="most-common-transitions-from-dss-year-to-year-2010-2020">Most Common Transitions from DSS Year-to-Year (2010-2020)</h2>
+<section id="explanation" class="level3">
+<h3 class="anchored" data-anchor-id="explanation">Explanation</h3>
+<p>This section displays the most common year-to-year transitions for the DSS population from 2010 to 2020.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Top 5 Transitions for Age Group: Age 0-4</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Top 5 Transitions for Age Group: Age 5-12</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false" href="">Top 5 Transitions for Age Group: Age 13-17</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false" href="">Top 5 Transitions for Age Group: Age 18-24</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-5" role="tab" aria-controls="tabset-3-5" aria-selected="false" href="">Top 5 Transitions for Age Group: Age 25-44</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-6" role="tab" aria-controls="tabset-3-6" aria-selected="false" href="">Top 5 Transitions for Age Group: Age 45-64</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-7" role="tab" aria-controls="tabset-3-7" aria-selected="false" href="">Top 5 Transitions for Age Group: Age 65+</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid" width="672"></p>
+</div>
+<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-3-4.png" class="img-fluid" width="672"></p>
+</div>
+<div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-3-5.png" class="img-fluid" width="672"></p>
+</div>
+<div id="tabset-3-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-6-tab">
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-3-6.png" class="img-fluid" width="672"></p>
+</div>
+<div id="tabset-3-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-7-tab">
+<p><img src="DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-3-7.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="notes-2" class="level3">
+<h3 class="anchored" data-anchor-id="notes-2">Notes:</h3>
 <p>The table is from the preliminary analysis of transition rates. It illustrates the transitions between various mutually exclusive states for individuals from the DSS system within the age group 18-24 over the decade from 2011 to 2020. This data helps identify the most common pathways taken by young adults receiving Disability Support Services and can highlight areas where intervention and support might be adjusted to better serve this population.</p>
 <hr>
 </section>
@@ -1251,8 +1419,8 @@ Marianna.Pekar@gmail.com</p>
 </section>
 <section id="appendix-c-datasets-for-download" class="level2">
 <h2 class="anchored" data-anchor-id="appendix-c-datasets-for-download">Appendix C: Datasets for Download</h2>
-<section id="explanation" class="level3">
-<h3 class="anchored" data-anchor-id="explanation">Explanation</h3>
+<section id="explanation-1" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-1">Explanation</h3>
 <ol type="1">
 <li><strong>Preview Data</strong>: The first 10 rows of each dataset are displayed.</li>
 <li><strong>Download Links</strong>: The <code>[Download SWA Dataset (merged_data)](merged_data.csv)</code> and <code>[Download DSS Population Data (data)](data.csv)</code> provide links to download the full datasets.</li>
@@ -1614,6 +1782,85 @@ Marianna.Pekar@gmail.com</p>
 <td style="text-align: right;">663</td>
 <td style="text-align: right;">684</td>
 <td style="text-align: left;">Age 05-12</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="dss-population-by-new-entrants-returners-leavers-and-total" class="level3">
+<h3 class="anchored" data-anchor-id="dss-population-by-new-entrants-returners-leavers-and-total">DSS Population by New Entrants, Returners, Leavers and Total</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">age_group</th>
+<th style="text-align: right;">refyr</th>
+<th style="text-align: right;">value</th>
+<th style="text-align: left;">category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Age 0-04</td>
+<td style="text-align: right;">2011</td>
+<td style="text-align: right;">462</td>
+<td style="text-align: left;">New Entrants</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age 0-04</td>
+<td style="text-align: right;">2012</td>
+<td style="text-align: right;">420</td>
+<td style="text-align: left;">New Entrants</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Age 0-04</td>
+<td style="text-align: right;">2013</td>
+<td style="text-align: right;">390</td>
+<td style="text-align: left;">New Entrants</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age 0-04</td>
+<td style="text-align: right;">2014</td>
+<td style="text-align: right;">444</td>
+<td style="text-align: left;">New Entrants</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Age 0-04</td>
+<td style="text-align: right;">2015</td>
+<td style="text-align: right;">516</td>
+<td style="text-align: left;">New Entrants</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age 0-04</td>
+<td style="text-align: right;">2016</td>
+<td style="text-align: right;">543</td>
+<td style="text-align: left;">New Entrants</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Age 0-04</td>
+<td style="text-align: right;">2017</td>
+<td style="text-align: right;">576</td>
+<td style="text-align: left;">New Entrants</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age 0-04</td>
+<td style="text-align: right;">2018</td>
+<td style="text-align: right;">672</td>
+<td style="text-align: left;">New Entrants</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Age 0-04</td>
+<td style="text-align: right;">2019</td>
+<td style="text-align: right;">810</td>
+<td style="text-align: left;">New Entrants</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Age 0-04</td>
+<td style="text-align: right;">2020</td>
+<td style="text-align: right;">909</td>
+<td style="text-align: left;">New Entrants</td>
 </tr>
 </tbody>
 </table>

@@ -16,7 +16,9 @@ format:
     theme: 
       light: flatly
       dark: darkly
-#runtime: shiny
+---
+Codes for retrieving datasets have not been reviewed.
+For Discussion purposes only.
 ---
 
 
@@ -63,12 +65,13 @@ library(png)
 library(shiny)
 
 # Loading descriptive statistics data form 2018 and 2021
-path_to_file <- "C:/Users/maria/OneDrive/Asztali gép/Work/Manawanui/Descriptives/manawanui_output1_total_for_release.xlsx"
 
-data_2021 <- read_excel(path_to_file, sheet = "2021 confidentialised data")
-data_2018 <- read_excel(path_to_file, sheet = "2018 confidentialised")
-region_data <- read_excel(path_to_file, sheet = "Region_data")
-ta_data <- read_excel(path_to_file, sheet = "TA_data")
+setwd("C:/Users/maria/OneDrive/Documents/DSS Analysis")
+
+data_2021 <- read_excel("manawanui_output1_total_for_release.xlsx", sheet = "2021 confidentialised data")
+data_2018 <- read_excel("manawanui_output1_total_for_release.xlsx", sheet = "2018 confidentialised")
+region_data <- read_excel("manawanui_output1_total_for_release.xlsx", sheet = "Region_data")
+ta_data <- read_excel("manawanui_output1_total_for_release.xlsx", sheet = "TA_data")
 
 head(data_2021)
 head(data_2018)
@@ -278,6 +281,41 @@ The second peak traditionally seen in mid-life (ages 57 to 63) indicates a slowe
   
 - **65+ Population Dynamics**: Despite the apparent client count peak around the age of 9-13 rapidly growing over the period in focus, the group experiencing the largest percentage increase are the oldest group. The growth in the eldest population suggests an urgent need for expanding and adapting services that cater to aging individuals with disabilities. This includes long-term care options, age-appropriate medical interventions, and social support systems that can manage the complexities of aging with a disability.
 
+### Trends Over Time
+
+The age group 0-4 shows a slight decline in its proportion of the total population until 2016, starting just below 3% and tapering to slightly above 3% by 2021, indicating a relative stability with a slight increase towards the end of the period.
+
+The age group 5-12 starts around 18% in 2010 and staying relatively stable until 2015. It shows a substantial increase afterwards, especially after 2017, suggesting a growing younger population. It peaks at 24% in 2021.
+
+The teenage group, 13-17, begins at about 10.7% and grows to 13.4% by 2021, reflecting an increase in the teenage demographic. Similarly to the younger age group, the growth of this population’s proportion increases at a higher rate after 2017.
+
+Young adults aged 18-24 maintain a relatively stable, but slightly increasing share of around 10%-12% throughout the decade.
+
+The substantial demographic, 25-44 years, decreases slightly from 21% to around 18% by 2021. During this time, the population of this age group has increased, but not as substantially as for the 5-17 year age groups.
+
+Adults aged 45-64 constitute the largest segment, starting at over 30% in 2010 and experiencing a noticeable decline to about 21.6% by 2021. The number of DSS clients in this age group have increased since 2012, but to a lesser extent than the younger groups.
+
+The senior group, 65 and above, shows an increase in population numbers, reinforcing the trend of an aging population. However, this increase of the share of this population within DSS population is not continuous: since 2014, when it reached 9.28%, the share of this population has been declining despite of growing numbers.
+
+#### Significance of Trends
+
+The increase in the proportion of younger age groups (5-12 and 13-17) could be reflective of many contributing factors. Considering the decline of birth rates in previous years, it could be rather due to an influx of younger populations through migration, increasing diagnosis rates, increasing prevalence rates or changes in DSS eligibility criteria. It would be suggested to investigate all of these potential contributing factors in IDI and through analysis of DSS eligibility criteria to find the root cause of this influx of new young clients.
+
+The stability in the 18-24 age group suggests consistent graduation of individuals into this age segment without significant fluctuations in birth rates about two decades ago.
+
+The decrease in the proportion of adults aged 25-44 and 45-64, alongside the increase in seniors, suggests demographic shifts that could impact workforce compositions and retirement policies.
+
+These trends are crucial for planning in various sectors, including education, workforce development, healthcare, and social services, as they indicate shifts in schooling needs, employment policies, and healthcare services.
+
+#### Implications for Policy and Planning
+
+Planning must adjust to accommodate the specific needs of rapidly growing numbers in the younger age groups.
+
+Initiatives may need to be considered to make sure that the younger age group maintains to be supported as they age out of education. This might include mechanisms that ensure they do not cease to be supported according to their needs and through workforce initiatives can become contributing members of society.
+
+Healthcare services will need to scale to meet the demands of an increasing disabled elderly population, which is growing both in numbers and as a proportion of the total.
+
+
 ---
 
 ## Population and Variables
@@ -305,11 +343,11 @@ The SWA codes have the following population groups for which insights have been 
 
 ### Variables
 
-The dataset contains a broad range of variables that are categorized across several domains reflecting different aspects of socio-economic, demographic, health, justice, and housing conditions, among others.
+The dataset contains a broad range of variables that are categorised across several domains reflecting different aspects of socio-economic, demographic, health, justice, and housing conditions, among others.
 
 The dataset contains a broad range of variables that are categorised across several domains reflecting different aspects of socio-economic, demographic, health, justice, and housing conditions among others. 
 
-- **Demographics**: Variables like Region, TA, Urban/Rural classification, Male, Ethnicity (various categories). These variables provide basic demographic information about individuals.
+- **Demographics**: Variables like Region, Territorial Authority (TA), Urban/Rural classification, Male, Ethnicity (various categories, not prioritised). These variables provide basic demographic information about individuals.
   
 - **Need**: This includes health and disability-related indicators such as Autism Spectrum Disorder, ADHD, Cerebral Palsy, Major Depressive Disorder, Schizophrenia, and conditions like Wheelchair dependence or Incontinence. It also includes ACC-related claims.
   
@@ -335,24 +373,23 @@ For detailed information, refer to the appendices where the variables and their 
 
 ## Prevalence of Indicators
 
-<iframe src="https://your-username.shinyapps.io/your-app-name/" width="100%" height="600"></iframe>
+<iframe src="https://datart.shinyapps.io/prevalenceappclean/" width="100%" height="600"></iframe>
 
 ---
 
 # Phase 2: System Dynamics
 
+System Dynamics Modelling involves capturing feedback processes, stocks and flows, time delays, and dynamic complexity in complex systems, aiming to understand how structures create system dynamics and generate policy resistance. It helps evaluate the consequences of new policies and designs through causal mapping and simulation modelling.
+While System Dynamics Modelling encompasses a broader view of system behaviour and policy evaluation, Stock and Flow Modelling specifically centres around the interaction of stocks and flows in a system
+
+***“Simulations are not tools to predict the future. Rather, they are virtual worlds or microworlds in which managers can develop decision-making skills, conduct experiments, and play.  Management flight simulators can be physical models, board games, or computer simulations. In systems with significant dynamic complexity, computer simulation will typically be needed.”*** 
+(Sterman, 2001)
+
+
 ## Core Concepts - Stocks and Flows
 
 - **Stocks**: Represent the elements within a system that accumulate or deplete over time, reflecting the state of the system.
 - **Flows**: The rates at which stocks increase or decrease, essentially defining how stocks change over time.
-
-*Placeholder for diagram of stocks and flows*
-
-### Notes:
-
-System dynamics is a powerful modeling methodology developed by Jay Forrester at MIT, designed to handle the complexities of interconnected systems across various disciplines. This approach combines insights from both social and physical systems to provide a structured way of understanding and predicting dynamics within any system.
-
----
 
 ## Defining Stocks and Flows
 
@@ -371,7 +408,204 @@ System dynamics is a powerful modeling methodology developed by Jay Forrester at
   - Leavers: Individuals who exit DSS for any reason, including being deceased.
   - Aging Out: Individuals transitioning from the current age group to the next one.
 
-*Placeholder for detailed flow chart*
+
+
+*Placeholder for diagram of stocks and flows*
+
+
+
+
+```{r flow analysis setup, include=FALSE}
+# Load necessary libraries
+library(ggplot2)
+library(gganimate)
+library(readxl)
+library(dplyr)
+library(tidyr)
+library(gifski)
+library(ggrepel)
+library(extrafont)
+library(networkD3)
+library(htmlwidgets)
+
+# Define the colors for the age groups
+colors <- c("Age 0-03" = "#4A1532", "Age 03-10" = "#00cfe8", "Age 11-18" = "#ff006e", 
+            "Age 19-25" = "#f95d6a", "Age 26-35" = "#ffa600", "Age 36-45" = "#bc5090", 
+            "Age 46-65" = "#003f5c", "Age 66+" = "#58508d")
+
+# Load and clean data
+file_path_1 <- "Markov Chain Outputs 2024_06_13_corrected_for_release.xlsx"
+
+total_pop_df <- read_excel(file_path_1, sheet = "Total DSS pop by age conf")
+new_entrants_df <- read_excel(file_path_1, sheet = "New entrants conf")
+returners_df <- read_excel(file_path_1, sheet = "Returning to DSS conf")
+leavers_df <- read_excel(file_path_1, sheet = "Leavers conf")
+
+# Replace "S" with 0 in returners_df
+returners_df <- returners_df %>%
+  mutate(across(everything(), ~ifelse(. == "S", 0, .)))
+
+# Convert appropriate columns to numeric
+returners_df$returning <- as.numeric(returners_df$returning)
+
+# Combine datasets
+new_entrants_df$category <- "New Entrants"
+returners_df$category <- "Returners"
+leavers_df$category <- "Leavers"
+total_pop_df$category <- "Total Population"
+
+# Select common columns and combine
+common_cols <- c("age_group", "refyr", "value", "category")
+
+new_entrants_df <- new_entrants_df %>% 
+  rename(value = `Sum of new_entrants`) %>% 
+  select(age_group, refyr, value, category) %>% 
+  mutate(value = as.numeric(value)) %>%
+  filter(refyr >= 2011)
+
+leavers_df <- leavers_df %>% 
+  rename(value = leavers) %>% 
+  select(age_group, refyr, value, category) %>% 
+  mutate(value = as.numeric(value))
+
+total_pop_df <- total_pop_df %>% 
+  rename(value = total_pop) %>% 
+  select(age_group, refyr, value, category) %>% 
+  mutate(value = as.numeric(value))
+
+returners_df <- returners_df %>% 
+  rename(value = returning) %>% 
+  select(age_group, refyr, value, category) %>% 
+  mutate(value = as.numeric(value))
+
+combined_df <- bind_rows(new_entrants_df, returners_df, leavers_df, total_pop_df)
+
+# Plotting function with custom colors and grouped bar plots with facets
+plot_data <- function(data, title) {
+  ggplot(data, aes(x = factor(refyr), y = value, fill = age_group)) +
+    geom_bar(position = position_dodge(width = 0.9), stat = "identity") +
+    facet_grid(~ age_group) +
+    scale_fill_manual(values = colors) +
+    labs(title = title,
+         x = "Year",
+         y = "Count",
+         fill = "Age Group") +
+    theme_bw() +
+    theme(
+      legend.title = element_blank(), 
+      legend.position = "bottom",
+      axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+      axis.title.x = element_blank(),
+      axis.title.y = element_text(face = "bold"),
+      axis.ticks.x = element_blank(),
+      axis.ticks.y = element_blank(),
+      panel.background = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_blank())
+}
+
+# Create plots
+p_new_entrants <- plot_data(new_entrants_df, "New Entrants into DSS")
+p_returners <- plot_data(returners_df, "Returners to DSS")
+p_leavers <- plot_data(leavers_df, "Leavers from DSS")
+p_total_pop <- plot_data(total_pop_df, "Total DSS Population")
+
+# Combine data with a new column for category
+combined_df <- bind_rows(
+  new_entrants_df %>% mutate(category = "New Entrants"),
+  returners_df %>% mutate(category = "Returners")
+)
+
+# Calculate the "Others" category
+total_others <- total_pop_df %>%
+  left_join(new_entrants_df, by = c("age_group", "refyr"), suffix = c("_total", "_new")) %>%
+  left_join(returners_df, by = c("age_group", "refyr")) %>%
+  mutate(
+    value_new = ifelse(is.na(value_new), 0, value_new),
+    value = ifelse(is.na(value), 0, value),
+    value_others = value_total - value_new - value
+  ) %>%
+  select(age_group, refyr, value = value_others) %>%
+  mutate(category = "Others")
+
+# Combine all data
+final_combined_df <- bind_rows(combined_df, total_others)
+
+# Define the colors for the categories
+colors_combined <- c("New Entrants" = "#00cfe8", "Returners" = "#ff006e", "Others" = "#4A1532")
+
+# Plotting function with custom colors for combined data
+plot_combined_data <- function(data, title) {
+  ggplot(data, aes(x = factor(refyr), y = value, fill = category)) +
+    geom_bar(stat = "identity") +
+    facet_grid(~ age_group) +
+    scale_fill_manual(values = colors_combined) +
+    labs(title = title,
+         x = "Year",
+         y = "Count",
+         fill = "Category") +
+    theme_bw() +
+    theme(legend.title = element_blank(), 
+          legend.position = "bottom",
+          axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+          axis.title.x = element_blank(),
+          axis.title.y = element_text(face = "bold"),
+          axis.ticks.x = element_blank(),
+          axis.ticks.y = element_blank(),
+          panel.background = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.grid.major = element_blank())
+}
+
+# Create combined plot
+p_combined <- plot_combined_data(final_combined_df, "Combined DSS Data: New Entrants, Returners, and Others")
+
+```
+
+#### Analysis of stocks and flows
+
+Below are the charts showing different aspects of the DSS population data: new entrants, leavers, returners (those who were DSS clients, left and returned during the time period 2010-2021). Note, that leavers are those who left DSS for any reason, including being deceased. 
+
+:::{.panel-tabset}
+```{r results='asis', echo=FALSE, warning=FALSE}
+# Define the plots and their titles
+plot_list <- list(p_new_entrants, p_returners, p_leavers, p_combined)
+headings <- c("New Entrants", "Returners", "Leavers", "Combined DSS Data")
+
+# Use a loop to generate the headings and insert plots
+for (i in seq_along(plot_list)) {
+  cat("### ", headings[i], "\n\n")
+  print(plot_list[[i]])
+  cat('\n\n')
+}
+```
+:::
+
+##### Observations
+
+- **New Entrants**
+The graph shows a marked an increase in the number of new entrants, particularly in the age groups 0-4, 5-12, 13-17. The 5-12 age group demonstrates the most substantial rise from around 2015. This trend suggests a growing younger population group entering the DSS.
+
+- **Returners**
+In the "Returners to DSS" graph, the age groups 18-24 and 25-44 have the highest number of returners. The 18-24 age group shows a steady increase in returners over time, peaking around 2018-2020. This could indicate that young adults are returning to the DSS, possibly after initially leaving the service. The age group 25-44 also displays a consistent rise, suggesting that adults in this demographic are returning to DSS, likely due to ongoing or recurrent needs.
+Please, consider that returners are defined as those, who were part of DSS 2010-2021, left and then returned and thus those who were DSS clients and left before 2010 and returned after 2010, are defined as "new entrants". Therefore, teh figures displayed may underestimate the true number of returners.  
+
+- **Leavers**
+The "Leavers from DSS" graph indicates that the age group 45-64 has the highest number of leavers. The 65+ age group shows a peak around 2016, followed by a decline. Leavers include those, leaving due to being deceased. Lower rates of leavers in the 65+ group indicates that the population is living longer. 
+
+- **Combined DSS Data**
+The "Combined DSS Data: New Entrants, Returners, and Others" graph provides a comprehensive view of the DSS population dynamics. It highlights the significant contributions of new entrants and very small contribution of returners across different age groups. The age group 5-12 shows a considerable increase in new entrants, particularly post-2015. It also shows that new entrants cause the shape of the bimodal distribution, i.e. most new entrants enter around the age 5-12 or 45-65.The 25-44 and 45-64 age groups also show an increase of new entrants and returners, indicating dynamic movements in and out of the DSS system for these age ranges. The data underlines the importance of focusing on both new entrants to understand the overall trends in DSS service use.
+
+For detailed information, refer to [Appendix C](#appendix-c) where the number of new entrants, returners, leavers, and total DSS population is displayed.
+
+
+You can interact with the Insight Maker model embedded below:
+
+<iframe src="https://insightmaker.com/insight/elL0WWiBgIx1EW0lYLL5c/embed?topBar=1&sideBar=1&zoom=1" title="Embedded model" width="800" height="600"></iframe>
+
+### Notes:
+
+System dynamics is a powerful modeling methodology developed by Jay Forrester at MIT, designed to handle the complexities of interconnected systems across various disciplines. This approach combines insights from both social and physical systems to provide a structured way of understanding and predicting dynamics within any system.
 
 ---
 
@@ -382,19 +616,238 @@ System dynamics is a powerful modeling methodology developed by Jay Forrester at
 ### Purpose:
 
 - Defining states and probabilities
-- Model initialization and simulation
+- Can be used for simulation
 
-*Placeholder for Markov Chain model diagram*
+### What is Markov Chain Modelling?
 
-### Notes:
+Markov Chain Modelling involves the use of state-based models where the next state depends only on the current state and not on the sequence of events that preceded it. This characteristic makes it incredibly useful for modelling a variety of real-world processes that conform to these conditions.
 
-Markov Chain Modelling involves the use of state-based models where the next state depends only on the current state and not on the sequence of events that preceded it. This characteristic makes it incredibly useful for modeling a variety of real-world processes that conform to these conditions.
+**Predictive Power:** Markov chains are especially powerful in environments where future states are a probabilistic function of the current state. This makes them ideal for modelling scenarios where decisions or outcomes are sequential and stochastic in nature.
+
+**Application in Health and Social Sciences:** In health and social sciences, Markov models can predict the progression of diseases or conditions through different stages over time, allowing for the analysis of interventions and long-term outcomes in a dynamic framework.
+
+**Policy Simulation and Evaluation:** Markov models provide a framework for simulating the effects of different policy interventions, helping policymakers understand potential impacts before implementation. This is particularly valuable in dynamic systems where conditions evolve over time.
+
+**Utility in Complex Systems:** Due to their simplicity and robustness, Markov chains are used to model complex systems in a manageable way, providing insights into system behaviour with clear, probabilistic descriptions of possible future states.
+
+### Defining States and Probabilities
+
+In the context of Markov Chain Modelling, we have defined several mutually exclusive states for individuals based on their transitions within the DSS system. Each state represents a specific condition or status that an individual can be in during a given period. The definitions and rules for these states are as follows:
+
+#### State Definitions
+
+- **NOT BORN YET**: This state is assigned if the individual's age is less than 0.
+- **DECEASED**: This state is assigned if the individual is deceased (when DECEASED = 1 or ALIVE = 0).
+- **DSS**: This state is assigned if the individual is active in the DSS system (dss_active = 1) and not involved in any other recorded categories (CORR, EMPLOYED, HOSPITAL, OVERSEAS, T1, T2, EDU, OT = 0).
+- **NO DATA**: This state is assigned if the individual is alive but not active in the DSS system and not involved in any other recorded categories.
+- **CORR**: Interaction with the Corrections system
+- **EMPLOYED**: Employment status
+- **HOSPITAL**: Hospitalisation
+- **OVERSEAS**: Time spent overseas
+- **T1**: Main benefit category, (e.g., Jobseeker Support, Sole Parent Support)
+- **T2**: Supplementary benefit receipt
+- **EDU**: Education status
+- **OT**: Interaction with Oranga Tamariki
+
+#### Combined States
+
+When the individual is active in DSS and involved in other categories, the state is constructed by combining 'DSS_' with other states. The code checks the duration of involvement in each category and combines the top two states with the most significant duration.
+
+##### Conditions for Combined States
+
+- If the individual has been overseas for more than 180 days, the state becomes **'DSS_OVERSEAS'**.
+- If hospitalized for more than 30 days, the state becomes **'DSS_HOSPITAL'**.
+- If involved in any of the main categories (CORR, EMPLOYED, T1, T2, EDU) for more than 180 days, the top two categories are combined with **'DSS_'**.
+
+##### Example States
+
+- **'DSS_EMPLOYED_T1'**: Active in DSS, Employed for more than 180 days, and also recipient of T1 benefit for at least 180 days.
+- **'DSS_HOSPITAL'**: Active in DSS and hospitalized for more than 30 days.
+- **'DSS_NO_DATA'**: Active in DSS but no significant involvement in other categories.
+- **'DECEASED'**: The individual is deceased.
+
+#### State Duration
+
+- To qualify for a specific state, an individual must spend at least 180 days (roughly half a year) in that state within a given year.
+- This rule ensures that temporary or short-term transitions do not significantly impact the state classification.
+
+#### Combined States
+
+- In cases where an individual meets the criteria for more than one state (e.g., splitting time between Education and Employment), they are classified into combined states.
+- These combined states are also required to meet the 180-day rule for each constituent state.
+
+#### Categorization into "Other"
+
+- Any combinations or conditions that do not clearly fit into the predefined states or combined states are grouped into the "Other" category.
+- This includes uncommon or less frequent transitions and combinations of activities.
+
+By defining the states in this manner, we ensure that each state is representative of a significant and stable condition in an individual's life, allowing for more accurate modeling and analysis of transitions over time.
+
+This approach simplifies the complexity of individuals' transitions within the DSS system and provides a clear framework for understanding and predicting future states based on current conditions.
+
 
 ---
 
-## Most Common Transitions from DSS at Age 18-24
+## Most Common Transitions
 
-*Placeholder for table/chart of transitions*
+
+```{r clean and transform Markov Chain data, include=FALSE}
+# Load necessary libraries
+library(dplyr)
+library(ggplot2)
+library(readxl)
+library(tidyr)
+library(knitr)
+
+# Load the transition counts and population data
+transition_counts <- read_excel("Markov Chain Outputs 2024_06_13_corrected_for_release.xlsx", sheet = "Transition counts 2011-20 conf", skip=1)
+transition_counts_2021 <- read_excel("Markov Chain Outputs 2024_06_13_corrected_for_release.xlsx", sheet = "Transition counts 2021 conf", skip=1)
+
+# Function to clean transition counts data
+clean_transition_data <- function(df) {
+  df %>%
+    mutate(across(-c(age_groups, from_state), ~ replace(., . == "S", 0))) %>%
+    mutate(across(-c(age_groups, from_state), as.numeric)) %>%
+    filter(!grepl("Total", age_groups)) %>%
+    select(-`Grand Total`)
+}
+
+# Clean the data
+transition_counts <- clean_transition_data(transition_counts)
+transition_counts_2021 <- clean_transition_data(transition_counts_2021)
+
+# Transform the transition counts data to a long format
+transition_counts_long <- transition_counts %>%
+  pivot_longer(cols = -c(age_groups, from_state), names_to = "to_state", values_to = "count") %>%
+  filter(!is.na(count))
+
+transition_counts_2021_long <- transition_counts_2021 %>%
+  pivot_longer(cols = -c(age_groups, from_state), names_to = "to_state", values_to = "count") %>%
+  filter(!is.na(count))
+
+# Compute transition probabilities
+transition_probabilities <- transition_counts_long %>%
+  group_by(age_groups, from_state) %>%
+  summarise(total_count = sum(count), .groups = 'drop') %>%
+  left_join(transition_counts_long, by = c("age_groups", "from_state")) %>%
+  mutate(probability = count / total_count) %>%
+  select(age_groups, from_state, to_state, probability)
+
+# Transform the transition counts data to a long format
+transition_counts_long <- transition_counts %>%
+  pivot_longer(cols = -c(age_groups, from_state), names_to = "to_state", values_to = "count") %>%
+  filter(!is.na(count))
+
+transition_counts_2021_long <- transition_counts_2021 %>%
+  pivot_longer(cols = -c(age_groups, from_state), names_to = "to_state", values_to = "count") %>%
+  filter(!is.na(count))
+
+# Define the colors for the age groups
+colors <- c("Age 0-04" = "#4A1532", "Age 05-12" = "#00cfe8", "Age 13-17" = "#ff006e", 
+            "Age 18-24" = "#f95d6a", "Age 25-44" = "#ffa600", "Age 45-64" = "#bc5090", 
+            "Age 65+" = "#003f5c")
+
+```
+
+```{r transition plotting function, include=FALSE}
+library(kableExtra)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+
+# Assuming transition_counts_long is already created as before
+
+create_transition_table <- function(df, age_group) {
+  # Filter the dataset for the specified age group
+  transitions <- df %>%
+    filter(age_groups == age_group)
+  
+  # Calculate total transition counts for the age group
+  total_count <- sum(transitions$count, na.rm = TRUE)
+  
+  # Identify most common transitions within DSS
+  common_dss <- transitions %>%
+    filter(grepl("^DSS", from_state) & grepl("^DSS", to_state)) %>%
+    arrange(desc(count)) %>%
+    head(5) %>%
+    mutate(percentage = count / total_count * 100)
+  
+  # Identify most common transitions from DSS to non-DSS states
+  common_dss_to_non_dss <- transitions %>%
+    filter(grepl("^DSS", from_state) & !grepl("^DSS", to_state)) %>%
+    arrange(desc(count)) %>%
+    head(5) %>%
+    mutate(percentage = count / total_count * 100)
+  
+  # Ensure both types of transitions are combined and not empty
+  result <- bind_rows(
+    common_dss %>% mutate(transition_type = "Within DSS"),
+    common_dss_to_non_dss %>% mutate(transition_type = "DSS to non-DSS")
+  )
+  
+  # Plotting
+  ggplot(result, aes(x = reorder(paste(from_state, "->", to_state), percentage), y = percentage, fill = transition_type)) +
+    geom_bar(stat = "identity", position = "dodge") +
+    geom_text(aes(label = sprintf("%.1f%%", percentage)), 
+              position = position_dodge(width = 0), 
+              hjust = 0.4, 
+              size = 2.5) +
+    coord_flip() +
+    labs(title = paste("Top 5 DSS Transitions by Percentage for Age Group:", age_group),
+         x = "Transition",
+         y = "Percentage of Total Transitions",
+         fill = "Transition Type") +
+    theme_minimal(base_size = 10) +
+    theme(
+      plot.title = element_text(hjust = 0.5, size = 12),  # Left align the title
+      plot.margin = margin(5, 5, 5, 5),  # Adjust plot margin
+      axis.text = element_text(size = 8),  # Increase axis text size
+      axis.title = element_text(size = 8)  # Increase axis title size
+    ) +
+    scale_fill_manual(values = c("Within DSS" = "#ff006e", "DSS to non-DSS" = "#00cfe8")) 
+}
+
+
+```
+
+# Phase 3 – Markov Chain Modelling
+
+## Most Common Transitions from DSS Year-to-Year (2010-2020)
+
+### Explanation
+
+This section displays the most common year-to-year transitions for the DSS population from 2010 to 2020.
+
+
+:::{.panel-tabset}
+```{r results='asis', echo=FALSE, warning=FALSE}
+# Define the plots and their titles
+plot_list <- list(create_transition_table(transition_counts_long, "Age 0-04"),
+                create_transition_table(transition_counts_long, "Age 05-12"),
+                create_transition_table(transition_counts_long, "Age 13-17"),
+                create_transition_table(transition_counts_long, "Age 18-24"),
+                create_transition_table(transition_counts_long, "Age 25-44"),
+                create_transition_table(transition_counts_long, "Age 45-64"),
+                create_transition_table(transition_counts_long, "Age 65+")
+)
+headings <- c(
+"Top 5 Transitions for Age Group: Age 0-4",
+"Top 5 Transitions for Age Group: Age 5-12",
+"Top 5 Transitions for Age Group: Age 13-17",
+"Top 5 Transitions for Age Group: Age 18-24",
+"Top 5 Transitions for Age Group: Age 25-44",
+"Top 5 Transitions for Age Group: Age 45-64",
+"Top 5 Transitions for Age Group: Age 65+"
+)
+
+# Use a loop to generate the headings and insert plots
+for (i in seq_along(plot_list)) {
+  cat("### ", headings[i], "\n\n")
+  print(plot_list[[i]])
+  cat('\n\n')
+}
+```
+:::
 
 ### Notes:
 
@@ -482,15 +935,11 @@ merged_data_preview <- head(merged_data, 10)
 knitr::kable(merged_data_preview)
 
 ```
-```{r, include=FALSE}
-# Save the merged data as a CSV file for download
-write.csv(merged_data, "merged_data.csv", row.names = FALSE)
 
-```
 
 ### DSS Population Numbers by Ages and Age Groupings
 
-```{r data-preview, echo=FALSE}
+```{r age group data-preview, echo=FALSE}
 library(knitr)
 
 # Preview the first 10 rows of the DSS population data
@@ -500,9 +949,15 @@ data_preview <- head(data, 10)
 kable(data_preview)
 ```
 
-```{r, include=FALSE}
-# Save the DSS population data as a CSV file for download
-write.csv(data, "data.csv", row.names = FALSE)
+### DSS Population by New Entrants, Returners, Leavers and Total
+
+
+```{r new entr returner leaver data-preview, echo=FALSE}
+# Preview the first 10 rows of the combined dataset
+combined_data_preview <- head(final_combined_df, 10)
+
+# Display the preview
+knitr::kable(combined_data_preview)
 
 ```
 
