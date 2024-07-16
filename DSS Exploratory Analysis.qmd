@@ -16,8 +16,10 @@ format:
     theme: 
       light: flatly
       dark: darkly
+bibliography: references.bib
+csl: apa.csl
 ---
-Codes for retrieving datasets have not been reviewed.
+The data displayed are not final and may be revised. 
 For Discussion purposes only.
 ---
 
@@ -31,13 +33,87 @@ Access to the data used in this study was provided by Stats NZ under conditions 
 The results are based in part on tax data supplied by Inland Revenue to Stats NZ under the Tax Administration Act 1994 for statistical purposes. Any discussion of data limitations or weaknesses is in the context of using the IDI for statistical purposes and is not related to the data’s ability to support Inland Revenue’s core operational requirements.
 
 ---
+# Purpose
+
+The purpose of this research is to investigate the characteristics and outcomes of individuals receiving Disability Support Services (DSS) in New Zealand, with a focus on the most recent data available in the Integrated Data Infrastructure (IDI).
+
+This exploratory study aims to analyse the impact of demographic changes within the DSS client population on the flow through these services and provide actionable insights for policy development and service design.
+
+This study also provides an initial first step to design consecutive data extracts from IDI, help formulating and testing hypotheses, and research questions for consecutive study. It may also serve the purpose to ideate research into designing operational algorithms that can help better serve the DSS population of New Zealand.
+
+# Background
+
+This research is a continuation of an original project that focused on the 2018 Census year, commissioned and managed by the Social Investment Agency (SIA).
+Approximately 43,000 people received DSS from Whaikaha between January 1, 2022, and November 16, 2022 [@Whaikaha2023]. The analysis spans a decade, from 2011 to 2021, to capture comprehensive dynamics of this population. It is constrained by the data availability inside IDI, i.e. the latest available data to determine DSS receipt is 31st Mar 2021 as of now.
+
+The project employed descriptive analysis and some advanced statistical techniques, including stock and flow modeling to understand the movement of clients through the DSS system and identify factors influencing service engagement and disengagement.
+Key objectives include determining the profiles and pathways of DSS recipients, projecting future service needs, and informing policymakers on resource allocation and service enhancements. By examining reasons for service cessation, such as life transitions like aging or leaving school, this research will provide critical insights for developing more effective and responsive DSS interventions.
+
+Overall, the insights gained from this analysis can guide strategic planning, policy innovation, and service design, ultimately aiming to enhance the well-being of New Zealand’s disabled population.
+
+---
 
 # Phase 1 – Descriptive Statistics
 
-## Demographic Data Update
+## Description of SIA Codes
+
+The foundational project completed by SIA was part of the Disability Data and Evidence Working Group, chaired by Whaikaha, which is working on ways to improve the collection of data and statistics on disabled people. The SIA codes were created to systematically categorise and track the various services provided under DSS in New Zealand. These codes were designed to provide a one-off snapshot analsyis in 2018 to identifying and analysing the range of services available to individuals with disabilities.
+
+The creation of SIA codes was a collaborative effort involving government agencies, service providers, and representatives from the disabled community, ensuring practical, inclusive, and reflective codes.
+
+### Technical Details
+
+#### Population
+
+The research targets all disabled New Zealanders, estimated at 1.2 million people, including subgroups such as tāngata whaikaha Māori, disabled children, and those receiving support services, particularly from Whaikaha.The analysis separately identified DSS clients as well as disabled people not receiving DSS.  
+
+#### Variables
+
+Two broad data categories are used:
+
+1. **Identifying Disabled People and Their Needs**:
+    - Functional impairments and conditions
+    - Receipt of support services
+    - Eligibility or need indicators
+
+2. **Describing Wellbeing Outcomes**:
+    - Survey data (e.g., General Social Survey)
+    - Administrative data (education, economic participation, health, and crime)
+
+#### Methods
+
+The research employs various methodologies:
+
+- **Descriptive Analysis**: Identifying groups receiving services and those with needs.
+- **Propensity Score Matching**: Examining DSS impact by constructing comparison groups.
+- **Statistical Modeling**: Establishing relationships between various factors and outcomes.
+- **Longitudinal Analysis**: Tracking disabled people over time to estimate economic costs.
+
+These methods aim to meet project objectives and answer core research questions on DSS characteristics and outcomes.
+
+#### Outputs
+
+The project produced insights applicable to large parts of the disabled population, including:
+
+- Aggregated profiles
+- Statistical summaries
+- Subgroup comparisons
+- Time series data
+- Demographic segmentation
+- Projections and forecasts
+
+These outputs were confidentialised to ensure compliance with confidentiality requirements.
+
+SIA published a short guidance: [Te Atatū: Developing an indicator of disability](https://sia.govt.nz/publications/Te-Atatu-Developing-an-indicator-of-disability)
+
+SIA also made codes about functional disability public on its GitHub page: [Multi-source indicator of functional disability](https://github.com/nz-social-investment-agency/definitions_library/blob/main/people/functional_disability.sql)
+
+### Demographic Data Update
+
+The following steps were taken to assess and update the codes produced by SIA:
 
 - Data preparation
-- Analysing the codes shared by SWA
+- Analysing the codes shared by SIA
 - Running updated descriptive statistics
 - Rolling forward population to the latest available year
 - Updating all variables and data assembly to the latest available year
@@ -46,7 +122,9 @@ The results are based in part on tax data supplied by Inland Revenue to Stats NZ
 
 ---
 
-## Changes in Population Age Distribution
+## Analysis Results
+
+### Changes in Population Age Distribution
 
 Bimodal distribution with two peaks around the ages 9-13 and 57-63. The first peak shows growth from 2014, which speeds up after 2019. During the 2010-2021 period, the count of population in their early teens (9-13) increases from 3414 to 6633, i.e., by 94.29%. However, the age group displaying the highest growth rate over the period are those aged 70 and over.
 
@@ -259,19 +337,7 @@ for (i in seq_along(plot_list)) {
 ```
 :::
 
-### Notes
-
-#### Young Age Groups (Age 8-13)
-
-The first peak typically seen in the younger age groups (ages 3 to 13) has shown a pronounced and rapid growth over the years, notably increasing its count dramatically. For instance, the population at age 9 in 2010 was 732, which surged to 1323 by 2021. This rapid increase suggests a growing prevalence or diagnosis of disabilities in younger children, potentially due to better healthcare screening, more widely available diagnostic services, or an actual increase in cases.
-
-#### Older Age Groups (Age 57-63)
-
-The second peak traditionally seen in mid-life (ages 57 to 63) indicates a slower change over time compared to the younger group. The count at age 57 was 471 in 2012 and slightly increased to 543 by 2020. This relatively stable but slightly increasing trend could relate to new disabilities acquired in adulthood due to aging, lifestyle diseases, accidents, or other health issues that emerge later in life.
-
-### Additional Information
-
-#### Analysis of the Bimodal Distribution
+### Analysis of the Bimodal Distribution
 
 - **Younger Age Group Dynamics**: The first peak typically seen in the younger age groups (ages 3 to 13) has shown a pronounced and rapid growth over the years, notably increasing its count dramatically. For instance, the population at age 9 in 2010 was 732, which surged to 1323 by 2021. This rapid increase suggests a growing prevalence or diagnosis of disabilities in younger children, potentially due to better healthcare screening, more widely available diagnostic services, or an actual increase in cases.
   
@@ -322,11 +388,11 @@ Healthcare services will need to scale to meet the demands of an increasing disa
 
 ### Population Groups
 
-The SWA codes have the following population groups for which insights have been obtained:
+The SIA codes have the following population groups for which insights have been obtained:
 
-- **DSS in Given Year**: Individuals who received Disability Support Services (DSS) within the given year of the study. This group represents current users of services tailored for those with disabilities.
+- **DSS in Given Year**: Individuals who received DSS within the given year of the study. This group represents current users of services tailored for those with disabilities.
   
-- **DSS in Past**: Individuals who have previously received Disability Support Services but did not receive them in the given year of the study. This group helps to track changes in service usage over time.
+- **DSS in Past**: Individuals who have previously received DSS but did not receive them in the given year of the study. This group helps to track changes in service usage over time.
   
 - **DSS Subgroup - Early Investment and Intervention**: This subgroup includes individuals receiving early investment services and interventions, focusing on early developmental support for younger individuals or those newly diagnosed.
   
@@ -370,10 +436,25 @@ For detailed information, refer to the appendices where the variables and their 
 
 ---
 
-
 ## Prevalence of Indicators
 
+Below is an example about how the dataset can be used to track prevalence of indicator values in the DSS and total populations over time. 
+
 <iframe src="https://datart.shinyapps.io/prevalenceappclean/" width="100%" height="600"></iframe>
+
+### Let's look at an example
+
+To query the data, select an **indicator group**, e.g. "Demographics". The select an **indicator**, e.g. "Ethnicity - Asian". Finally select a **value**. Here 1 means that the population belongs to the ethnic group Asian. 
+Push the **Update** button to view the charts contrasting the proportion of Asian poopulation in the DSS and total population by age groups. The "Data Table" tab provides the same information in a table format. 
+
+Based on the data you can obtain some insights about this population group. The key observations might include underrepresentation across all age groups: Asian individuals in the "DSS in Given Year" group are consistently underrepresented across all age groups compared to their prevalence in the total population. This suggests lower engagement or access to disability support services among the Asian population, potentially indicating cultural, linguistic, or systemic barriers.
+
+### Age group analysis:
+
+- **Children and adolescents (3-18):** In both 2018 and 2021, this age group shows a significant difference in prevalence compared to the general population, with a slightly narrower gap in 2021. However, the prevalence of Asian individuals in DSS services for this age group remains notably lower than in the total population.
+- **Adults (19-44 and 45-64):** These age groups show the largest discrepancies in prevalence rates between those in DSS services and the total population. In 2021, the difference for the 19-44 age group is over 14%, indicating a significant gap in service access or use.
+- **Elderly (65+):** While still underrepresented, the gap in prevalence for this group is relatively smaller compared to other age groups. This could suggest slightly better engagement or need recognition among older Asian individuals in DSS services, though still below population proportions.
+- **Trends over time:** From 2018 to 2021, the prevalence of Asians in DSS services shows marginal improvements in the younger age groups but remains substantially lower than the total population levels. This persistently low engagement highlights the need for targeted interventions to improve access and inclusivity within disability support services for Asian communities.
 
 ---
 
@@ -382,8 +463,8 @@ For detailed information, refer to the appendices where the variables and their 
 System Dynamics Modelling involves capturing feedback processes, stocks and flows, time delays, and dynamic complexity in complex systems, aiming to understand how structures create system dynamics and generate policy resistance. It helps evaluate the consequences of new policies and designs through causal mapping and simulation modelling.
 While System Dynamics Modelling encompasses a broader view of system behaviour and policy evaluation, Stock and Flow Modelling specifically centres around the interaction of stocks and flows in a system
 
-***“Simulations are not tools to predict the future. Rather, they are virtual worlds or microworlds in which managers can develop decision-making skills, conduct experiments, and play.  Management flight simulators can be physical models, board games, or computer simulations. In systems with significant dynamic complexity, computer simulation will typically be needed.”*** 
-(Sterman, 2001)
+*“Simulations are not tools to predict the future. Rather, they are virtual worlds or microworlds in which managers can develop decision-making skills, conduct experiments, and play.  Management flight simulators can be physical models, board games, or computer simulations. In systems with significant dynamic complexity, computer simulation will typically be needed.”*
+[@Sterman2001]
 
 
 ## Core Concepts - Stocks and Flows
@@ -407,13 +488,6 @@ While System Dynamics Modelling encompasses a broader view of system behaviour a
 - **Outflows**:
   - Leavers: Individuals who exit DSS for any reason, including being deceased.
   - Aging Out: Individuals transitioning from the current age group to the next one.
-
-
-
-*Placeholder for diagram of stocks and flows*
-
-
-
 
 ```{r flow analysis setup, include=FALSE}
 # Load necessary libraries
@@ -855,16 +929,31 @@ The table is from the preliminary analysis of transition rates. It illustrates t
 
 ---
 
+# Planned Next Steps
+
+1. **Marianna to gather feedback on what would be useful to obtain from IDI as a final dataset.**
+   - Specifying the subset of variables and population characteristics. Questions include:
+     - Are the population groups defined best suited for your decision making? Should it be simplified or changed? (Refer to the [Population](#population) section)
+     - Are the additional dimensions adequate? The population is subsequentioned to large age bands, i.e., 3-18, 19-44, 45-64, 65+. Would narrower age bands, or additional dimensions (e.g., ethnicity, deprivation index, region), be helpful?
+     - **Variables**: Are the need variables the list you are looking for? Should rare diseases be included? Is there a pre-defined health alignment and functional disabilities list that best aligns with what Manawanui needs?
+     - Some variables could be better defined, i.e., highest qualification of parent 1 and parent 2 should be merged, income should possibly be banded into quartiles or quintiles to better adapt to increasing income as time passes. Are there any other observations regarding the usefulness of variables?
+
+2. **Validating with Manawanui and potentially with Whakaha (through Marsha facilitating) a desired dataset for regular outputting.**
+
+3. **Creating typical pathways of DSS clients over a period of time of about 13 years.** 
+   This limitation is due to data quality of the SOCRATES dataset in IDI. "The dataset runs from approximately 2002/03 onwards, but data from 2010 onwards are most reliable. Records prior to 2010 have been migrated from other sources" [@Esplin2016]. The method used will be based on representative timelines methodology as described in [@Pekar2021].
+
+---
+
 # THANK YOU
 
 Marianna Pekar  
 021-131-9793  
 Marianna.Pekar@gmail.com
 
+---
 
 ### References
-
-References will [appear here](https://quarto.org/docs/authoring/citations.html#bibliography-generation)!
 
 ::: {#refs}
 :::
@@ -874,6 +963,7 @@ References will [appear here](https://quarto.org/docs/authoring/citations.html#b
 # Appendices
 
 ## Appendix A: Data Dictionary
+Based on definitions provided by SIA (Andrew Webber and Craig Wright)
 
 ```{r data-dictionary, include=TRUE, echo=FALSE}
 library(readxl)

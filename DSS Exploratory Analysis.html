@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Marianna Pekar">
-<meta name="dcterms.date" content="2024-07-15">
+<meta name="dcterms.date" content="2024-07-16">
 
 <title>Interim Report: Demographic Snapshot Update of DSS</title>
 <style>
@@ -26,6 +26,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -69,21 +70,31 @@ div.csl-indent {
    
   <ul>
   <li><a href="#idi-disclaimer" id="toc-idi-disclaimer" class="nav-link active" data-scroll-target="#idi-disclaimer">IDI Disclaimer</a></li>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
   <li><a href="#phase-1-descriptive-statistics" id="toc-phase-1-descriptive-statistics" class="nav-link" data-scroll-target="#phase-1-descriptive-statistics">Phase 1 – Descriptive Statistics</a>
   <ul class="collapse">
-  <li><a href="#demographic-data-update" id="toc-demographic-data-update" class="nav-link" data-scroll-target="#demographic-data-update">Demographic Data Update</a></li>
-  <li><a href="#changes-in-population-age-distribution" id="toc-changes-in-population-age-distribution" class="nav-link" data-scroll-target="#changes-in-population-age-distribution">Changes in Population Age Distribution</a>
+  <li><a href="#description-of-sia-codes" id="toc-description-of-sia-codes" class="nav-link" data-scroll-target="#description-of-sia-codes">Description of SIA Codes</a>
   <ul class="collapse">
-  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
-  <li><a href="#additional-information" id="toc-additional-information" class="nav-link" data-scroll-target="#additional-information">Additional Information</a></li>
+  <li><a href="#technical-details" id="toc-technical-details" class="nav-link" data-scroll-target="#technical-details">Technical Details</a></li>
+  <li><a href="#demographic-data-update" id="toc-demographic-data-update" class="nav-link" data-scroll-target="#demographic-data-update">Demographic Data Update</a></li>
+  </ul></li>
+  <li><a href="#analysis-results" id="toc-analysis-results" class="nav-link" data-scroll-target="#analysis-results">Analysis Results</a>
+  <ul class="collapse">
+  <li><a href="#changes-in-population-age-distribution" id="toc-changes-in-population-age-distribution" class="nav-link" data-scroll-target="#changes-in-population-age-distribution">Changes in Population Age Distribution</a></li>
+  <li><a href="#analysis-of-the-bimodal-distribution" id="toc-analysis-of-the-bimodal-distribution" class="nav-link" data-scroll-target="#analysis-of-the-bimodal-distribution">Analysis of the Bimodal Distribution</a></li>
   <li><a href="#trends-over-time" id="toc-trends-over-time" class="nav-link" data-scroll-target="#trends-over-time">Trends Over Time</a></li>
   </ul></li>
   <li><a href="#population-and-variables" id="toc-population-and-variables" class="nav-link" data-scroll-target="#population-and-variables">Population and Variables</a>
   <ul class="collapse">
   <li><a href="#population-groups" id="toc-population-groups" class="nav-link" data-scroll-target="#population-groups">Population Groups</a></li>
-  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
+  <li><a href="#variables-1" id="toc-variables-1" class="nav-link" data-scroll-target="#variables-1">Variables</a></li>
   </ul></li>
-  <li><a href="#prevalence-of-indicators" id="toc-prevalence-of-indicators" class="nav-link" data-scroll-target="#prevalence-of-indicators">Prevalence of Indicators</a></li>
+  <li><a href="#prevalence-of-indicators" id="toc-prevalence-of-indicators" class="nav-link" data-scroll-target="#prevalence-of-indicators">Prevalence of Indicators</a>
+  <ul class="collapse">
+  <li><a href="#lets-look-at-an-example" id="toc-lets-look-at-an-example" class="nav-link" data-scroll-target="#lets-look-at-an-example">Let’s look at an example</a></li>
+  <li><a href="#age-group-analysis" id="toc-age-group-analysis" class="nav-link" data-scroll-target="#age-group-analysis">Age group analysis:</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#phase-2-system-dynamics" id="toc-phase-2-system-dynamics" class="nav-link" data-scroll-target="#phase-2-system-dynamics">Phase 2: System Dynamics</a>
   <ul class="collapse">
@@ -92,14 +103,14 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#stocks" id="toc-stocks" class="nav-link" data-scroll-target="#stocks">Stocks</a></li>
   <li><a href="#flows" id="toc-flows" class="nav-link" data-scroll-target="#flows">Flows</a></li>
-  <li><a href="#notes-1" id="toc-notes-1" class="nav-link" data-scroll-target="#notes-1">Notes:</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes:</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#phase-3-markov-chain-modelling" id="toc-phase-3-markov-chain-modelling" class="nav-link" data-scroll-target="#phase-3-markov-chain-modelling">Phase 3 – Markov Chain Modelling</a>
   <ul class="collapse">
   <li><a href="#markov-chain-modelling-of-transition-probabilities" id="toc-markov-chain-modelling-of-transition-probabilities" class="nav-link" data-scroll-target="#markov-chain-modelling-of-transition-probabilities">Markov Chain Modelling of Transition Probabilities</a>
   <ul class="collapse">
-  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose:</a></li>
+  <li><a href="#purpose-1" id="toc-purpose-1" class="nav-link" data-scroll-target="#purpose-1">Purpose:</a></li>
   <li><a href="#what-is-markov-chain-modelling" id="toc-what-is-markov-chain-modelling" class="nav-link" data-scroll-target="#what-is-markov-chain-modelling">What is Markov Chain Modelling?</a></li>
   <li><a href="#defining-states-and-probabilities" id="toc-defining-states-and-probabilities" class="nav-link" data-scroll-target="#defining-states-and-probabilities">Defining States and Probabilities</a></li>
   </ul></li>
@@ -110,9 +121,10 @@ div.csl-indent {
   <li><a href="#most-common-transitions-from-dss-year-to-year-2010-2020" id="toc-most-common-transitions-from-dss-year-to-year-2010-2020" class="nav-link" data-scroll-target="#most-common-transitions-from-dss-year-to-year-2010-2020">Most Common Transitions from DSS Year-to-Year (2010-2020)</a>
   <ul class="collapse">
   <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation">Explanation</a></li>
-  <li><a href="#notes-2" id="toc-notes-2" class="nav-link" data-scroll-target="#notes-2">Notes:</a></li>
+  <li><a href="#notes-1" id="toc-notes-1" class="nav-link" data-scroll-target="#notes-1">Notes:</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#planned-next-steps" id="toc-planned-next-steps" class="nav-link" data-scroll-target="#planned-next-steps">Planned Next Steps</a></li>
   <li><a href="#thank-you" id="toc-thank-you" class="nav-link" data-scroll-target="#thank-you">THANK YOU</a>
   <ul class="collapse">
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -160,7 +172,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 15, 2024</p>
+      <p class="date">July 16, 2024</p>
     </div>
   </div>
   
@@ -172,7 +184,7 @@ div.csl-indent {
 </header>
 
 
-<p>Codes for retrieving datasets have not been reviewed. For Discussion purposes only.</p>
+<p>The data displayed are not final and may be revised. For Discussion purposes only.</p>
 <hr>
 <section id="idi-disclaimer" class="level1">
 <h1>IDI Disclaimer</h1>
@@ -181,13 +193,81 @@ div.csl-indent {
 <p>The results are based in part on tax data supplied by Inland Revenue to Stats NZ under the Tax Administration Act 1994 for statistical purposes. Any discussion of data limitations or weaknesses is in the context of using the IDI for statistical purposes and is not related to the data’s ability to support Inland Revenue’s core operational requirements.</p>
 <hr>
 </section>
+<section id="purpose" class="level1">
+<h1>Purpose</h1>
+<p>The purpose of this research is to investigate the characteristics and outcomes of individuals receiving Disability Support Services (DSS) in New Zealand, with a focus on the most recent data available in the Integrated Data Infrastructure (IDI).</p>
+<p>This exploratory study aims to analyse the impact of demographic changes within the DSS client population on the flow through these services and provide actionable insights for policy development and service design.</p>
+<p>This study also provides an initial first step to design consecutive data extracts from IDI, help formulating and testing hypotheses, and research questions for consecutive study. It may also serve the purpose to ideate research into designing operational algorithms that can help better serve the DSS population of New Zealand.</p>
+</section>
+<section id="background" class="level1">
+<h1>Background</h1>
+<p>This research is a continuation of an original project that focused on the 2018 Census year, commissioned and managed by the Social Investment Agency (SIA). Approximately 43,000 people received DSS from Whaikaha between January 1, 2022, and November 16, 2022 <span class="citation" data-cites="Whaikaha2023">(<a href="#ref-Whaikaha2023" role="doc-biblioref">Ministry of Disabled People, 2023</a>)</span>. The analysis spans a decade, from 2011 to 2021, to capture comprehensive dynamics of this population. It is constrained by the data availability inside IDI, i.e.&nbsp;the latest available data to determine DSS receipt is 31st Mar 2021 as of now.</p>
+<p>The project employed descriptive analysis and some advanced statistical techniques, including stock and flow modeling to understand the movement of clients through the DSS system and identify factors influencing service engagement and disengagement. Key objectives include determining the profiles and pathways of DSS recipients, projecting future service needs, and informing policymakers on resource allocation and service enhancements. By examining reasons for service cessation, such as life transitions like aging or leaving school, this research will provide critical insights for developing more effective and responsive DSS interventions.</p>
+<p>Overall, the insights gained from this analysis can guide strategic planning, policy innovation, and service design, ultimately aiming to enhance the well-being of New Zealand’s disabled population.</p>
+<hr>
+</section>
 <section id="phase-1-descriptive-statistics" class="level1">
 <h1>Phase 1 – Descriptive Statistics</h1>
-<section id="demographic-data-update" class="level2">
-<h2 class="anchored" data-anchor-id="demographic-data-update">Demographic Data Update</h2>
+<section id="description-of-sia-codes" class="level2">
+<h2 class="anchored" data-anchor-id="description-of-sia-codes">Description of SIA Codes</h2>
+<p>The foundational project completed by SIA was part of the Disability Data and Evidence Working Group, chaired by Whaikaha, which is working on ways to improve the collection of data and statistics on disabled people. The SIA codes were created to systematically categorise and track the various services provided under DSS in New Zealand. These codes were designed to provide a one-off snapshot analsyis in 2018 to identifying and analysing the range of services available to individuals with disabilities.</p>
+<p>The creation of SIA codes was a collaborative effort involving government agencies, service providers, and representatives from the disabled community, ensuring practical, inclusive, and reflective codes.</p>
+<section id="technical-details" class="level3">
+<h3 class="anchored" data-anchor-id="technical-details">Technical Details</h3>
+<section id="population" class="level4">
+<h4 class="anchored" data-anchor-id="population">Population</h4>
+<p>The research targets all disabled New Zealanders, estimated at 1.2 million people, including subgroups such as tāngata whaikaha Māori, disabled children, and those receiving support services, particularly from Whaikaha.The analysis separately identified DSS clients as well as disabled people not receiving DSS.</p>
+</section>
+<section id="variables" class="level4">
+<h4 class="anchored" data-anchor-id="variables">Variables</h4>
+<p>Two broad data categories are used:</p>
+<ol type="1">
+<li><strong>Identifying Disabled People and Their Needs</strong>:
+<ul>
+<li>Functional impairments and conditions</li>
+<li>Receipt of support services</li>
+<li>Eligibility or need indicators</li>
+</ul></li>
+<li><strong>Describing Wellbeing Outcomes</strong>:
+<ul>
+<li>Survey data (e.g., General Social Survey)</li>
+<li>Administrative data (education, economic participation, health, and crime)</li>
+</ul></li>
+</ol>
+</section>
+<section id="methods" class="level4">
+<h4 class="anchored" data-anchor-id="methods">Methods</h4>
+<p>The research employs various methodologies:</p>
+<ul>
+<li><strong>Descriptive Analysis</strong>: Identifying groups receiving services and those with needs.</li>
+<li><strong>Propensity Score Matching</strong>: Examining DSS impact by constructing comparison groups.</li>
+<li><strong>Statistical Modeling</strong>: Establishing relationships between various factors and outcomes.</li>
+<li><strong>Longitudinal Analysis</strong>: Tracking disabled people over time to estimate economic costs.</li>
+</ul>
+<p>These methods aim to meet project objectives and answer core research questions on DSS characteristics and outcomes.</p>
+</section>
+<section id="outputs" class="level4">
+<h4 class="anchored" data-anchor-id="outputs">Outputs</h4>
+<p>The project produced insights applicable to large parts of the disabled population, including:</p>
+<ul>
+<li>Aggregated profiles</li>
+<li>Statistical summaries</li>
+<li>Subgroup comparisons</li>
+<li>Time series data</li>
+<li>Demographic segmentation</li>
+<li>Projections and forecasts</li>
+</ul>
+<p>These outputs were confidentialised to ensure compliance with confidentiality requirements.</p>
+<p>SIA published a short guidance: <a href="https://sia.govt.nz/publications/Te-Atatu-Developing-an-indicator-of-disability">Te Atatū: Developing an indicator of disability</a></p>
+<p>SIA also made codes about functional disability public on its GitHub page: <a href="https://github.com/nz-social-investment-agency/definitions_library/blob/main/people/functional_disability.sql">Multi-source indicator of functional disability</a></p>
+</section>
+</section>
+<section id="demographic-data-update" class="level3">
+<h3 class="anchored" data-anchor-id="demographic-data-update">Demographic Data Update</h3>
+<p>The following steps were taken to assess and update the codes produced by SIA:</p>
 <ul>
 <li>Data preparation</li>
-<li>Analysing the codes shared by SWA</li>
+<li>Analysing the codes shared by SIA</li>
 <li>Running updated descriptive statistics</li>
 <li>Rolling forward population to the latest available year</li>
 <li>Updating all variables and data assembly to the latest available year</li>
@@ -196,8 +276,11 @@ div.csl-indent {
 </ul>
 <hr>
 </section>
-<section id="changes-in-population-age-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="changes-in-population-age-distribution">Changes in Population Age Distribution</h2>
+</section>
+<section id="analysis-results" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-results">Analysis Results</h2>
+<section id="changes-in-population-age-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="changes-in-population-age-distribution">Changes in Population Age Distribution</h3>
 <p>Bimodal distribution with two peaks around the ages 9-13 and 57-63. The first peak shows growth from 2014, which speeds up after 2019. During the 2010-2021 period, the count of population in their early teens (9-13) increases from 3414 to 6633, i.e., by 94.29%. However, the age group displaying the highest growth rate over the period are those aged 70 and over.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -225,28 +308,15 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<section id="notes" class="level3">
-<h3 class="anchored" data-anchor-id="notes">Notes</h3>
-<section id="young-age-groups-age-8-13" class="level4">
-<h4 class="anchored" data-anchor-id="young-age-groups-age-8-13">Young Age Groups (Age 8-13)</h4>
-<p>The first peak typically seen in the younger age groups (ages 3 to 13) has shown a pronounced and rapid growth over the years, notably increasing its count dramatically. For instance, the population at age 9 in 2010 was 732, which surged to 1323 by 2021. This rapid increase suggests a growing prevalence or diagnosis of disabilities in younger children, potentially due to better healthcare screening, more widely available diagnostic services, or an actual increase in cases.</p>
 </section>
-<section id="older-age-groups-age-57-63" class="level4">
-<h4 class="anchored" data-anchor-id="older-age-groups-age-57-63">Older Age Groups (Age 57-63)</h4>
-<p>The second peak traditionally seen in mid-life (ages 57 to 63) indicates a slower change over time compared to the younger group. The count at age 57 was 471 in 2012 and slightly increased to 543 by 2020. This relatively stable but slightly increasing trend could relate to new disabilities acquired in adulthood due to aging, lifestyle diseases, accidents, or other health issues that emerge later in life.</p>
-</section>
-</section>
-<section id="additional-information" class="level3">
-<h3 class="anchored" data-anchor-id="additional-information">Additional Information</h3>
-<section id="analysis-of-the-bimodal-distribution" class="level4">
-<h4 class="anchored" data-anchor-id="analysis-of-the-bimodal-distribution">Analysis of the Bimodal Distribution</h4>
+<section id="analysis-of-the-bimodal-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-of-the-bimodal-distribution">Analysis of the Bimodal Distribution</h3>
 <ul>
 <li><p><strong>Younger Age Group Dynamics</strong>: The first peak typically seen in the younger age groups (ages 3 to 13) has shown a pronounced and rapid growth over the years, notably increasing its count dramatically. For instance, the population at age 9 in 2010 was 732, which surged to 1323 by 2021. This rapid increase suggests a growing prevalence or diagnosis of disabilities in younger children, potentially due to better healthcare screening, more widely available diagnostic services, or an actual increase in cases.</p></li>
 <li><p><strong>Transition Challenges</strong>: A dip in population counts is typically observed around ages 14 to 16, where there appears to be a decrease before the counts begin to increase again in mid-life. This pattern could be indicative of several factors, including transitions from child to adult disability support services, changes in eligibility criteria, or even mortality rates that might be higher in this group due to severe disabilities. Investigating the reasons behind this dip is crucial as it may reveal gaps in services or support during critical life transitions. Understanding when and why disabled youth drop off from DSS can help in addressing potential shortfalls in the continuity of care and support systems.</p></li>
 <li><p><strong>Mid-life Age Group Dynamics</strong>: The second peak, traditionally seen in mid-life (ages 57 to 63), indicates a slower change over time compared to the younger group. The count at age 57 was 471 in 2012 and slightly increased to 543 by 2020. This relatively stable but slightly increasing trend could relate to new disabilities acquired in adulthood due to aging, lifestyle diseases, accidents, or other health issues that emerge later in life.</p></li>
 <li><p><strong>65+ Population Dynamics</strong>: Despite the apparent client count peak around the age of 9-13 rapidly growing over the period in focus, the group experiencing the largest percentage increase are the oldest group. The growth in the eldest population suggests an urgent need for expanding and adapting services that cater to aging individuals with disabilities. This includes long-term care options, age-appropriate medical interventions, and social support systems that can manage the complexities of aging with a disability.</p></li>
 </ul>
-</section>
 </section>
 <section id="trends-over-time" class="level3">
 <h3 class="anchored" data-anchor-id="trends-over-time">Trends Over Time</h3>
@@ -277,10 +347,10 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="population-and-variables">Population and Variables</h2>
 <section id="population-groups" class="level3">
 <h3 class="anchored" data-anchor-id="population-groups">Population Groups</h3>
-<p>The SWA codes have the following population groups for which insights have been obtained:</p>
+<p>The SIA codes have the following population groups for which insights have been obtained:</p>
 <ul>
-<li><p><strong>DSS in Given Year</strong>: Individuals who received Disability Support Services (DSS) within the given year of the study. This group represents current users of services tailored for those with disabilities.</p></li>
-<li><p><strong>DSS in Past</strong>: Individuals who have previously received Disability Support Services but did not receive them in the given year of the study. This group helps to track changes in service usage over time.</p></li>
+<li><p><strong>DSS in Given Year</strong>: Individuals who received DSS within the given year of the study. This group represents current users of services tailored for those with disabilities.</p></li>
+<li><p><strong>DSS in Past</strong>: Individuals who have previously received DSS but did not receive them in the given year of the study. This group helps to track changes in service usage over time.</p></li>
 <li><p><strong>DSS Subgroup - Early Investment and Intervention</strong>: This subgroup includes individuals receiving early investment services and interventions, focusing on early developmental support for younger individuals or those newly diagnosed.</p></li>
 <li><p><strong>DSS Subgroup - Facility-based Supports</strong>: Individuals who receive support services that are facility-based. These are typically more intensive supports provided in specialized settings.</p></li>
 <li><p><strong>DSS Subgroup - Flexible Funding and Supports</strong>: This subgroup includes individuals who receive flexible funding or supports, allowing for personalized accommodations to better meet their unique needs.</p></li>
@@ -289,8 +359,8 @@ div.csl-indent {
 <li><p><strong>Rest of Population</strong>: This group includes all other individuals in the population who do not fall into the above categories, serving as a control or comparison group for broader population studies.</p></li>
 </ul>
 </section>
-<section id="variables" class="level3">
-<h3 class="anchored" data-anchor-id="variables">Variables</h3>
+<section id="variables-1" class="level3">
+<h3 class="anchored" data-anchor-id="variables-1">Variables</h3>
 <p>The dataset contains a broad range of variables that are categorised across several domains reflecting different aspects of socio-economic, demographic, health, justice, and housing conditions, among others.</p>
 <p>The dataset contains a broad range of variables that are categorised across several domains reflecting different aspects of socio-economic, demographic, health, justice, and housing conditions among others.</p>
 <ul>
@@ -313,15 +383,30 @@ div.csl-indent {
 </section>
 <section id="prevalence-of-indicators" class="level2">
 <h2 class="anchored" data-anchor-id="prevalence-of-indicators">Prevalence of Indicators</h2>
+<p>Below is an example about how the dataset can be used to track prevalence of indicator values in the DSS and total populations over time.</p>
 <iframe src="https://datart.shinyapps.io/prevalenceappclean/" width="100%" height="600">
 </iframe>
+<section id="lets-look-at-an-example" class="level3">
+<h3 class="anchored" data-anchor-id="lets-look-at-an-example">Let’s look at an example</h3>
+<p>To query the data, select an <strong>indicator group</strong>, e.g.&nbsp;“Demographics”. The select an <strong>indicator</strong>, e.g.&nbsp;“Ethnicity - Asian”. Finally select a <strong>value</strong>. Here 1 means that the population belongs to the ethnic group Asian. Push the <strong>Update</strong> button to view the charts contrasting the proportion of Asian poopulation in the DSS and total population by age groups. The “Data Table” tab provides the same information in a table format.</p>
+<p>Based on the data you can obtain some insights about this population group. The key observations might include underrepresentation across all age groups: Asian individuals in the “DSS in Given Year” group are consistently underrepresented across all age groups compared to their prevalence in the total population. This suggests lower engagement or access to disability support services among the Asian population, potentially indicating cultural, linguistic, or systemic barriers.</p>
+</section>
+<section id="age-group-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="age-group-analysis">Age group analysis:</h3>
+<ul>
+<li><strong>Children and adolescents (3-18):</strong> In both 2018 and 2021, this age group shows a significant difference in prevalence compared to the general population, with a slightly narrower gap in 2021. However, the prevalence of Asian individuals in DSS services for this age group remains notably lower than in the total population.</li>
+<li><strong>Adults (19-44 and 45-64):</strong> These age groups show the largest discrepancies in prevalence rates between those in DSS services and the total population. In 2021, the difference for the 19-44 age group is over 14%, indicating a significant gap in service access or use.</li>
+<li><strong>Elderly (65+):</strong> While still underrepresented, the gap in prevalence for this group is relatively smaller compared to other age groups. This could suggest slightly better engagement or need recognition among older Asian individuals in DSS services, though still below population proportions.</li>
+<li><strong>Trends over time:</strong> From 2018 to 2021, the prevalence of Asians in DSS services shows marginal improvements in the younger age groups but remains substantially lower than the total population levels. This persistently low engagement highlights the need for targeted interventions to improve access and inclusivity within disability support services for Asian communities.</li>
+</ul>
 <hr>
+</section>
 </section>
 </section>
 <section id="phase-2-system-dynamics" class="level1">
 <h1>Phase 2: System Dynamics</h1>
 <p>System Dynamics Modelling involves capturing feedback processes, stocks and flows, time delays, and dynamic complexity in complex systems, aiming to understand how structures create system dynamics and generate policy resistance. It helps evaluate the consequences of new policies and designs through causal mapping and simulation modelling. While System Dynamics Modelling encompasses a broader view of system behaviour and policy evaluation, Stock and Flow Modelling specifically centres around the interaction of stocks and flows in a system</p>
-<p><strong><em>“Simulations are not tools to predict the future. Rather, they are virtual worlds or microworlds in which managers can develop decision-making skills, conduct experiments, and play. Management flight simulators can be physical models, board games, or computer simulations. In systems with significant dynamic complexity, computer simulation will typically be needed.”</em></strong> (Sterman, 2001)</p>
+<p><em>“Simulations are not tools to predict the future. Rather, they are virtual worlds or microworlds in which managers can develop decision-making skills, conduct experiments, and play. Management flight simulators can be physical models, board games, or computer simulations. In systems with significant dynamic complexity, computer simulation will typically be needed.”</em> <span class="citation" data-cites="Sterman2001">(<a href="#ref-Sterman2001" role="doc-biblioref">Sterman, 2001</a>)</span></p>
 <section id="core-concepts---stocks-and-flows" class="level2">
 <h2 class="anchored" data-anchor-id="core-concepts---stocks-and-flows">Core Concepts - Stocks and Flows</h2>
 <ul>
@@ -352,7 +437,6 @@ div.csl-indent {
 <li>Aging Out: Individuals transitioning from the current age group to the next one.</li>
 </ul></li>
 </ul>
-<p><em>Placeholder for diagram of stocks and flows</em></p>
 <section id="analysis-of-stocks-and-flows" class="level4">
 <h4 class="anchored" data-anchor-id="analysis-of-stocks-and-flows">Analysis of stocks and flows</h4>
 <p>Below are the charts showing different aspects of the DSS population data: new entrants, leavers, returners (those who were DSS clients, left and returned during the time period 2010-2021). Note, that leavers are those who left DSS for any reason, including being deceased.</p>
@@ -388,8 +472,8 @@ div.csl-indent {
 </section>
 </section>
 </section>
-<section id="notes-1" class="level3">
-<h3 class="anchored" data-anchor-id="notes-1">Notes:</h3>
+<section id="notes" class="level3">
+<h3 class="anchored" data-anchor-id="notes">Notes:</h3>
 <p>System dynamics is a powerful modeling methodology developed by Jay Forrester at MIT, designed to handle the complexities of interconnected systems across various disciplines. This approach combines insights from both social and physical systems to provide a structured way of understanding and predicting dynamics within any system.</p>
 <hr>
 </section>
@@ -399,8 +483,8 @@ div.csl-indent {
 <h1>Phase 3 – Markov Chain Modelling</h1>
 <section id="markov-chain-modelling-of-transition-probabilities" class="level2">
 <h2 class="anchored" data-anchor-id="markov-chain-modelling-of-transition-probabilities">Markov Chain Modelling of Transition Probabilities</h2>
-<section id="purpose" class="level3">
-<h3 class="anchored" data-anchor-id="purpose">Purpose:</h3>
+<section id="purpose-1" class="level3">
+<h3 class="anchored" data-anchor-id="purpose-1">Purpose:</h3>
 <ul>
 <li>Defining states and probabilities</li>
 <li>Can be used for simulation</li>
@@ -519,23 +603,52 @@ div.csl-indent {
 </div>
 </div>
 </section>
-<section id="notes-2" class="level3">
-<h3 class="anchored" data-anchor-id="notes-2">Notes:</h3>
+<section id="notes-1" class="level3">
+<h3 class="anchored" data-anchor-id="notes-1">Notes:</h3>
 <p>The table is from the preliminary analysis of transition rates. It illustrates the transitions between various mutually exclusive states for individuals from the DSS system within the age group 18-24 over the decade from 2011 to 2020. This data helps identify the most common pathways taken by young adults receiving Disability Support Services and can highlight areas where intervention and support might be adjusted to better serve this population.</p>
 <hr>
 </section>
 </section>
+</section>
+<section id="planned-next-steps" class="level1">
+<h1>Planned Next Steps</h1>
+<ol type="1">
+<li><p><strong>Marianna to gather feedback on what would be useful to obtain from IDI as a final dataset.</strong></p>
+<ul>
+<li>Specifying the subset of variables and population characteristics. Questions include:
+<ul>
+<li>Are the population groups defined best suited for your decision making? Should it be simplified or changed? (Refer to the <a href="#population">Population</a> section)</li>
+<li>Are the additional dimensions adequate? The population is subsequentioned to large age bands, i.e., 3-18, 19-44, 45-64, 65+. Would narrower age bands, or additional dimensions (e.g., ethnicity, deprivation index, region), be helpful?</li>
+<li><strong>Variables</strong>: Are the need variables the list you are looking for? Should rare diseases be included? Is there a pre-defined health alignment and functional disabilities list that best aligns with what Manawanui needs?</li>
+<li>Some variables could be better defined, i.e., highest qualification of parent 1 and parent 2 should be merged, income should possibly be banded into quartiles or quintiles to better adapt to increasing income as time passes. Are there any other observations regarding the usefulness of variables?</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Validating with Manawanui and potentially with Whakaha (through Marsha facilitating) a desired dataset for regular outputting.</strong></p></li>
+<li><p><strong>Creating typical pathways of DSS clients over a period of time of about 13 years.</strong> This limitation is due to data quality of the SOCRATES dataset in IDI. “The dataset runs from approximately 2002/03 onwards, but data from 2010 onwards are most reliable. Records prior to 2010 have been migrated from other sources” <span class="citation" data-cites="Esplin2016">(<a href="#ref-Esplin2016" role="doc-biblioref">Esplin et al., 2016</a>)</span>. The method used will be based on representative timelines methodology as described in <span class="citation" data-cites="Pekar2021">(<a href="#ref-Pekar2021" role="doc-biblioref">Pekar &amp; Bancolita, 2021</a>)</span>.</p></li>
+</ol>
+<hr>
 </section>
 <section id="thank-you" class="level1">
 <h1>THANK YOU</h1>
 <p>Marianna Pekar<br>
 021-131-9793<br>
 Marianna.Pekar@gmail.com</p>
+<hr>
 <section id="references" class="level3">
 <h3 class="anchored" data-anchor-id="references">References</h3>
-<p>References will <a href="https://quarto.org/docs/authoring/citations.html#bibliography-generation">appear here</a>!</p>
-<div id="refs" role="list">
-
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-Esplin2016" class="csl-entry" role="listitem">
+Esplin, J., Moore, D., Blick, G., Rook, H., &amp; Poynton, M. (2016). <em>Report for disability support services, ministry of health disability information and advisory services and needs assessment and service coordination review a proposed design and framework</em>.
+</div>
+<div id="ref-Whaikaha2023" class="csl-entry" role="listitem">
+Ministry of Disabled People, W. -. (2023). <em>COVID-19 disability data review</em>. <a href="https://www.whaikaha.govt.nz/news-and-events/news/covid-19-disability-data-review">https://www.whaikaha.govt.nz/news-and-events/news/covid-19-disability-data-review</a>
+</div>
+<div id="ref-Pekar2021" class="csl-entry" role="listitem">
+Pekar, M., &amp; Bancolita, J. (2021). <em>Ngā tapuae technical guidance, analysing māori student transitions in the ngāi tahu takiwā</em>. Social Wellbeing Agency. <a href="https://www.stats.govt.nz/integrated-data/.">https://www.stats.govt.nz/integrated-data/.</a>
+</div>
+<div id="ref-Sterman2001" class="csl-entry" role="listitem">
+Sterman, J. D. (2001). System dynamics modeling: Tools for learning in a complex world. In <em>California CMR</em> (Vol. 43).
+</div>
 </div>
 <hr>
 </section>
@@ -544,6 +657,7 @@ Marianna.Pekar@gmail.com</p>
 <h1>Appendices</h1>
 <section id="appendix-a-data-dictionary" class="level2">
 <h2 class="anchored" data-anchor-id="appendix-a-data-dictionary">Appendix A: Data Dictionary</h2>
+<p>Based on definitions provided by SIA (Andrew Webber and Craig Wright)</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
