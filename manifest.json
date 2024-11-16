@@ -876,7 +876,7 @@
         "BugReports": "https://github.com/thomasp85/gganimate/issues",
         "Depends": "ggplot2 (>= 3.5.0)",
         "Imports": "cli, glue, grDevices, grid, lifecycle, progress, rlang,\nscales, stringi, transformr (>= 0.1.5), tweenr (>= 2.0.3),\nutils, vctrs",
-        "Suggests": "av, base64enc, covr, gifski (>= 1.4.3), htmltools, knitr,\nmagick, ragg, rmarkdown, sf, svglite, testthat",
+        "Suggests": "av, base64enc, covr, htmltools, knitr,\nmagick, ragg, rmarkdown, sf, svglite, testthat",
         "VignetteBuilder": "knitr",
         "Encoding": "UTF-8",
         "RoxygenNote": "7.3.1",
@@ -947,34 +947,6 @@
         "Repository": "CRAN",
         "Date/Publication": "2024-01-10 21:03:02 UTC",
         "Built": "R 4.4.0; x86_64-w64-mingw32; 2024-06-05 02:22:02 UTC; windows",
-        "Archs": "x64"
-      }
-    },
-    "gifski": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "gifski",
-        "Type": "Package",
-        "Title": "Highest Quality GIF Encoder",
-        "Version": "1.12.0-2",
-        "Authors@R": "c(\n    person(\"Jeroen\", \"Ooms\", ,\"jeroen@berkeley.edu\", role = c(\"aut\", \"cre\"),\n      comment = c(ORCID = \"0000-0002-4035-0289\")),\n    person(\"Kornel Lesiński\", role = \"aut\", comment = \"Gifski Rust library\"),\n    person(\"Authors of the dependency Rust crates\", role = \"aut\", \n      comment = \"see AUTHORS file\"))",
-        "Description": "Multi-threaded GIF encoder written in Rust: <https://gif.ski/>. \n    Converts images to GIF animations using pngquant's efficient cross-frame \n    palettes and temporal dithering with thousands of colors per frame.",
-        "License": "MIT + file LICENSE",
-        "URL": "https://r-rust.r-universe.dev/gifski",
-        "BugReports": "https://github.com/r-rust/gifski/issues",
-        "SystemRequirements": "Cargo (Rust's package manager), rustc",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.1.1",
-        "Suggests": "ggplot2, gapminder",
-        "Language": "en-US",
-        "NeedsCompilation": "yes",
-        "Packaged": "2023-08-09 11:49:43 UTC; jeroen",
-        "Author": "Jeroen Ooms [aut, cre] (<https://orcid.org/0000-0002-4035-0289>),\n  Kornel Lesiński [aut] (Gifski Rust library),\n  Authors of the dependency Rust crates [aut] (see AUTHORS file)",
-        "Maintainer": "Jeroen Ooms <jeroen@berkeley.edu>",
-        "Repository": "CRAN",
-        "Date/Publication": "2023-08-12 15:50:07 UTC",
-        "Built": "R 4.4.0; x86_64-w64-mingw32; 2024-06-05 00:36:22 UTC; windows",
         "Archs": "x64"
       }
     },
@@ -1346,7 +1318,7 @@
         "Description": "Provides a general-purpose tool for dynamic report generation in R\n    using Literate Programming techniques.",
         "Depends": "R (>= 3.3.0)",
         "Imports": "evaluate (>= 0.15), highr, methods, tools, xfun (>= 0.43),\nyaml (>= 2.1.19)",
-        "Suggests": "bslib, codetools, DBI (>= 0.4-1), digest, formatR, gifski,\ngridSVG, htmlwidgets (>= 0.7), jpeg, JuliaCall (>= 0.11.1),\nmagick, markdown (>= 1.3), png, ragg, reticulate (>= 1.4), rgl\n(>= 0.95.1201), rlang, rmarkdown, sass, showtext, styler (>=\n1.2.0), targets (>= 0.6.0), testit, tibble, tikzDevice (>=\n0.10), tinytex (>= 0.46), webshot, rstudioapi, svglite",
+        "Suggests": "bslib, codetools, DBI (>= 0.4-1), digest, formatR, \ngridSVG, htmlwidgets (>= 0.7), jpeg, JuliaCall (>= 0.11.1),\nmagick, markdown (>= 1.3), png, ragg, reticulate (>= 1.4), rgl\n(>= 0.95.1201), rlang, rmarkdown, sass, showtext, styler (>=\n1.2.0), targets (>= 0.6.0), testit, tibble, tikzDevice (>=\n0.10), tinytex (>= 0.46), webshot, rstudioapi, svglite",
         "License": "GPL",
         "URL": "https://yihui.org/knitr/",
         "BugReports": "https://github.com/yihui/knitr/issues",
@@ -2887,10 +2859,40 @@
     "data.csv": {
       "checksum": "ce1bc2357ec4900fa3e76c745cebef52"
     },
+    "DSS-Exploratory-Analysis_files/figure-html/age-0-04-transitions-1.png": {
+      "checksum": "a1c552be75b47e053e0b731c592033e2"
+    },
+    "DSS-Exploratory-Analysis_files/figure-html/age-0-04-transitions-2.png": {
+      "checksum": "aea66fff47b686bfdf1d43030cab313f"
+    },
+    "DSS-Exploratory-Analysis_files/figure-html/age-0-04-transitions-3.png": {
+      "checksum": "34b609f3f8947063846aa6dd15766616"
+    },
+    "DSS-Exploratory-Analysis_files/figure-html/age-0-04-transitions-4.png": {
+      "checksum": "cb4315420dd7f2c9079821a5e27c83f3"
+    },
+    "DSS-Exploratory-Analysis_files/figure-html/age-0-04-transitions-5.png": {
+      "checksum": "e99ed45ac8c27a3cc72900c80ffa3489"
+    },
+    "DSS-Exploratory-Analysis_files/figure-html/age-0-04-transitions-6.png": {
+      "checksum": "946688219bcb3724dfb05f7ccd55c7fb"
+    },
+    "DSS-Exploratory-Analysis_files/figure-html/age-0-04-transitions-7.png": {
+      "checksum": "afed84b240d7a02444f3676269a5bfbb"
+    },
     "DSS-Exploratory-Analysis_files/figure-html/line-plot-1.png": {
       "checksum": "d77dea0ff2be497db84fddd104d1ecb1"
     },
     "DSS-Exploratory-Analysis_files/figure-html/percentage-plot-1.png": {
+      "checksum": "dbf5f235edf6e909dd6a414506eca96a"
+    },
+    "DSS-Exploratory-Analysis_files/figure-html/tabset-1.png": {
+      "checksum": "113d9220bed5222f4c4d80d457b0ee88"
+    },
+    "DSS-Exploratory-Analysis_files/figure-html/tabset-2.png": {
+      "checksum": "d77dea0ff2be497db84fddd104d1ecb1"
+    },
+    "DSS-Exploratory-Analysis_files/figure-html/tabset-3.png": {
       "checksum": "dbf5f235edf6e909dd6a414506eca96a"
     },
     "DSS-Exploratory-Analysis_files/figure-html/unnamed-chunk-1-1.png": {
@@ -2939,7 +2941,7 @@
       "checksum": "ffbc664253a3327029352bdff7963573"
     },
     "DSS Exploratory Analysis.qmd": {
-      "checksum": "1226fb6075762b34c400845418a00ef9"
+      "checksum": "b6978951f544081a4bb35c28ccc86330"
     },
     "DSS Exploratory Analysis_files/libs/bootstrap/bootstrap-dark.min.css": {
       "checksum": "c3c9924e4640df8b3e927f16b51cc54b"
@@ -2979,6 +2981,12 @@
     },
     "DSS Exploratory Analysis_files/libs/quarto-html/tippy.umd.min.js": {
       "checksum": "d828775275749701b48bd9d958814111"
+    },
+    "DSS Exploratory Analysis_self_contained.html": {
+      "checksum": "0d1b8f95d20a80fb712017b0794d707b"
+    },
+    "DSS Exploratory Analysis_self_contained.qmd": {
+      "checksum": "ba5a080c577f433710f58c5d43655654"
     },
     "DSS__data_environment.ipynb": {
       "checksum": "8bb277f09318dae151c2a1d4954061da"
