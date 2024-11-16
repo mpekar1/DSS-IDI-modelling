@@ -145,7 +145,7 @@ library(shiny)
 
 # Loading descriptive statistics data form 2018 and 2021
 
-setwd("C:/Users/maria/OneDrive/Documents/DSS Analysis")
+#setwd("C:/Users/maria/OneDrive/Documents/DSS Analysis")
 
 data_2021 <- read_excel("manawanui_output1_total_for_release.xlsx", sheet = "2021 confidentialised data")
 data_2018 <- read_excel("manawanui_output1_total_for_release.xlsx", sheet = "2018 confidentialised")
