@@ -191,7 +191,7 @@ clean_transition_data <- function(df) {
 }
 
 # Read the data
-data <- read_excel("C:/Users/maria/OneDrive/Asztali gép/Work/Manawanui/Markov Chain codes/Age distribution 2010-21_conf.xlsx", sheet = "Age distribution conf")
+data <- read_excel("Age distribution 2010-21_conf.xlsx", sheet = "Age distribution conf")
 
 # Clean the data
 data <- clean_transition_data(data)
@@ -971,7 +971,7 @@ library(readxl)
 library(dplyr)
 
 # Load data dictionary
-data_dictionary_path <- "C:/Users/maria/OneDrive/Asztali gép/Work/Manawanui/Descriptives/manawanui_output1_total_for_release.xlsx"
+data_dictionary_path <- "manawanui_output1_total_for_release.xlsx"
 data_dictionary <- read_excel(data_dictionary_path, sheet = "Data dictionary")
 
 # Display data dictionary
