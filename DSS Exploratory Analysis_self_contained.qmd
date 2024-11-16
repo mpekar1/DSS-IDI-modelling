@@ -12,7 +12,7 @@ format:
     code-fold: true
     toc: true
     link-external-newwindow: true
-    self-contained: false  # Change to false for Shiny
+    self-contained: true
     theme: 
       light: flatly
       dark: darkly
@@ -137,7 +137,7 @@ library(ggplot2)
 library(readxl)
 library(tidyr)
 library(gganimate)
-#library(gifski)
+library(gifski)
 library(ggrepel)
 library(writexl)
 library(png)
@@ -439,9 +439,9 @@ For detailed information, refer to the appendices where the variables and their 
 
 ## Prevalence of Indicators
 
-Below is an example about how the dataset can be used to track prevalence of indicator values in the DSS and total populations over time. 
+Below is an example of how the dataset can be used to track the prevalence of indicator values in the DSS and total populations over time. You can perform an interactive analysis using the **Prevalence Calculator** by following the link below:
 
-<iframe src="https://datart.shinyapps.io/prevalenceappclean/" width="100%" height="600"></iframe>
+[Go to the Prevalence Calculator](https://datart.shinyapps.io/prevalenceappclean/)
 
 ### Let's look at an example
 
@@ -673,10 +673,9 @@ The "Combined DSS Data: New Entrants, Returners, and Others" graph provides a co
 
 For detailed information, refer to [Appendix C](#appendix-c) where the number of new entrants, returners, leavers, and total DSS population is displayed.
 
+Explore the interactive **Insight Maker Model** by following the link below. This tool allows for deeper exploration of the relationships within the DSS data:
 
-You can interact with the Insight Maker model embedded below:
-
-<iframe src="https://insightmaker.com/insight/elL0WWiBgIx1EW0lYLL5c/embed?topBar=1&sideBar=1&zoom=1" title="Embedded model" width="800" height="600"></iframe>
+[Go to the Insight Maker Model](https://insightmaker.com/insight/elL0WWiBgIx1EW0lYLL5c/embed?topBar=1&sideBar=1&zoom=1)
 
 ### Notes:
 
